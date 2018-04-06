@@ -11,8 +11,9 @@
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
     "test": "echo TODO",
+    "test:ci": "echo TODO",
     "test:update": "npm test -- --updateSnapshot --coverage",
-    "validate": "kcd-scripts validate",
+    "validate": "kcd-scripts validate build,lint,test",
     "setup": "npm install && npm run validate -s",
     "precommit": "kcd-scripts precommit"
   },
