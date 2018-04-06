@@ -1,0 +1,50 @@
+{
+  "name": "cypress-testing-library",
+  "version": "0.0.0-semantically-released",
+  "description": "Simple and complete custom Cypress commands and utilities that encourage good testing practices.",
+  "main": "dist/index.js",
+  "engines": {
+    "node": "> 6"
+  },
+  "scripts": {
+    "add-contributor": "kcd-scripts contributors add",
+    "build": "kcd-scripts build",
+    "lint": "kcd-scripts lint",
+    "test": "echo TODO",
+    "test:update": "npm test -- --updateSnapshot --coverage",
+    "validate": "kcd-scripts validate",
+    "setup": "npm install && npm run validate -s",
+    "precommit": "kcd-scripts precommit"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "dom-testing-library": "^1.0.0"
+  },
+  "devDependencies": {
+    "kcd-scripts": "^0.36.1"
+  },
+  "peerDependencies": {
+    "cypress": "^2.1.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/kcd-scripts/eslint.js"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "coverage",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kentcdodds/cypress-testing-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kentcdodds/cypress-testing-library/issues"
+  },
+  "homepage": "https://github.com/kentcdodds/cypress-testing-library#readme"
+}
