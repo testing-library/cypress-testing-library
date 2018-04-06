@@ -17,9 +17,19 @@
     "precommit": "kcd-scripts precommit"
   },
   "files": [
-    "dist"
+    "dist",
+    "add-commands.js"
   ],
-  "keywords": [],
+  "keywords": [
+    "testing",
+    "cypress",
+    "ui",
+    "dom",
+    "integration",
+    "functional",
+    "end-to-end",
+    "e2e"
+  ],
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
   "dependencies": {

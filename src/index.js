@@ -5,7 +5,7 @@ const commands = Object.keys(queries)
   .map(queryName => {
     const commandName = queryName.replace(/^query/, 'get')
     return {
-      commandName,
+      name: commandName,
       command: (...args) => {
         const fn = new Function(
           'args',
