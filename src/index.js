@@ -1,18 +1,17 @@
 import {queries} from 'dom-testing-library'
 
 const commands = Object.keys(queries)
-  .filter(queryName => queryName.startsWith('query'))
+  .filter(queryName => queryName.startsWith('getBy'))
   .map(queryName => {
-    const commandName = queryName.replace(/^query/, 'get')
     return {
-      name: commandName,
+      name: queryName,
       command: (...args) => {
         const fn = new Function(
           'args',
           'query',
           'getCommandWaiter',
           `
-            return function Command__${commandName}({document}) {
+            return function Command__${queryName}({document}) {
               return getCommandWaiter(document, () => query(document, ...args))();
             };
           `,
