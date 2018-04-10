@@ -20,7 +20,7 @@
     "test:cypress:openandservestop": "node_modules/.bin/npm-run-all --silent --serial --continue-on-error test:cypress:open test:cypress:servestop",
     "test:cypress:ci": "node_modules/.bin/npm-run-all --silent --parallel test:cypress:serve test:cypress:runandservestop",
     "test:cypress:dev": "node_modules/.bin/npm-run-all --silent --parallel test:cypress:serve test:cypress:openandservestop",
-    "test:cypress": "( [[ ${CI} ]] && npm run -s test:cypress:ci ) || ( [[ ! ${CI} ]] && npm run -s test:cypress:dev )",
+    "test:cypress": "( [ ${CI} ] && npm run -s test:cypress:ci ) || ( [ ! ${CI} ] && npm run -s test:cypress:dev )",
     "validate": "kcd-scripts validate build,lint,test",
     "setup": "npm install && npm run validate -s",
     "precommit": "kcd-scripts precommit"
