@@ -10,9 +10,14 @@
     "add-contributor": "kcd-scripts contributors add",
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
-    "test": "echo TODO",
-    "test:ci": "echo TODO",
-    "test:update": "npm test -- --updateSnapshot --coverage",
+    "test": "npm-run-all --parallel test:unit test:cypress",
+    "test:unit": "kcd-scripts test --no-watch",
+    "test:unit:watch": "kcd-scripts test",
+    "test:cypress:serve": "serve --clipless --local --port 13370 ./cypress/fixtures/test-app",
+    "test:cypress:run": "cypress run",
+    "test:cypress:open": "cypress open",
+    "test:cypress": "npm-run-all --silent --parallel --race test:cypress:serve test:cypress:run",
+    "test:cypress:dev": "npm-run-all --silent --parallel --race test:cypress:serve test:cypress:open",
     "validate": "kcd-scripts validate build,lint,test",
     "setup": "npm install && npm run validate -s",
     "precommit": "kcd-scripts precommit"
@@ -34,16 +39,23 @@
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
   "dependencies": {
-    "dom-testing-library": "^1.0.0"
+    "dom-testing-library": "^1.3.0"
   },
   "devDependencies": {
-    "kcd-scripts": "^0.36.1"
+    "cypress": "^2.1.0",
+    "kcd-scripts": "^0.37.0",
+    "npm-run-all": "^4.1.2",
+    "serve": "^6.5.4"
   },
   "peerDependencies": {
     "cypress": "^2.1.0"
   },
   "eslintConfig": {
-    "extends": "./node_modules/kcd-scripts/eslint.js"
+    "extends": "./node_modules/kcd-scripts/eslint.js",
+    "rules": {
+      "import/prefer-default-export": "off",
+      "import/no-unassigned-import": "off"
+    }
   },
   "eslintIgnore": [
     "node_modules",

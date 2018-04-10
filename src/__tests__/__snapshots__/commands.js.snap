@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`exports expected commands 1`] = `
+Array [
+  "getByPlaceholderText",
+  "getByText",
+  "getByLabelText",
+  "getByAltText",
+  "getByTestId",
+]
+`;
