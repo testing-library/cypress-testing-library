@@ -10,7 +10,7 @@
     "add-contributor": "kcd-scripts contributors add",
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
-    "test": "npm-run-all --parallel test:unit test:cypress:ci",
+    "test": "npm-run-all --parallel test:unit test:cypress",
     "test:unit": "kcd-scripts test --no-watch",
     "test:unit:watch": "kcd-scripts test",
     "test:cypress:serve": "serve --clipless --local --port 13370 ./cypress/fixtures/test-app",
