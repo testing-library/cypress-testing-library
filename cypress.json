@@ -1,1 +1,5 @@
-{}
+{
+  "baseUrl": "http://localhost:13370",
+  "videoRecording": false,
+  "screenshotOnHeadlessFailure": false
+}
