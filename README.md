@@ -2,7 +2,7 @@
 <h1>cypress-testing-library</h1>
 
 <a href="https://www.emojione.com/emoji/1f405">
-<img height="80" width="80" alt="tiger" src="https://raw.githubusercontent.com/kentcdodds/dom-testing-library/master/other/tiger.png" />
+<img height="80" width="80" alt="tiger" src="https://raw.githubusercontent.com/kentcdodds/cypress-testing-library/master/other/tiger.png" />
 </a>
 
 <p>Simple and complete custom Cypress commands and utilities that encourage good testing practices.</p>
