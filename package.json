@@ -10,9 +10,17 @@
     "add-contributor": "kcd-scripts contributors add",
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
-    "test": "echo TODO",
-    "test:ci": "echo TODO",
+    "test": "kcd-scripts test && npm run -s test:cypress",
     "test:update": "npm test -- --updateSnapshot --coverage",
+    "test:cypress:serve": "node_modules/.bin/serve --clipless --local --port 13370 ./cypress/fixtures/test-app",
+    "test:cypress:servestop": "node_modules/.bin/fkill :13370",
+    "test:cypress:run": "CYPRESS_videoRecording=false CYPRESS_screenshotOnHeadlessFailure=false node_modules/.bin/cypress run",
+    "test:cypress:runandservestop": "node_modules/.bin/npm-run-all --silent --serial --continue-on-error test:cypress:run test:cypress:servestop",
+    "test:cypress:open": "node_modules/.bin/cypress open",
+    "test:cypress:openandservestop": "node_modules/.bin/npm-run-all --silent --serial --continue-on-error test:cypress:open test:cypress:servestop",
+    "test:cypress:ci": "node_modules/.bin/npm-run-all --silent --parallel test:cypress:serve test:cypress:runandservestop",
+    "test:cypress:dev": "node_modules/.bin/npm-run-all --silent --parallel test:cypress:serve test:cypress:openandservestop",
+    "test:cypress": "( [[ ${CI} ]] && npm run -s test:cypress:ci ) || ( [[ ! ${CI} ]] && npm run -s test:cypress:dev )",
     "validate": "kcd-scripts validate build,lint,test",
     "setup": "npm install && npm run validate -s",
     "precommit": "kcd-scripts precommit"
@@ -34,16 +42,23 @@
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
   "dependencies": {
-    "dom-testing-library": "^1.0.0"
+    "dom-testing-library": "^1.3.0"
   },
   "devDependencies": {
-    "kcd-scripts": "^0.36.1"
+    "cypress": "^2.1.0",
+    "kcd-scripts": "^0.37.0",
+    "npm-run-all": "^4.1.2",
+    "serve": "^6.5.4"
   },
   "peerDependencies": {
     "cypress": "^2.1.0"
   },
   "eslintConfig": {
-    "extends": "./node_modules/kcd-scripts/eslint.js"
+    "extends": "./node_modules/kcd-scripts/eslint.js",
+    "rules": {
+      "import/prefer-default-export": "off",
+      "import/no-unassigned-import": "off"
+    }
   },
   "eslintIgnore": [
     "node_modules",

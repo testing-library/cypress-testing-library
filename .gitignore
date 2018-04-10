@@ -10,3 +10,7 @@ dist
 # when working with contributors
 package-lock.json
 yarn.lock
+
+# cypress recordings during a test run are temporary files
+/cypress/videos/
+/cypress/screenshots/
