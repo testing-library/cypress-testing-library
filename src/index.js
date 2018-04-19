@@ -17,7 +17,17 @@ const commands = Object.keys(queries)
             }
           `,
         )(commandImpl)
-        return cy.window({log: false}).then(thenHandler)
+        return cy
+          .window({log: false})
+          .then(thenHandler)
+          .then(subject => {
+            Cypress.log({
+              $el: subject,
+              name: queryName,
+              message: args,
+            })
+            return subject
+          })
       },
     }
   })
@@ -25,3 +35,4 @@ const commands = Object.keys(queries)
 export {commands}
 
 /* eslint no-new-func:0 */
+/* globals Cypress */

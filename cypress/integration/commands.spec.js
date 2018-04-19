@@ -10,9 +10,7 @@ describe('dom-testing-library commands', () => {
   })
 
   it('getByText', () => {
-    cy
-      .getByText('Button Text')
-      .click()
+    cy.getByText('Button Text').click()
   })
 
   it('getByLabelText', () => {
@@ -23,15 +21,11 @@ describe('dom-testing-library commands', () => {
   })
 
   it('getByAltText', () => {
-    cy
-      .getByAltText('Image Alt Text')
-      .click()
+    cy.getByAltText('Image Alt Text').click()
   })
 
   it('getByTestId', () => {
-    cy
-      .getByTestId('image-with-random-alt-tag')
-      .click()
+    cy.getByTestId('image-with-random-alt-tag').click()
   })
 })
 
