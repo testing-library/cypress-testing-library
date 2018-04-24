@@ -3,9 +3,14 @@
 exports[`exports expected commands 1`] = `
 Array [
   "getByPlaceholderText",
+  "getAllByPlaceholderText",
   "getByText",
+  "getAllByText",
   "getByLabelText",
+  "getAllByLabelText",
   "getByAltText",
+  "getAllByAltText",
   "getByTestId",
+  "getAllByTestId",
 ]
 `;

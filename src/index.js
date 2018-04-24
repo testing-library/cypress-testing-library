@@ -1,7 +1,10 @@
 import {queries, waitForElement} from 'dom-testing-library'
 
 const commands = Object.keys(queries)
-  .filter(queryName => queryName.startsWith('getBy'))
+  .filter(
+    queryName =>
+      queryName.startsWith('getBy') || queryName.startsWith('getAllBy'),
+  )
   .map(queryName => {
     return {
       name: queryName,

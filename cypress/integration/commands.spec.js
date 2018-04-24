@@ -27,6 +27,10 @@ describe('dom-testing-library commands', () => {
   it('getByTestId', () => {
     cy.getByTestId('image-with-random-alt-tag').click()
   })
+
+  it('getAllByText', () => {
+    cy.getAllByText('Jackie Chan').click({multiple: true})
+  })
 })
 
 /* global cy */
