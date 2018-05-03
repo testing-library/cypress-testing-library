@@ -28,11 +28,11 @@
 
 ## The problem
 
-// TODO
+You want to use [`dom-testing-library`][dom-testing-library] methods in your Cypress tests.
 
 ## This solution
 
-// TODO
+This allows you to use all the useful [`dom-testing-library`][dom-testing-library] methods in your tests.
 
 ## Table of Contents
 
@@ -69,11 +69,6 @@ import 'cypress-testing-library/add-commands';
 ```
 
 You can now use all of `dom-testing-library`'s `getBy` and `getAllBy` commands. [See `dom-testing-library` repo for reference](https://github.com/kentcdodds/dom-testing-library#usage)
-
-
-## Inspiration
-
-// TODO
 
 ## Other Solutions
 
@@ -124,3 +119,4 @@ MIT
 [twitter-badge]: https://img.shields.io/twitter/url/https/github.com/kentcdodds/cypress-testing-library.svg?style=social
 [emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
 [all-contributors]: https://github.com/kentcdodds/all-contributors
+[dom-testing-library]: https://github.com/kentcdodds/dom-testing-library
