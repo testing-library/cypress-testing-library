@@ -60,7 +60,16 @@ npm install --save-dev cypress-testing-library
 
 ## Usage
 
-// TODO
+`cypress-testing-library` extends Cypress' `cy` command.
+
+Add this line to your project's `cypress/support/commands.js`:
+
+```
+import 'cypress-testing-library/add-commands';
+```
+
+You can now use all of `dom-testing-library`'s `getBy` and `getAllBy` commands. [See `dom-testing-library` repo for reference](https://github.com/kentcdodds/dom-testing-library#usage)
+
 
 ## Inspiration
 
