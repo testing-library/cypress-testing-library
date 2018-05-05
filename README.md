@@ -69,7 +69,7 @@ import 'cypress-testing-library/add-commands';
 
 You can now use all of `dom-testing-library`'s `getBy`, `getAllBy`, `queryBy` and `queryAllBy` commands. [See `dom-testing-library` repo for reference](https://github.com/kentcdodds/dom-testing-library#usage)
 
-To show some simple examples (from [cypress/interation/commands.spec.js](cypress/interation/commands.spec.js)):
+To show some simple examples (from [cypress/integration/commands.spec.js](cypress/integration/commands.spec.js)):
 
 ```javascript
 cy.getAllByText('Jackie Chan').click()
