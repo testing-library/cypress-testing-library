@@ -2,14 +2,24 @@
 
 exports[`exports expected commands 1`] = `
 Array [
+  "queryByPlaceholderText",
+  "queryAllByPlaceholderText",
   "getByPlaceholderText",
   "getAllByPlaceholderText",
+  "queryByText",
+  "queryAllByText",
   "getByText",
   "getAllByText",
+  "queryByLabelText",
+  "queryAllByLabelText",
   "getByLabelText",
   "getAllByLabelText",
+  "queryByAltText",
+  "queryAllByAltText",
   "getByAltText",
   "getAllByAltText",
+  "queryByTestId",
+  "queryAllByTestId",
   "getByTestId",
   "getAllByTestId",
 ]

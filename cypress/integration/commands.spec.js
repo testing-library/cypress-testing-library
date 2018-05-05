@@ -31,6 +31,11 @@ describe('dom-testing-library commands', () => {
   it('getAllByText', () => {
     cy.getAllByText('Jackie Chan').click({multiple: true})
   })
+
+  it('queryByText', () => {
+    cy.queryByText('Button Text').should('exist')
+    cy.queryByText('Non-existing Button Text').should('not.exist')
+  })
 })
 
 /* global cy */
