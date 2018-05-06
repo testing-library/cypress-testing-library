@@ -22,5 +22,9 @@ Array [
   "queryAllByTestId",
   "getByTestId",
   "getAllByTestId",
+  "queryByTitle",
+  "queryAllByTitle",
+  "getByTitle",
+  "getAllByTitle",
 ]
 `;

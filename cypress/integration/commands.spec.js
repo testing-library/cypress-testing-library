@@ -29,7 +29,7 @@ describe('dom-testing-library commands', () => {
   })
 
   it('getAllByText', () => {
-    cy.getAllByText('Jackie Chan').click({multiple: true})
+    cy.getAllByText(/^Jackie Chan/).click({multiple: true})
   })
 
   it('queryByText', () => {
