@@ -24,8 +24,6 @@
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
 
-<a href="https://app.codesponsor.io/link/PKGFLnhDiFvsUA5P4kAXfiPs/kentcdodds/cypress-testing-library" rel="nofollow"><img src="https://app.codesponsor.io/embed/PKGFLnhDiFvsUA5P4kAXfiPs/kentcdodds/cypress-testing-library.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
-
 ## The problem
 
 You want to use [`dom-testing-library`][dom-testing-library] methods in your Cypress tests.
