@@ -3,12 +3,13 @@ import {queries, waitForElement} from 'dom-testing-library'
 const commands = Object.keys(queries).map(queryName => {
   return {
     name: queryName,
-    command: (cy, ...args) => {
+    command: (cy, text, options = {}) => {
+      const { timeout = 3000 } = options;
       const queryImpl = queries[queryName]
       const baseCommandImpl = doc =>
-        waitForElement(() => queryImpl(doc, ...args), {
+        waitForElement(() => queryImpl(doc, text, options), {
           container: doc,
-          timeout: 3000,
+          timeout,
         })
       let commandImpl
       if (
@@ -32,12 +33,20 @@ const commands = Object.keys(queries).map(queryName => {
       )(commandImpl)
       return cy
         .window({log: false})
-        .then(thenHandler)
+        .then({ timeout: timeout + 100 }, thenHandler)
         .then(subject => {
           Cypress.log({
             $el: subject,
             name: queryName,
-            message: args,
+            message: [text, options].filter((value) => {
+              if (Array.isArray(value) && value.length === 0) {
+                return false;
+              }
+              if (typeof value === 'object' && Object.keys(value).length === 0) {
+                return false;
+              }
+              return Boolean(value);
+            }),
           })
           return subject
         })

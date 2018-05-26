@@ -16,7 +16,7 @@
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Code of Conduct][coc-badge]][coc]
 
@@ -73,6 +73,7 @@ To show some simple examples (from [cypress/integration/commands.spec.js](cypres
 cy.getAllByText('Jackie Chan').click()
 cy.queryByText('Button Text').should('exist')
 cy.queryByText('Non-existing Button Text').should('not.exist')
+cy.queryByLabelText('Label text', { timeout: 7000 }).should('exist')
 ```
 
 ## Other Solutions
@@ -85,11 +86,9 @@ here!
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-
 <!-- prettier-ignore -->
-| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub><b>Kent C. Dodds</b></sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Tests") | [<img src="https://avatars2.githubusercontent.com/u/498274?v=4" width="100px;"/><br /><sub><b>Ivan Babak</b></sub>](https://sompylasar.github.io)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=sompylasar "Code") [🤔](#ideas-sompylasar "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/4002543?v=4" width="100px;"/><br /><sub><b>Łukasz Gandecki</b></sub>](http://team.thebrain.pro)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=lgandecki "Code") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=lgandecki "Tests") |
-| :---: | :---: | :---: |
-
+| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub><b>Kent C. Dodds</b></sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Tests") | [<img src="https://avatars2.githubusercontent.com/u/498274?v=4" width="100px;"/><br /><sub><b>Ivan Babak</b></sub>](https://sompylasar.github.io)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=sompylasar "Code") [🤔](#ideas-sompylasar "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/4002543?v=4" width="100px;"/><br /><sub><b>Łukasz Gandecki</b></sub>](http://team.thebrain.pro)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=lgandecki "Code") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=lgandecki "Tests") | [<img src="https://avatars1.githubusercontent.com/u/25429764?v=4" width="100px;"/><br /><sub><b>Peter Kamps</b></sub>](https://github.com/npeterkamps)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=npeterkamps "Code") [📖](https://github.com/kentcdodds/cypress-testing-library/commits?author=npeterkamps "Documentation") [🤔](#ideas-npeterkamps "Ideas, Planning, & Feedback") |
+| :---: | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
