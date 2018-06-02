@@ -1,15 +1,23 @@
 import {queries, waitForElement} from 'dom-testing-library'
 
+const defaults = {
+  timeout: 3000,
+}
+
 const commands = Object.keys(queries).map(queryName => {
   return {
     name: queryName,
     command: (cy, ...args) => {
+      const lastArg = args[args.length - 1]
+      const waitOptions = (typeof lastArg === 'object')
+        ? Object.assign({}, defaults, lastArg)
+        : defaults
+
       const queryImpl = queries[queryName]
       const baseCommandImpl = doc =>
-        waitForElement(() => queryImpl(doc, ...args), {
+        waitForElement(() => queryImpl(doc, ...args), Object.assign({}, waitOptions, {
           container: doc,
-          timeout: 3000,
-        })
+        }))
       let commandImpl
       if (
         queryName.startsWith('queryBy') ||
@@ -32,12 +40,20 @@ const commands = Object.keys(queries).map(queryName => {
       )(commandImpl)
       return cy
         .window({log: false})
-        .then(thenHandler)
+        .then({ timeout: waitOptions.timeout + 100 }, thenHandler)
         .then(subject => {
           Cypress.log({
             $el: subject,
             name: queryName,
-            message: args,
+            message: args.filter((value) => {
+              if (Array.isArray(value) && value.length === 0) {
+                return false;
+              }
+              if (typeof value === 'object' && Object.keys(value).length === 0) {
+                return false;
+              }
+              return Boolean(value);
+            }),
           })
           return subject
         })

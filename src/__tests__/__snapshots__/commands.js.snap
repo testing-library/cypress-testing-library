@@ -26,5 +26,9 @@ Array [
   "queryAllByTitle",
   "getByTitle",
   "getAllByTitle",
+  "queryByValue",
+  "queryAllByValue",
+  "getByValue",
+  "getAllByValue",
 ]
 `;

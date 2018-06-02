@@ -38,6 +38,17 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "npeterkamps",
+      "name": "Peter Kamps",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/25429764?v=4",
+      "profile": "https://github.com/npeterkamps",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas"
+      ]
     }
   ],
   "repoType": "github"
