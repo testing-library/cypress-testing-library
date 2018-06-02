@@ -13,7 +13,7 @@
     "test": "npm-run-all --parallel test:unit test:cypress",
     "test:unit": "kcd-scripts test --no-watch",
     "test:unit:watch": "kcd-scripts test",
-    "test:cypress:serve": "serve --clipless --local --port 13370 ./cypress/fixtures/test-app",
+    "test:cypress:serve": "serve -l 13370 ./cypress/fixtures/test-app",
     "test:cypress:run": "cypress run",
     "test:cypress:open": "cypress open",
     "test:cypress": "npm-run-all --silent --parallel --race test:cypress:serve test:cypress:run",
@@ -42,13 +42,13 @@
     "dom-testing-library": "^2.0.0"
   },
   "devDependencies": {
-    "cypress": "^2.1.0",
+    "cypress": "^3.0.1",
     "kcd-scripts": "^0.37.0",
     "npm-run-all": "^4.1.2",
-    "serve": "^6.5.6"
+    "serve": "^7.2.0"
   },
   "peerDependencies": {
-    "cypress": "^2.1.0"
+    "cypress": "^2.1.0 || ^3.0.0"
   },
   "eslintConfig": {
     "extends": "./node_modules/kcd-scripts/eslint.js",
