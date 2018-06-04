@@ -82,6 +82,8 @@ cy.get('form').then((subject) => {
 })
 ```
 
+`cypress-testing-library` supports both jQuery elements and DOM nodes. This is necessary because Cypress uses jQuery elements, while `dom-testing-library` expects DOM nodes. When you pass a jQuery element as `container`, it will get the first DOM node from the collection and use that as the `container` parameter for the `dom-testing-library` functions.
+
 ## Other Solutions
 
 I'm not aware of any, if you are please [make a pull request][prs] and add it

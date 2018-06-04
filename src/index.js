@@ -1,5 +1,5 @@
 import {queries, waitForElement} from 'dom-testing-library'
-import {getContainer} from './support/utils'
+import {getContainer} from './utils'
 
 const defaults = {
   timeout: 3000,
@@ -16,7 +16,7 @@ const commands = Object.keys(queries).map(queryName => {
 
       const queryImpl = queries[queryName]
       const baseCommandImpl = doc => {
-        const container = getContainer(cy, waitOptions.container || doc);
+        const container = getContainer(waitOptions.container || doc);
         return waitForElement(() => queryImpl(container, ...args), Object.assign({}, waitOptions, {
           container,
         }))
