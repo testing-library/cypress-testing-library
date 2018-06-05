@@ -1,4 +1,5 @@
 import {queries, waitForElement} from 'dom-testing-library'
+import {getContainer} from './utils'
 
 const defaults = {
   timeout: 3000,
@@ -7,17 +8,19 @@ const defaults = {
 const commands = Object.keys(queries).map(queryName => {
   return {
     name: queryName,
-    command: (cy, ...args) => {
+    command: (...args) => {
       const lastArg = args[args.length - 1]
       const waitOptions = (typeof lastArg === 'object')
         ? Object.assign({}, defaults, lastArg)
         : defaults
 
       const queryImpl = queries[queryName]
-      const baseCommandImpl = doc =>
-        waitForElement(() => queryImpl(doc, ...args), Object.assign({}, waitOptions, {
-          container: doc,
+      const baseCommandImpl = doc => {
+        const container = getContainer(waitOptions.container || doc);
+        return waitForElement(() => queryImpl(container, ...args), Object.assign({}, waitOptions, {
+          container,
         }))
+      }
       let commandImpl
       if (
         queryName.startsWith('queryBy') ||
@@ -64,4 +67,4 @@ const commands = Object.keys(queries).map(queryName => {
 export {commands}
 
 /* eslint no-new-func:0 */
-/* globals Cypress */
+/* globals Cypress, cy */

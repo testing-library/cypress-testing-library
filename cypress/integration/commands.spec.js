@@ -36,6 +36,20 @@ describe('dom-testing-library commands', () => {
     cy.queryByText('Button Text').should('exist')
     cy.queryByText('Non-existing Button Text').should('not.exist')
   })
+
+  it('getByText within', () => {
+    cy.get('#nested')
+      .within(() => {
+        cy.getByText('Button Text').click()
+      })
+  })
+
+  it('getByText in container', () => {
+    cy.get('#nested')
+      .then((subject) => {
+        cy.getByText('Button Text', { container: subject }).click()
+      })
+  })
 })
 
 /* global cy */
