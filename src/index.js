@@ -8,7 +8,7 @@ const defaults = {
 const commands = Object.keys(queries).map(queryName => {
   return {
     name: queryName,
-    command: (cy, ...args) => {
+    command: (...args) => {
       const lastArg = args[args.length - 1]
       const waitOptions = (typeof lastArg === 'object')
         ? Object.assign({}, defaults, lastArg)
@@ -67,4 +67,4 @@ const commands = Object.keys(queries).map(queryName => {
 export {commands}
 
 /* eslint no-new-func:0 */
-/* globals Cypress */
+/* globals Cypress, cy */

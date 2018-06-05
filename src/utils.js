@@ -6,7 +6,7 @@ function getFirstElement(jqueryOrElement) {
 }
 
 function getContainer(container) {
-  const withinContainer = Cypress.cy.state('withinSubject')
+  const withinContainer = cy.state('withinSubject')
   if (withinContainer) {
     return getFirstElement(withinContainer)
   }
@@ -18,4 +18,4 @@ export {
   getContainer,
 }
 
-/* globals Cypress */
+/* globals Cypress, cy */
