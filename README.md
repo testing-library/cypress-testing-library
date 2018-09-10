@@ -26,7 +26,7 @@
 
 ## The problem
 
-You want to use [`dom-testing-library`][dom-testing-library] methods in your [Cypress](https://www.cypress.io/) tests.
+You want to use [`dom-testing-library`][dom-testing-library] methods in your [Cypress][cypress] tests.
 
 ## This solution
 
