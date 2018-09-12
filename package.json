@@ -3,6 +3,7 @@
   "version": "0.0.0-semantically-released",
   "description": "Simple and complete custom Cypress commands and utilities that encourage good testing practices.",
   "main": "dist/index.js",
+  "typings": "typings",
   "engines": {
     "node": "> 6"
   },
