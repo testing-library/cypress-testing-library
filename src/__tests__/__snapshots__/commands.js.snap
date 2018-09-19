@@ -30,5 +30,9 @@ Array [
   "queryAllByValue",
   "getByValue",
   "getAllByValue",
+  "queryByRole",
+  "queryAllByRole",
+  "getAllByRole",
+  "getByRole",
 ]
 `;
