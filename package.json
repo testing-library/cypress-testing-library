@@ -26,7 +26,8 @@
   },
   "files": [
     "dist",
-    "add-commands.js"
+    "add-commands.js",
+    "typings"
   ],
   "keywords": [
     "testing",
