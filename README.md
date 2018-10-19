@@ -24,6 +24,12 @@
 [![Star on GitHub][github-star-badge]][github-star]
 [![Tweet][twitter-badge]][twitter]
 
+<div align="center">
+<a href="https://testingjavascript.com">
+<img width="500" alt="TestingJavaScript.com Learn the smart, efficient way to test any JavaScript application." src="https://raw.githubusercontent.com/kentcdodds/react-testing-library/master/other/testingjavascript.jpg" />
+</a>
+</div>
+
 ## The problem
 
 You want to use [`dom-testing-library`][dom-testing-library] methods in your [Cypress][cypress] tests.
@@ -35,14 +41,13 @@ This allows you to use all the useful [`dom-testing-library`][dom-testing-librar
 ## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
-
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Other Solutions](#other-solutions)
-* [Contributors](#contributors)
-* [LICENSE](#license)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Other Solutions](#other-solutions)
+- [Contributors](#contributors)
+- [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -73,12 +78,12 @@ To show some simple examples (from [cypress/integration/commands.spec.js](cypres
 cy.getAllByText('Jackie Chan').click()
 cy.queryByText('Button Text').should('exist')
 cy.queryByText('Non-existing Button Text').should('not.exist')
-cy.queryByLabelText('Label text', { timeout: 7000 }).should('exist')
+cy.queryByLabelText('Label text', {timeout: 7000}).should('exist')
 cy.get('form').within(() => {
   cy.getByText('Button Text').should('exist')
 })
-cy.get('form').then((subject) => {
-  cy.getByText('Button Text', { container: subject }).should('exist')
+cy.get('form').then(subject => {
+  cy.getByText('Button Text', {container: subject}).should('exist')
 })
 ```
 
@@ -97,6 +102,7 @@ Thanks goes to these people ([emoji key][emojis]):
 <!-- prettier-ignore -->
 | [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub><b>Kent C. Dodds</b></sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Tests") | [<img src="https://avatars2.githubusercontent.com/u/498274?v=4" width="100px;"/><br /><sub><b>Ivan Babak</b></sub>](https://sompylasar.github.io)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=sompylasar "Code") [🤔](#ideas-sompylasar "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/4002543?v=4" width="100px;"/><br /><sub><b>Łukasz Gandecki</b></sub>](http://team.thebrain.pro)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=lgandecki "Code") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=lgandecki "Tests") | [<img src="https://avatars1.githubusercontent.com/u/25429764?v=4" width="100px;"/><br /><sub><b>Peter Kamps</b></sub>](https://github.com/npeterkamps)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=npeterkamps "Code") [📖](https://github.com/kentcdodds/cypress-testing-library/commits?author=npeterkamps "Documentation") [🤔](#ideas-npeterkamps "Ideas, Planning, & Feedback") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=npeterkamps "Tests") |
 | :---: | :---: | :---: | :---: |
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
