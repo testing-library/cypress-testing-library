@@ -6,32 +6,34 @@ import {
   getByTestId,
 } from 'dom-testing-library'
 
-export namespace Cypress {
-  type GetByAttribute = (id: Matcher, options?: MatcherOptions) => Chainable
+declare global {
+  export namespace Cypress {
+    type GetByAttribute = (id: Matcher, options?: MatcherOptions) => Chainable
 
-  type QueryByText = (
-    id: Matcher,
-    options?: SelectorMatcherOptions,
-  ) => Chainable
+    type QueryByText = (
+      id: Matcher,
+      options?: SelectorMatcherOptions,
+    ) => Chainable
 
-  type AllByText = (id: Matcher, options?: SelectorMatcherOptions) => Chainable
+    type AllByText = (id: Matcher, options?: SelectorMatcherOptions) => Chainable
 
-  type GetByText = (id: Matcher, options?: SelectorMatcherOptions) => Chainable
+    type GetByText = (id: Matcher, options?: SelectorMatcherOptions) => Chainable
 
-  interface Chainable {
-    getByPlaceholderText: GetByAttribute
-    queryByText: QueryByText
-    queryAllByText: AllByText
-    getByText: GetByText
-    getAllByText: AllByText
-    queryByLabelText: QueryByText
-    queryAllByLabelText: AllByText
-    getByLabelText: GetByText
-    getAllByLabelText: AllByText
-    getByAltText: GetByAttribute
-    getByTestId: GetByAttribute
-    getByTitle: GetByAttribute
-    getByValue: GetByAttribute
-    getByTRole: GetByAttribute
+    interface Chainable {
+      getByPlaceholderText: GetByAttribute
+      queryByText: QueryByText
+      queryAllByText: AllByText
+      getByText: GetByText
+      getAllByText: AllByText
+      queryByLabelText: QueryByText
+      queryAllByLabelText: AllByText
+      getByLabelText: GetByText
+      getAllByLabelText: AllByText
+      getByAltText: GetByAttribute
+      getByTestId: GetByAttribute
+      getByTitle: GetByAttribute
+      getByValue: GetByAttribute
+      getByTRole: GetByAttribute
+    }
   }
 }
