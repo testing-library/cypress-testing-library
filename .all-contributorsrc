@@ -50,6 +50,15 @@
         "ideas",
         "test"
       ]
+    },
+    {
+      "login": "marianban",
+      "name": "Marian Ban",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5712367?v=4",
+      "profile": "https://github.com/marianban",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github"
