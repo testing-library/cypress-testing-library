@@ -50,6 +50,17 @@
         "ideas",
         "test"
       ]
+    },
+    {
+      "login": "airato",
+      "name": "Airat Aminev",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4506749?v=4",
+      "profile": "https://github.com/airato",
+      "contributions": [
+        "code",
+        "test",
+        "tool"
+      ]
     }
   ],
   "repoType": "github"
