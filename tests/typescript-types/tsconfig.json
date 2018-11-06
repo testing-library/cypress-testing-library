@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "es2015", "es2016", "es2017"],
+    "target": "es2017",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "outDir": "dist",
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "types": ["cypress", "../../typings"]
+  }
+}
