@@ -61,6 +61,15 @@
         "test",
         "tool"
       ]
+    },
+    {
+      "login": "adrian1358",
+      "name": "Adrian Smijulj",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5121148?v=4",
+      "profile": "https://www.webiny.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github"
