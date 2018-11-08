@@ -1,8 +1,10 @@
 import {queries, waitForElement} from 'dom-testing-library'
 import {getContainer} from './utils'
 
-const defaults = {
-  timeout: 3000,
+const getDefaultCommandOptions = () => {
+  return {
+    timeout: Cypress.config().defaultCommandTimeout,
+  }
 }
 
 const commands = Object.keys(queries).map(queryName => {
@@ -10,16 +12,21 @@ const commands = Object.keys(queries).map(queryName => {
     name: queryName,
     command: (...args) => {
       const lastArg = args[args.length - 1]
-      const waitOptions = (typeof lastArg === 'object')
-        ? Object.assign({}, defaults, lastArg)
-        : defaults
+      const defaults = getDefaultCommandOptions()
+      const waitOptions =
+        typeof lastArg === 'object'
+          ? Object.assign({}, defaults, lastArg)
+          : defaults
 
       const queryImpl = queries[queryName]
       const baseCommandImpl = doc => {
-        const container = getContainer(waitOptions.container || doc);
-        return waitForElement(() => queryImpl(container, ...args), Object.assign({}, waitOptions, {
-          container,
-        }))
+        const container = getContainer(waitOptions.container || doc)
+        return waitForElement(
+          () => queryImpl(container, ...args),
+          Object.assign({}, waitOptions, {
+            container,
+          }),
+        )
       }
       let commandImpl
       if (
@@ -43,19 +50,22 @@ const commands = Object.keys(queries).map(queryName => {
       )(commandImpl)
       return cy
         .window({log: false})
-        .then({ timeout: waitOptions.timeout + 100 }, thenHandler)
+        .then({timeout: waitOptions.timeout + 100}, thenHandler)
         .then(subject => {
           Cypress.log({
             $el: subject,
             name: queryName,
-            message: args.filter((value) => {
+            message: args.filter(value => {
               if (Array.isArray(value) && value.length === 0) {
-                return false;
+                return false
               }
-              if (typeof value === 'object' && Object.keys(value).length === 0) {
-                return false;
+              if (
+                typeof value === 'object' &&
+                Object.keys(value).length === 0
+              ) {
+                return false
               }
-              return Boolean(value);
+              return Boolean(value)
             }),
           })
           return subject
