@@ -44,7 +44,7 @@
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
   "dependencies": {
-    "dom-testing-library": "^3.8.0"
+    "dom-testing-library": "^3.12.4"
   },
   "devDependencies": {
     "cypress": "^3.0.1",
