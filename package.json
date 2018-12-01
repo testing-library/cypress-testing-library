@@ -44,10 +44,10 @@
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
   "dependencies": {
-    "dom-testing-library": "^3.8.0"
+    "dom-testing-library": "^3.12.4"
   },
   "devDependencies": {
-    "cypress": "^3.0.1",
+    "cypress": "3.1.1",
     "dtslint": "^0.3.0",
     "kcd-scripts": "^0.37.0",
     "npm-run-all": "^4.1.2",
@@ -62,7 +62,8 @@
     "extends": "./node_modules/kcd-scripts/eslint.js",
     "rules": {
       "import/prefer-default-export": "off",
-      "import/no-unassigned-import": "off"
+      "import/no-unassigned-import": "off",
+      "jest/valid-expect": "off"
     }
   },
   "eslintIgnore": [

@@ -2,8 +2,6 @@
 
 exports[`exports expected commands 1`] = `
 Array [
-  "queryByPlaceholderText",
-  "queryAllByPlaceholderText",
   "getByPlaceholderText",
   "getAllByPlaceholderText",
   "queryByText",
@@ -22,21 +20,23 @@ Array [
   "queryAllBySelectText",
   "getBySelectText",
   "getAllBySelectText",
-  "queryByTestId",
-  "queryAllByTestId",
   "getByTestId",
   "getAllByTestId",
   "queryByTitle",
   "queryAllByTitle",
   "getByTitle",
   "getAllByTitle",
-  "queryByValue",
-  "queryAllByValue",
   "getByValue",
   "getAllByValue",
-  "queryByRole",
-  "queryAllByRole",
   "getAllByRole",
   "getByRole",
+  "queryByPlaceholderText",
+  "queryAllByPlaceholderText",
+  "queryByTestId",
+  "queryAllByTestId",
+  "queryByValue",
+  "queryAllByValue",
+  "queryByRole",
+  "queryAllByRole",
 ]
 `;
