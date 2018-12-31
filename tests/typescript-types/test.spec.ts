@@ -32,6 +32,7 @@ describe('Foo', () => {
     cy.queryAllByPlaceholderText<HTMLAudioElement>('foo', {
       collapseWhitespace: true,
       exact: true,
+      timeout: 500,
       trim: true,
     }).should(elements => {
       const el = elements[0]
