@@ -3,9 +3,15 @@
 import {
   SelectorMatcherOptions,
   Matcher,
-  MatcherOptions,
+  MatcherOptions as DTLMatcherOptions,
   getByTestId,
 } from 'dom-testing-library'
+
+export interface CTLMatcherOptions {
+  timeout?: number
+}
+
+export type MatcherOptions = DTLMatcherOptions | CTLMatcherOptions
 
 declare global {
   namespace Cypress {
