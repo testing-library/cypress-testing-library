@@ -6,6 +6,9 @@
 </a>
 
 <p>Simple and complete custom Cypress commands and utilities that encourage good testing practices.</p>
+
+[**Read the docs**](https://testing-library.com/cypress) | [Edit the docs](https://github.com/alexkrolick/testing-library-docs)
+
 </div>
 
 <hr />
