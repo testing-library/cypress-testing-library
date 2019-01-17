@@ -22,12 +22,29 @@ describe('dom-testing-library commands', () => {
     cy.getByAltText('Image Alt Text').click()
   })
 
-  it('getByTestId', () => {
-    cy.getByTestId('image-with-random-alt-tag').click()
+  context.only('getByTestId', () => {
+    it('it finds image', () => {
+      cy.getByTestId('image-with-random-alt-tag').click()
+    })
+
+    it('retries finding by test id attribute', () => {
+      cy.getByTestId('dynamically-added-data-test-id-123')
+        .should('exist')
+        .click()
+    })
+
+    it('retries should not exist assertion', () => {
+      // initially the image is there
+      cy.getByTestId('image-with-random-alt-tag')
+        .should('exist')
+        .should('have.id', 'test-image-with-data-testid')
+      // then its attribute is removed
+      cy.getByTestId('image-with-random-alt-tag').should('not.exist')
+    })
   })
 
   it('getAllByText', () => {
-    cy.getAllByText(/^Jackie Chan/).click({multiple: true})
+    cy.getAllByText(/^Jackie Chan/).click({ multiple: true })
   })
 
   it('queryByText', () => {
@@ -43,11 +60,12 @@ describe('dom-testing-library commands', () => {
 
   it('getByText in container', () => {
     cy.get('#nested').then(subject => {
-      cy.getByText('Button Text', {container: subject}).click()
+      cy.getByText('Button Text', { container: subject }).click()
     })
   })
 
-  it('getByTestId only throws the error message', () => {
+  // commands now properly retry
+  it.skip('getByTestId only throws the error message', () => {
     const testId = 'Some random id'
     const errorMessage = `Unable to find an element by: [data-testid="${testId}"]`
     cy.on('fail', err => {
