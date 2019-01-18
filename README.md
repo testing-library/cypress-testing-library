@@ -19,7 +19,7 @@
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs]
 [![Code of Conduct][coc-badge]][coc]
 
@@ -47,6 +47,7 @@ This allows you to use all the useful [`dom-testing-library`][dom-testing-librar
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Installation](#installation)
+  - [With typescript](#with-typescript)
 - [Usage](#usage)
 - [Other Solutions](#other-solutions)
 - [Contributors](#contributors)
@@ -61,6 +62,18 @@ should be installed as one of your project's `devDependencies`:
 
 ```
 npm install --save-dev cypress-testing-library
+```
+
+### With typescript
+
+Typings are defined under `cypress-testing-library/typings`, and should be added as follows in `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "types": ["cypress", "../cypress-testing-library/typings"]
+  }
+}
 ```
 
 ## Usage
@@ -105,7 +118,7 @@ Thanks goes to these people ([emoji key][emojis]):
 <!-- prettier-ignore -->
 | [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub><b>Kent C. Dodds</b></sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Code") [📖](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Documentation") [🚇](#infra-kentcdodds "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=kentcdodds "Tests") | [<img src="https://avatars2.githubusercontent.com/u/498274?v=4" width="100px;"/><br /><sub><b>Ivan Babak</b></sub>](https://sompylasar.github.io)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=sompylasar "Code") [🤔](#ideas-sompylasar "Ideas, Planning, & Feedback") | [<img src="https://avatars1.githubusercontent.com/u/4002543?v=4" width="100px;"/><br /><sub><b>Łukasz Gandecki</b></sub>](http://team.thebrain.pro)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=lgandecki "Code") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=lgandecki "Tests") | [<img src="https://avatars1.githubusercontent.com/u/25429764?v=4" width="100px;"/><br /><sub><b>Peter Kamps</b></sub>](https://github.com/npeterkamps)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=npeterkamps "Code") [📖](https://github.com/kentcdodds/cypress-testing-library/commits?author=npeterkamps "Documentation") [🤔](#ideas-npeterkamps "Ideas, Planning, & Feedback") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=npeterkamps "Tests") | [<img src="https://avatars3.githubusercontent.com/u/4506749?v=4" width="100px;"/><br /><sub><b>Airat Aminev</b></sub>](https://github.com/airato)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=airato "Code") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=airato "Tests") [🔧](#tool-airato "Tools") | [<img src="https://avatars0.githubusercontent.com/u/5121148?v=4" width="100px;"/><br /><sub><b>Adrian Smijulj</b></sub>](https://www.webiny.com)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=adrian1358 "Code") | [<img src="https://avatars0.githubusercontent.com/u/12230408?v=4" width="100px;"/><br /><sub><b>Soo Jae Hwang</b></sub>](https://www.ossfinder.com)<br />[🐛](https://github.com/kentcdodds/cypress-testing-library/issues?q=author%3Amisoguy "Bug reports") [💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=misoguy "Code") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=misoguy "Tests") |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| [<img src="https://avatars1.githubusercontent.com/u/1288694?v=4" width="100px;"/><br /><sub><b>Justin Hall</b></sub>](https://github.com/wKovacs64)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=wKovacs64 "Code") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=wKovacs64 "Tests") |
+| [<img src="https://avatars1.githubusercontent.com/u/1288694?v=4" width="100px;"/><br /><sub><b>Justin Hall</b></sub>](https://github.com/wKovacs64)<br />[💻](https://github.com/kentcdodds/cypress-testing-library/commits?author=wKovacs64 "Code") [⚠️](https://github.com/kentcdodds/cypress-testing-library/commits?author=wKovacs64 "Tests") | [<img src="https://avatars3.githubusercontent.com/u/9463809?v=4" width="100px;"/><br /><sub><b>euzebe</b></sub>](https://github.com/euZebe)<br />[📖](https://github.com/kentcdodds/cypress-testing-library/commits?author=euZebe "Documentation") |
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
