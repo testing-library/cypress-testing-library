@@ -59,6 +59,9 @@ const commands = Object.keys(queries).map(queryName => {
               if (Array.isArray(value) && value.length === 0) {
                 return false
               }
+              if (value instanceof RegExp) {
+                return value.toString()
+              }
               if (
                 typeof value === 'object' &&
                 Object.keys(value).length === 0

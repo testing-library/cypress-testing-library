@@ -100,6 +100,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "jkdowdle",
+      "name": "jkdowdle",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/19804196?v=4",
+      "profile": "https://github.com/jkdowdle",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github"
