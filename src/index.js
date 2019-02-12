@@ -79,5 +79,5 @@ const commands = Object.keys(queries).map(queryName => {
 
 export {commands}
 
-/* eslint no-new-func:0 */
+/* eslint no-new-func:0, complexity:0 */
 /* globals Cypress, cy */
