@@ -14,19 +14,15 @@ const commands = Object.keys(queries).map(queryName => {
       const lastArg = args[args.length - 1]
       const defaults = getDefaultCommandOptions()
       const waitOptions =
-        typeof lastArg === 'object'
-          ? Object.assign({}, defaults, lastArg)
-          : defaults
+        typeof lastArg === 'object' ? {...defaults, ...lastArg} : defaults
 
       const queryImpl = queries[queryName]
       const baseCommandImpl = doc => {
         const container = getContainer(waitOptions.container || doc)
-        return waitForElement(
-          () => queryImpl(container, ...args),
-          Object.assign({}, waitOptions, {
-            container,
-          }),
-        )
+        return waitForElement(() => queryImpl(container, ...args), {
+          ...waitOptions,
+          container,
+        })
       }
       let commandImpl
       if (

@@ -13,9 +13,6 @@ function getContainer(container) {
   return getFirstElement(container)
 }
 
-export {
-  getFirstElement,
-  getContainer,
-}
+export {getFirstElement, getContainer}
 
 /* globals Cypress, cy */
