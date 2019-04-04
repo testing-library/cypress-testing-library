@@ -16,9 +16,9 @@ never done that before, that's great! Check this free short video tutorial to
 learn how: http://kcd.im/pull-request
 -->
 
-* `cypress-testing-library` version:
-* `node` version:
-* `npm` (or `yarn`) version:
+- `cypress-testing-library` version:
+- `node` version:
+- `npm` (or `yarn`) version:
 
 Relevant code or config
 

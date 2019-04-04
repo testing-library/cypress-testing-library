@@ -26,6 +26,11 @@
     "precommit": "kcd-scripts precommit",
     "dtslint": "dtslint typings"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "kcd-scripts pre-commit"
+    }
+  },
   "files": [
     "dist",
     "add-commands.js",
@@ -44,14 +49,15 @@
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime": "^7.4.3",
     "dom-testing-library": "^3.12.4"
   },
   "devDependencies": {
-    "cypress": "3.1.1",
-    "dtslint": "^0.3.0",
-    "kcd-scripts": "^0.37.0",
+    "cypress": "3.2.0",
+    "dtslint": "^0.6.0",
+    "kcd-scripts": "^1.1.3",
     "npm-run-all": "^4.1.2",
-    "serve": "^10.0.0",
+    "serve": "^11.0.0",
     "typescript": "^3.1.6",
     "wait-port": "^0.2.2"
   },
