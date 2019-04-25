@@ -8,10 +8,6 @@ describe('dom-testing-library commands', () => {
       .type('Hello Placeholder')
   })
 
-  it('getByText', () => {
-    cy.getByText('Button Text').click()
-  })
-
   it('getByLabelText', () => {
     cy.getByLabelText('Label For Input Labelled By Id')
       .click()
@@ -31,8 +27,10 @@ describe('dom-testing-library commands', () => {
   })
 
   it('queryByText', () => {
-    cy.queryByText('Button Text').should('exist')
-    cy.queryByText('Non-existing Button Text').should('not.exist')
+    cy.queryAllByText('Button Text').should('exist')
+    cy.queryByText('Non-existing Button Text', {timeout: 100}).should(
+      'not.exist',
+    )
   })
 
   it('getByText within', () => {
@@ -54,7 +52,7 @@ describe('dom-testing-library commands', () => {
       expect(err.message).to.eq(errorMessage)
     })
 
-    cy.getByTestId(testId).click()
+    cy.getByTestId(testId, {timeout: 100}).click()
   })
 
   it('getByText only throws the error message', () => {
@@ -64,7 +62,7 @@ describe('dom-testing-library commands', () => {
       expect(err.message).to.eq(errorMessage)
     })
 
-    cy.getByText('Some random text').click()
+    cy.getByText('Some random text', {timeout: 100}).click()
   })
 })
 
