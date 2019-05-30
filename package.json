@@ -1,14 +1,13 @@
 {
-  "name": "cypress-testing-library",
+  "name": "@testing-library/cypress",
   "version": "0.0.0-semantically-released",
   "description": "Simple and complete custom Cypress commands and utilities that encourage good testing practices.",
   "main": "dist/index.js",
   "typings": "typings",
   "engines": {
-    "node": "> 6"
+    "node": ">=8"
   },
   "scripts": {
-    "add-contributor": "kcd-scripts contributors add",
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
     "test": "npm-run-all --parallel test:unit test:cypress test:typings",
