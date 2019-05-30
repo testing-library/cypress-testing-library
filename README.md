@@ -7,7 +7,8 @@
 
 <p>Simple and complete custom Cypress commands and utilities that encourage good testing practices.</p>
 
-[**Read the docs**](https://testing-library.com/cypress) | [Edit the docs](https://github.com/alexkrolick/testing-library-docs)
+[**Read the docs**](https://testing-library.com/cypress) |
+[Edit the docs](https://github.com/alexkrolick/testing-library-docs)
 
 </div>
 
@@ -15,13 +16,11 @@
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
-[![version][version-badge]][package]
-[![downloads][downloads-badge]][npmtrends]
+[![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors)
-[![PRs Welcome][prs-badge]][prs]
-[![Code of Conduct][coc-badge]][coc]
+[![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
@@ -35,11 +34,13 @@
 
 ## The problem
 
-You want to use [`dom-testing-library`][dom-testing-library] methods in your [Cypress][cypress] tests.
+You want to use [`dom-testing-library`][dom-testing-library] methods in your
+[Cypress][cypress] tests.
 
 ## This solution
 
-This allows you to use all the useful [`dom-testing-library`][dom-testing-library] methods in your tests.
+This allows you to use all the useful
+[`dom-testing-library`][dom-testing-library] methods in your tests.
 
 ## Table of Contents
 
@@ -66,7 +67,8 @@ npm install --save-dev cypress-testing-library
 
 ### With typescript
 
-Typings are defined under `cypress-testing-library/typings`, and should be added as follows in `tsconfig.json`:
+Typings are defined under `cypress-testing-library/typings`, and should be added
+as follows in `tsconfig.json`:
 
 ```json
 {
@@ -86,9 +88,12 @@ Add this line to your project's `cypress/support/commands.js`:
 import 'cypress-testing-library/add-commands';
 ```
 
-You can now use all of `dom-testing-library`'s `getBy`, `getAllBy`, `queryBy` and `queryAllBy` commands. [See `dom-testing-library` repo for reference](https://github.com/kentcdodds/dom-testing-library#usage)
+You can now use all of `dom-testing-library`'s `getBy`, `getAllBy`, `queryBy`
+and `queryAllBy` commands.
+[See `dom-testing-library` repo for reference](https://github.com/kentcdodds/dom-testing-library#usage)
 
-To show some simple examples (from [cypress/integration/commands.spec.js](cypress/integration/commands.spec.js)):
+To show some simple examples (from
+[cypress/integration/commands.spec.js](cypress/integration/commands.spec.js)):
 
 ```javascript
 cy.getAllByText('Jackie Chan').click()
@@ -103,7 +108,11 @@ cy.get('form').then(subject => {
 })
 ```
 
-`cypress-testing-library` supports both jQuery elements and DOM nodes. This is necessary because Cypress uses jQuery elements, while `dom-testing-library` expects DOM nodes. When you pass a jQuery element as `container`, it will get the first DOM node from the collection and use that as the `container` parameter for the `dom-testing-library` functions.
+`cypress-testing-library` supports both jQuery elements and DOM nodes. This is
+necessary because Cypress uses jQuery elements, while `dom-testing-library`
+expects DOM nodes. When you pass a jQuery element as `container`, it will get
+the first DOM node from the collection and use that as the `container` parameter
+for the `dom-testing-library` functions.
 
 ## Other Solutions
 
@@ -131,27 +140,41 @@ MIT
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
-[build-badge]: https://img.shields.io/travis/kentcdodds/cypress-testing-library.svg?style=flat-square
+[build-badge]:
+  https://img.shields.io/travis/kentcdodds/cypress-testing-library.svg?style=flat-square
 [build]: https://travis-ci.org/kentcdodds/cypress-testing-library
-[coverage-badge]: https://img.shields.io/codecov/c/github/kentcdodds/cypress-testing-library.svg?style=flat-square
+[coverage-badge]:
+  https://img.shields.io/codecov/c/github/kentcdodds/cypress-testing-library.svg?style=flat-square
 [coverage]: https://codecov.io/github/kentcdodds/cypress-testing-library
-[version-badge]: https://img.shields.io/npm/v/cypress-testing-library.svg?style=flat-square
+[version-badge]:
+  https://img.shields.io/npm/v/cypress-testing-library.svg?style=flat-square
 [package]: https://www.npmjs.com/package/cypress-testing-library
-[downloads-badge]: https://img.shields.io/npm/dm/cypress-testing-library.svg?style=flat-square
+[downloads-badge]:
+  https://img.shields.io/npm/dm/cypress-testing-library.svg?style=flat-square
 [npmtrends]: http://www.npmtrends.com/cypress-testing-library
-[license-badge]: https://img.shields.io/npm/l/cypress-testing-library.svg?style=flat-square
-[license]: https://github.com/kentcdodds/cypress-testing-library/blob/master/LICENSE
-[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[license-badge]:
+  https://img.shields.io/npm/l/cypress-testing-library.svg?style=flat-square
+[license]:
+  https://github.com/kentcdodds/cypress-testing-library/blob/master/LICENSE
+[prs-badge]:
+  https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
-[donate-badge]: https://img.shields.io/badge/$-support-green.svg?style=flat-square
-[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/kentcdodds/cypress-testing-library/blob/master/other/CODE_OF_CONDUCT.md
-[github-watch-badge]: https://img.shields.io/github/watchers/kentcdodds/cypress-testing-library.svg?style=social
+[donate-badge]:
+  https://img.shields.io/badge/$-support-green.svg?style=flat-square
+[coc-badge]:
+  https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
+[coc]:
+  https://github.com/kentcdodds/cypress-testing-library/blob/master/other/CODE_OF_CONDUCT.md
+[github-watch-badge]:
+  https://img.shields.io/github/watchers/kentcdodds/cypress-testing-library.svg?style=social
 [github-watch]: https://github.com/kentcdodds/cypress-testing-library/watchers
-[github-star-badge]: https://img.shields.io/github/stars/kentcdodds/cypress-testing-library.svg?style=social
+[github-star-badge]:
+  https://img.shields.io/github/stars/kentcdodds/cypress-testing-library.svg?style=social
 [github-star]: https://github.com/kentcdodds/cypress-testing-library/stargazers
-[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20cypress-testing-library%20by%20%40kentcdodds%20https%3A%2F%2Fgithub.com%2Fkentcdodds%2Fcypress-testing-library%20%F0%9F%91%8D
-[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/kentcdodds/cypress-testing-library.svg?style=social
+[twitter]:
+  https://twitter.com/intent/tweet?text=Check%20out%20cypress-testing-library%20by%20%40kentcdodds%20https%3A%2F%2Fgithub.com%2Fkentcdodds%2Fcypress-testing-library%20%F0%9F%91%8D
+[twitter-badge]:
+  https://img.shields.io/twitter/url/https/github.com/kentcdodds/cypress-testing-library.svg?style=social
 [emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
 [all-contributors]: https://github.com/kentcdodds/all-contributors
 [dom-testing-library]: https://github.com/kentcdodds/dom-testing-library
