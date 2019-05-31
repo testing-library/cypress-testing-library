@@ -5,7 +5,7 @@ import {
   Matcher,
   MatcherOptions as DTLMatcherOptions,
   getByTestId,
-} from 'dom-testing-library'
+} from '@testing-library/dom'
 
 export interface CTLMatcherOptions {
   timeout?: number
@@ -24,8 +24,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryByPlaceholderText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -44,8 +44,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryAllByPlaceholderText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -64,8 +64,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getByPlaceholderText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -84,8 +84,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getAllByPlaceholderText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -104,8 +104,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryBySelectText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -124,8 +124,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryAllBySelectText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -144,8 +144,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getBySelectText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -164,8 +164,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getAllBySelectText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -184,8 +184,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryByText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -204,8 +204,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryAllByText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -224,8 +224,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getByText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -244,8 +244,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getAllByText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -264,8 +264,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryByLabelText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -284,8 +284,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryAllByLabelText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -304,8 +304,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getByLabelText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -324,8 +324,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getAllByLabelText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -344,8 +344,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryByAltText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -364,8 +364,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryAllByAltText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -384,8 +384,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getByAltText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -404,8 +404,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getAllByAltText<E extends Node = HTMLElement>(
         id: Matcher,
@@ -424,8 +424,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryByTestId<E extends Node = HTMLElement>(
         id: Matcher,
@@ -444,8 +444,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryAllByTestId<E extends Node = HTMLElement>(
         id: Matcher,
@@ -464,8 +464,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getByTestId<E extends Node = HTMLElement>(
         id: Matcher,
@@ -484,8 +484,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getAllByTestId<E extends Node = HTMLElement>(
         id: Matcher,
@@ -504,8 +504,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryByTitle<E extends Node = HTMLElement>(
         id: Matcher,
@@ -524,8 +524,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryAllByTitle<E extends Node = HTMLElement>(
         id: Matcher,
@@ -544,8 +544,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getByTitle<E extends Node = HTMLElement>(
         id: Matcher,
@@ -564,8 +564,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getAllByTitle<E extends Node = HTMLElement>(
         id: Matcher,
@@ -584,8 +584,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryByValue<E extends Node = HTMLElement>(
         id: Matcher,
@@ -604,8 +604,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryAllByValue<E extends Node = HTMLElement>(
         id: Matcher,
@@ -624,8 +624,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getByValue<E extends Node = HTMLElement>(
         id: Matcher,
@@ -644,8 +644,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getAllByValue<E extends Node = HTMLElement>(
         id: Matcher,
@@ -664,8 +664,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryByRole<E extends Node = HTMLElement>(
         id: Matcher,
@@ -684,8 +684,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       queryAllByRole<E extends Node = HTMLElement>(
         id: Matcher,
@@ -704,8 +704,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getByRole<E extends Node = HTMLElement>(
         id: Matcher,
@@ -724,8 +724,8 @@ declare global {
        * `queryBy*` APIs search for an element and returns null if nothing found
        * `queryAllBy*` APIs search for all elements and return empty array if nothing found
        *
-       * @see https://github.com/kentcdodds/cypress-testing-library#usage
-       * @see https://github.com/kentcdodds/dom-testing-library#table-of-contents
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
       getAllByRole<E extends Node = HTMLElement>(
         id: Matcher,

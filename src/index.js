@@ -1,4 +1,4 @@
-import {queries, waitForElement} from 'dom-testing-library'
+import {queries, waitForElement} from '@testing-library/dom'
 import {getContainer} from './utils'
 
 const getDefaultCommandOptions = () => {

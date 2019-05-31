@@ -49,7 +49,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "dom-testing-library": "^4.1.1"
+    "@testing-library/dom": "^5.0.1"
   },
   "devDependencies": {
     "cypress": "3.3.1",
