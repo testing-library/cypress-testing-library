@@ -118,6 +118,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "klaari",
+      "name": "Kari Laari",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2477131?v=4",
+      "profile": "https://karilaari.fi",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "repoType": "github",
