@@ -95,7 +95,7 @@ added as follows in `tsconfig.json`:
 Add this line to your project's `cypress/support/commands.js`:
 
 ```
-import 'cypress-testing-library/add-commands';
+import '@testing-library/cypress/add-commands';
 ```
 
 You can now use all of `dom-testing-library`'s `getBy`, `getAllBy`, `queryBy`
