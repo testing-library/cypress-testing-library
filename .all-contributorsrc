@@ -127,6 +127,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "ppi-buck",
+      "name": "Basti Buck",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/37330764?v=4",
+      "profile": "https://github.com/ppi-buck",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github",
