@@ -1,7 +1,7 @@
 // TypeScript Version: 2.8
 
 import {
-  SelectorMatcherOptions,
+  SelectorMatcherOptions as DTLSelectorMatcherOptions,
   Matcher,
   MatcherOptions as DTLMatcherOptions,
   getByTestId,
@@ -12,6 +12,7 @@ export interface CTLMatcherOptions {
 }
 
 export type MatcherOptions = DTLMatcherOptions | CTLMatcherOptions
+export type SelectorMatcherOptions = DTLSelectorMatcherOptions | CTLMatcherOptions
 
 declare global {
   namespace Cypress {
