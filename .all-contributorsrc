@@ -136,6 +136,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "ShimiTheFirst",
+      "name": "ShimiTheFirst",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/25421369?v=4",
+      "profile": "https://github.com/ShimiTheFirst",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "repoType": "github",
