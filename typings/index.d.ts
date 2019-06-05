@@ -588,11 +588,11 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      queryByValue<E extends Node = HTMLElement>(
+      queryByDisplayValue<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
       ): Chainable<E | null>
-      queryByValue<K extends keyof HTMLElementTagNameMap>(
+      queryByDisplayValue<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
       ): Chainable<HTMLElementTagNameMap[K] | null>
@@ -608,11 +608,11 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      queryAllByValue<E extends Node = HTMLElement>(
+      queryAllByDisplayValue<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
       ): Chainable<(E | null)[]>
-      queryAllByValue<K extends keyof HTMLElementTagNameMap>(
+      queryAllByDisplayValue<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
       ): Chainable<(HTMLElementTagNameMap[K] | null)[]>
@@ -628,11 +628,11 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      getByValue<E extends Node = HTMLElement>(
+      getByDisplayValue<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
       ): Chainable<E>
-      getByValue<K extends keyof HTMLElementTagNameMap>(
+      getByDisplayValue<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
       ): Chainable<HTMLElementTagNameMap[K]>
@@ -648,11 +648,11 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      getAllByValue<E extends Node = HTMLElement>(
+      getAllByDisplayValue<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
       ): Chainable<E[]>
-      getAllByValue<K extends keyof HTMLElementTagNameMap>(
+      getAllByDisplayValue<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
       ): Chainable<HTMLElementTagNameMap[K][]>
