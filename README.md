@@ -88,6 +88,17 @@ added as follows in `tsconfig.json`:
 }
 ```
 
+Or if tsconfig.json has a `baseUrl` of `../node_modules` as recommended in
+the official Cypress documentation use:
+
+```json
+{
+  "compilerOptions": {
+    "types": ["cypress", "@testing-library/cypress/typings"]
+  }
+}
+```
+
 ## Usage
 
 `cypress-testing-library` extends Cypress' `cy` command.
@@ -101,6 +112,8 @@ import '@testing-library/cypress/add-commands';
 You can now use all of `dom-testing-library`'s `getBy`, `getAllBy`, `queryBy`
 and `queryAllBy` commands.
 [See the `dom-testing-library` docs for reference](https://testing-library.com)
+
+You can find [all Library definitions here](./typings/index.d.ts).
 
 To show some simple examples (from
 [cypress/integration/commands.spec.js](cypress/integration/commands.spec.js)):
