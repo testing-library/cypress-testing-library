@@ -12,7 +12,9 @@ export interface CTLMatcherOptions {
 }
 
 export type MatcherOptions = DTLMatcherOptions | CTLMatcherOptions
-export type SelectorMatcherOptions = DTLSelectorMatcherOptions | CTLMatcherOptions
+export type SelectorMatcherOptions =
+  | DTLSelectorMatcherOptions
+  | CTLMatcherOptions
 
 declare global {
   namespace Cypress {
@@ -31,11 +33,11 @@ declare global {
       queryByPlaceholderText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<E | null>
+      ): Chainable<JQuery<E>>
       queryByPlaceholderText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<HTMLElementTagNameMap[K] | null>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -51,11 +53,11 @@ declare global {
       queryAllByPlaceholderText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(E | null)[]>
+      ): Chainable<JQuery<E>>
       queryAllByPlaceholderText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(HTMLElementTagNameMap[K] | null)[]>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -71,11 +73,11 @@ declare global {
       getByPlaceholderText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<E>
+      ): Chainable<JQuery<E>>
       getByPlaceholderText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<HTMLElementTagNameMap[K]>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -91,11 +93,11 @@ declare global {
       getAllByPlaceholderText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<E[]>
+      ): Chainable<JQuery<E>>
       getAllByPlaceholderText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<HTMLElementTagNameMap[K][]>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -111,11 +113,11 @@ declare global {
       queryBySelectText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<E | null>
+      ): Chainable<JQuery<E>>
       queryBySelectText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<HTMLElementTagNameMap[K] | null>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -131,11 +133,11 @@ declare global {
       queryAllBySelectText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(E | null)[]>
+      ): Chainable<JQuery<E>>
       queryAllBySelectText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(HTMLElementTagNameMap[K] | null)[]>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -191,11 +193,11 @@ declare global {
       queryByText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<E | null>
+      ): Chainable<JQuery<E>>
       queryByText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<HTMLElementTagNameMap[K] | null>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -211,11 +213,11 @@ declare global {
       queryAllByText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<(E | null)[]>
+      ): Chainable<JQuery<E>>
       queryAllByText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<(HTMLElementTagNameMap[K] | null)[]>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -271,11 +273,11 @@ declare global {
       queryByLabelText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<E | null>
+      ): Chainable<JQuery<E>>
       queryByLabelText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<HTMLElementTagNameMap[K] | null>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -291,11 +293,11 @@ declare global {
       queryAllByLabelText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<(E | null)[]>
+      ): Chainable<JQuery<E>>
       queryAllByLabelText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<(HTMLElementTagNameMap[K] | null)[]>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -351,11 +353,11 @@ declare global {
       queryByAltText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<E | null>
+      ): Chainable<JQuery<E>>
       queryByAltText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<HTMLElementTagNameMap[K] | null>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -371,11 +373,11 @@ declare global {
       queryAllByAltText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(E | null)[]>
+      ): Chainable<JQuery<E>>
       queryAllByAltText<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(HTMLElementTagNameMap[K] | null)[]>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -431,11 +433,11 @@ declare global {
       queryByTestId<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<E | null>
+      ): Chainable<JQuery<E>>
       queryByTestId<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<HTMLElementTagNameMap[K] | null>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -451,11 +453,11 @@ declare global {
       queryAllByTestId<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(E | null)[]>
+      ): Chainable<JQuery<E>>
       queryAllByTestId<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(HTMLElementTagNameMap[K] | null)[]>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -511,11 +513,11 @@ declare global {
       queryByTitle<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<E | null>
+      ): Chainable<JQuery<E>>
       queryByTitle<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<HTMLElementTagNameMap[K] | null>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -531,11 +533,11 @@ declare global {
       queryAllByTitle<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(E | null)[]>
+      ): Chainable<JQuery<E>>
       queryAllByTitle<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(HTMLElementTagNameMap[K] | null)[]>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -591,11 +593,11 @@ declare global {
       queryByDisplayValue<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<E | null>
+      ): Chainable<JQuery<E>>
       queryByDisplayValue<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<HTMLElementTagNameMap[K] | null>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -611,11 +613,11 @@ declare global {
       queryAllByDisplayValue<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(E | null)[]>
+      ): Chainable<JQuery<E>>
       queryAllByDisplayValue<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(HTMLElementTagNameMap[K] | null)[]>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -671,11 +673,11 @@ declare global {
       queryByRole<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<E | null>
+      ): Chainable<JQuery<E>>
       queryByRole<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<HTMLElementTagNameMap[K] | null>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -691,11 +693,11 @@ declare global {
       queryAllByRole<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(E | null)[]>
+      ): Chainable<JQuery<E>>
       queryAllByRole<K extends keyof HTMLElementTagNameMap>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<(HTMLElementTagNameMap[K] | null)[]>
+      ): Chainable<JQuery<HTMLElementTagNameMap[K]>>
 
       /**
        * dom-testing-library helpers for Cypress
