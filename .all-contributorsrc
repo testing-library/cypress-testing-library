@@ -154,6 +154,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "aaronmcadam",
+      "name": "Aaron Mc Adam",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/37928?v=4",
+      "profile": "http://www.aaronmcadam.com",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "repoType": "github",
