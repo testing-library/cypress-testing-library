@@ -58,7 +58,7 @@ This allows you to use all the useful
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Installation](#installation)
-  - [With typescript](#with-typescript)
+  - [With TypeScript](#with-typescript)
 - [Usage](#usage)
 - [Other Solutions](#other-solutions)
 - [Contributors](#contributors)
@@ -75,7 +75,7 @@ should be installed as one of your project's `devDependencies`:
 npm install --save-dev @testing-library/cypress
 ```
 
-### With typescript
+### With TypeScript
 
 Typings are defined under `@testing-library/cypress/typings`, and should be
 added as follows in `tsconfig.json`:
