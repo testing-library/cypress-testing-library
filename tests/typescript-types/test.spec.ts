@@ -1,6 +1,11 @@
 test('includes proper TypeScript types', () => {
   cy.visit('#/foo')
 
+  cy.getByLabelText('foo').should($elements => {
+    expect($elements.length).to.eq(0)
+    expect($elements[0].tagName).to.eq(0)
+  })
+
   cy.getAllByPlaceholderText('foo').should($elements => {
     expect($elements.length).to.eq(0)
     expect($elements[0].tagName).to.eq(0)
