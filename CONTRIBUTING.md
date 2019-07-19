@@ -28,9 +28,7 @@ series [How to Contribute to an Open Source Project on GitHub][egghead]
 
 ## Committing and Pushing changes
 
-Please make sure to run the tests before you commit your changes. You can run
-`npm run test:update` which will update any snapshots that need updating. Make
-sure to include those changes (if they exist) in your commit.
+Please make sure to run the tests before you commit your changes.
 
 ### opt into git hooks
 
