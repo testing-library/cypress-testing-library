@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@types/jquery": "*",
-    "cypress": "3.3.1",
+    "cypress": "3.4.0",
     "dtslint": "^0.7.1",
     "kcd-scripts": "^1.2.2",
     "npm-run-all": "^4.1.2",
