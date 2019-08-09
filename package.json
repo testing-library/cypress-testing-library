@@ -22,7 +22,6 @@
     "test:typings:watch": "tsc -p tests/typescript-types/ --noemit --watch",
     "validate": "kcd-scripts validate build,lint,test",
     "setup": "npm install && npm run validate -s",
-    "precommit": "kcd-scripts precommit",
     "dtslint": "dtslint typings"
   },
   "husky": {
@@ -48,17 +47,17 @@
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.4.5",
-    "@testing-library/dom": "^5.6.0"
+    "@babel/runtime": "^7.5.5",
+    "@testing-library/dom": "^6.0.0"
   },
   "devDependencies": {
     "@types/jquery": "*",
-    "cypress": "3.4.0",
-    "dtslint": "^0.7.1",
-    "kcd-scripts": "^1.2.2",
+    "cypress": "3.4.1",
+    "dtslint": "^0.9.1",
+    "kcd-scripts": "^1.5.2",
     "npm-run-all": "^4.1.2",
-    "serve": "^11.0.1",
-    "typescript": "^3.4.5",
+    "serve": "^11.1.0",
+    "typescript": "^3.5.3",
     "wait-port": "^0.2.2"
   },
   "peerDependencies": {
