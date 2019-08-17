@@ -14,7 +14,7 @@ cache:
 notifications:
   email: false
 node_js: '8'
-install: npm ci
+install: npm install
 script: npm run validate
 after_success: kcd-scripts travis-after-success
 branches:
