@@ -3,10 +3,14 @@ language: node_js
 addons:
   apt:
     packages:
-    - libgconf-2-4
+      - libgconf-2-4
 cache:
+  # Caches $HOME/.npm when npm ci is default script command
+  # Caches node_modules in all other cases
+  npm: true
   directories:
-    - ~/.npm
+    # we also need to cache folder with Cypress binary
+    - ~/.cache
 notifications:
   email: false
 node_js: '8'
