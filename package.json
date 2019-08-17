@@ -3,14 +3,13 @@
   "version": "0.0.0-semantically-released",
   "description": "Simple and complete custom Cypress commands and utilities that encourage good testing practices.",
   "main": "dist/index.js",
-  "typings": "typings",
   "engines": {
     "node": ">=8"
   },
   "scripts": {
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
-    "test": "npm-run-all --parallel test:unit test:cypress test:typings",
+    "test": "npm-run-all --parallel test:unit test:cypress",
     "test:unit": "kcd-scripts test --no-watch",
     "test:unit:watch": "kcd-scripts test",
     "test:cypress:serve": "serve --listen 13370 ./cypress/fixtures/test-app",
@@ -18,11 +17,8 @@
     "test:cypress:open": "cypress open",
     "test:cypress": "npm-run-all --silent --parallel --race test:cypress:serve test:cypress:run",
     "test:cypress:dev": "npm-run-all --silent --parallel --race test:cypress:serve test:cypress:open",
-    "test:typings": "tsc -p tests/typescript-types/ --noemit",
-    "test:typings:watch": "tsc -p tests/typescript-types/ --noemit --watch",
     "validate": "kcd-scripts validate build,lint,test",
-    "setup": "npm install && npm run validate -s",
-    "dtslint": "dtslint typings"
+    "setup": "npm install && npm run validate -s"
   },
   "husky": {
     "hooks": {
@@ -31,8 +27,7 @@
   },
   "files": [
     "dist",
-    "add-commands.js",
-    "typings"
+    "add-commands.js"
   ],
   "keywords": [
     "testing",
@@ -48,16 +43,14 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "@testing-library/dom": "^6.0.0"
+    "@testing-library/dom": "^6.0.0",
+    "@types/testing-library__cypress": "^4.1.0"
   },
   "devDependencies": {
-    "@types/jquery": "*",
     "cypress": "3.4.1",
-    "dtslint": "^0.9.1",
     "kcd-scripts": "^1.5.2",
     "npm-run-all": "^4.1.2",
     "serve": "^11.1.0",
-    "typescript": "^3.5.3",
     "wait-port": "^0.2.2"
   },
   "peerDependencies": {
