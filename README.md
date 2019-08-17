@@ -57,6 +57,7 @@ This allows you to use all the useful
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Installation](#installation)
   - [With TypeScript](#with-typescript)
 - [Usage](#usage)
@@ -77,24 +78,13 @@ npm install --save-dev @testing-library/cypress
 
 ### With TypeScript
 
-Typings are defined under `@testing-library/cypress/typings`, and should be
-added as follows in `tsconfig.json`:
+Typings are defined in `@types/testing-library__cypress` at [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress),
+and should be added as follows in `tsconfig.json`:
 
 ```json
 {
   "compilerOptions": {
-    "types": ["cypress", "../@testing-library/cypress/typings"]
-  }
-}
-```
-
-Or if tsconfig.json has a `baseUrl` of `../node_modules` as recommended in
-the official Cypress documentation use:
-
-```json
-{
-  "compilerOptions": {
-    "types": ["cypress", "@testing-library/cypress/typings"]
+    "types": ["cypress", "@types/testing-library__cypress"]
   }
 }
 ```
@@ -113,7 +103,7 @@ You can now use all of `dom-testing-library`'s `getBy`, `getAllBy`, `queryBy`
 and `queryAllBy` commands.
 [See the `dom-testing-library` docs for reference](https://testing-library.com)
 
-You can find [all Library definitions here](./typings/index.d.ts).
+You can find [all Library definitions here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress/index.d.ts).
 
 To show some simple examples (from
 [cypress/integration/commands.spec.js](cypress/integration/commands.spec.js)):
