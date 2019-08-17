@@ -193,6 +193,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "simjes",
+      "name": "Simon Jespersen",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6494049?v=4",
+      "profile": "https://simjes.dev/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github",
