@@ -40,7 +40,7 @@ describe('dom-testing-library commands', () => {
   })
 
   it('getByText in container', () => {
-    cy.get('#nested').then(subject => {
+    return cy.get('#nested').then(subject => {
       cy.getByText('Button Text', {container: subject}).click()
     })
   })
