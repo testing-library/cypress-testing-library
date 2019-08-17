@@ -25,7 +25,7 @@ testing practices.</p>
 [![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-20-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
@@ -164,6 +164,7 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://twitter.com/NoriSte"><img src="https://avatars0.githubusercontent.com/u/173663?v=4" width="100px;" alt="Stefano Magni"/><br /><sub><b>Stefano Magni</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=NoriSte" title="Code">💻</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=NoriSte" title="Tests">⚠️</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=NoriSte" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/weyert"><img src="https://avatars3.githubusercontent.com/u/7049?v=4" width="100px;" alt="Weyert de Boer"/><br /><sub><b>Weyert de Boer</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=weyert" title="Code">💻</a></td>
     <td align="center"><a href="https://simjes.dev/"><img src="https://avatars0.githubusercontent.com/u/6494049?v=4" width="100px;" alt="Simon Jespersen"/><br /><sub><b>Simon Jespersen</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=simjes" title="Code">💻</a> <a href="#review-simjes" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://afontcu.dev"><img src="https://avatars0.githubusercontent.com/u/9197791?v=4" width="100px;" alt="Adrià Fontcuberta"/><br /><sub><b>Adrià Fontcuberta</b></sub></a><br /><a href="#infra-afontcu" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
   </tr>
 </table>
 
