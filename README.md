@@ -78,8 +78,15 @@ npm install --save-dev @testing-library/cypress
 
 ### With TypeScript
 
-Typings are defined in `@types/testing-library__cypress` at [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress),
-and should be added as follows in `tsconfig.json`:
+Typings are defined in `@types/testing-library__cypress` at [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress)
+
+Install typings as follows:
+
+```
+npm install --save-dev @types/testing-library__cypress
+```
+
+Then update your `tsconfig.json` file as follows:
 
 ```json
 {
