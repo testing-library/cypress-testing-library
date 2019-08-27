@@ -23,7 +23,9 @@ describe('dom-testing-library commands', () => {
   })
 
   it('getAllByText', () => {
-    cy.getAllByText(/^Jackie Chan/).click({multiple: true})
+    cy.getAllByText(/^Jackie Chan/)
+      .should('have.length', 2)
+      .click({multiple: true})
   })
 
   it('queryByText', () => {
@@ -50,24 +52,47 @@ describe('dom-testing-library commands', () => {
     })
   })
 
-  it('getByTestId only throws the error message', () => {
-    const testId = 'Some random id'
-    const errorMessage = `Unable to find an element by: [data-testid="${testId}"]`
-    cy.on('fail', err => {
-      expect(err.message).to.eq(errorMessage)
-    })
+  // query* behaviour tested
+  it('queryByText can return no results message should not error', () => {
+    const text = 'Supercalifragilistic'
 
-    cy.getByTestId(testId, {timeout: 100}).click()
+    cy.queryByText(text, {timeout: 100}).should('have.length', 0)
   })
 
-  it('getByText only throws the error message', () => {
-    const text = 'Some random text'
-    const errorMessage = `Unable to find an element with the text: ${text}. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.`
+  it('queryAllByText can return no results message should not error', () => {
+    const text = 'Supercalifragilistic'
+
+    cy.queryAllByText(text, {timeout: 100}).should('have.length', 0)
+  })
+
+  it('queryAllByText with a should(\'exist\') must provide selector error message', () => {
+    const text = 'Supercalifragilistic'
+    const errorMessage = `expected 'queryAllByText("Supercalifragilistic")' to exist in the DOM`
     cy.on('fail', err => {
       expect(err.message).to.eq(errorMessage)
     })
 
-    cy.getByText('Some random text', {timeout: 100}).click()
+    cy.queryAllByText(text, {timeout: 100}).should('exist') // NOT POSSIBLE WITH QUERYALL?
+  })
+
+  // get* behaviour tested
+  it('getByText should error if no elements are found', () => {
+    const regex = /Supercalifragilistic/
+    const errorMessage = `Timed out retrying: Expected to find element: 'getByText(${regex})', but never found it.`
+    cy.on('fail', err => {
+      expect(err.message).to.eq(errorMessage)
+    })
+
+    cy.getByText(regex, {timeout: 100}) // Doesn't explicitly need .should('exist') if it's the last element?
+  })
+
+  it('getByText finding multiple items should error', () => {
+    const errorMessage = `Found multiple elements with the text: /^getByText/i\n\n(If this is intentional, then use the \`*AllBy*\` variant of the query (like \`queryAllByText\`, \`getAllByText\`, or \`findAllByText\`)).`
+    cy.on('fail', err => {
+      expect(err.message).to.eq(errorMessage)
+    })
+
+    cy.getByText(/^getByText/i)
   })
 })
 
