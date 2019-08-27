@@ -39,6 +39,11 @@ describe('dom-testing-library commands', () => {
     })
   })
 
+  it('getByText works when another page loads', () => {
+    cy.getByText('Next Page').click()
+    cy.getByText('New Page Loaded').should('exist')
+  })
+
   it('getByText in container', () => {
     return cy.get('#nested').then(subject => {
       cy.getByText('Button Text', {container: subject}).click()
