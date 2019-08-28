@@ -213,6 +213,15 @@
         "infra",
         "doc"
       ]
+    },
+    {
+      "login": "Megoos",
+      "name": "Mikhail Guskov",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9866017?v=4",
+      "profile": "https://github.com/Megoos",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "repoType": "github",
