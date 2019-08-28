@@ -59,7 +59,7 @@ const commands = Object.keys(queries).map(queryName => {
           
             // Overriding the selector of the jquery object because it's displayed in the long message of .should('exist') failure message
             // Hopefully it makes it clearer, because I find the normal response of "Expected to find element '', but never found it" confusing
-            result.selector = `${queryName}(${findTextOrRegex(args)})`;
+            result.selector = `${queryName}(${queryArgument(args)})`;
 
             if (result.length > 0) {
               consoleProps.yielded = result.toArray()
@@ -112,7 +112,7 @@ function filterInputs(value) {
   return Boolean(value)
 }
 
-function findTextOrRegex(args) {
+function queryArgument(args) {
   const input = args
     .find(value => {
       return (value instanceof RegExp) || (typeof value === 'string')
