@@ -25,7 +25,7 @@ testing practices.</p>
 [![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-22-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
@@ -165,6 +165,9 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://github.com/weyert"><img src="https://avatars3.githubusercontent.com/u/7049?v=4" width="100px;" alt="Weyert de Boer"/><br /><sub><b>Weyert de Boer</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=weyert" title="Code">💻</a></td>
     <td align="center"><a href="https://simjes.dev/"><img src="https://avatars0.githubusercontent.com/u/6494049?v=4" width="100px;" alt="Simon Jespersen"/><br /><sub><b>Simon Jespersen</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=simjes" title="Code">💻</a> <a href="#review-simjes" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://afontcu.dev"><img src="https://avatars0.githubusercontent.com/u/9197791?v=4" width="100px;" alt="Adrià Fontcuberta"/><br /><sub><b>Adrià Fontcuberta</b></sub></a><br /><a href="#infra-afontcu" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=afontcu" title="Documentation">📖</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Megoos"><img src="https://avatars2.githubusercontent.com/u/9866017?v=4" width="100px;" alt="Mikhail Guskov"/><br /><sub><b>Mikhail Guskov</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/issues?q=author%3AMegoos" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
