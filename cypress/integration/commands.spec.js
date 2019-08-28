@@ -67,7 +67,7 @@ describe('dom-testing-library commands', () => {
 
   it('queryAllByText with a should(\'exist\') must provide selector error message', () => {
     const text = 'Supercalifragilistic'
-    const errorMessage = `expected 'queryAllByText("Supercalifragilistic")' to exist in the DOM`
+    const errorMessage = `expected 'queryAllByText(\`${text}\`)' to exist in the DOM`
     cy.on('fail', err => {
       expect(err.message).to.eq(errorMessage)
     })
