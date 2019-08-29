@@ -1,4 +1,4 @@
-import {queries, waitForElement} from '@testing-library/dom'
+import {configure, queries, waitForElement} from '@testing-library/dom'
 import {getContainer} from './utils'
 
 const getDefaultCommandOptions = () => {
@@ -73,7 +73,7 @@ const commands = Object.keys(queries).map(queryName => {
   }
 })
 
-export {commands}
+export {commands, configure}
 
 /* eslint no-new-func:0, complexity:0 */
 /* globals Cypress, cy */
