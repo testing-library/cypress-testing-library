@@ -23,51 +23,76 @@
     click <span title="Run All Tests">↻</span> Run All Tests.
   </blockquote>
   <section>
-    <h2>getByPlaceholderText</h2>
-    <input type="text" placeholder="Placeholder Text" />
+    <h2>*ByLabel and *ByPlaceholder</h2>
+    <label for="by-text-input">Label 1</label>
+    <input type="text" placeholder="Input 1" id="by-text-input" />
+    
+    <label for="by-text-input-2">Label 2</label>
+    <input type="text" placeholder="Input 2" id="by-text-input-2" />
   </section>
   <section>
-    <h2>getByText</h2>
-    <button onclick="this.innerText = 'Button Clicked'">Button Text</button>
+    <h2>*ByText</h2>
+    <button onclick="this.innerText = 'Button Clicked'">Button Text 1</button>
     <div id="nested">
-      <h3>getByText within</h3>
-      <button onclick="this.innerText = 'Button Clicked'">Button Text</button>
+      <h3>ByText within</h3>
+      <button onclick="this.innerText = 'Button Clicked'">Button Text 2</button>
     </div>
   </section>
   <section>
-    <h2>getByLabelText</h2>
-    <label for="input-labelled-by-id">Label For Input Labelled By Id</label>
-    <input type="text" placeholder="Input Labelled By Id" id="input-labelled-by-id" />
+    <h2>*ByDisplayValue</h2>
+    <input type="text" value="Display Value 1" />
+    
+    <input type="text" value="Display Value 2" />
   </section>
   <section>
-    <h2>getByAltText</h2>
+    <h2>*ByAltText</h2>
     <img
       src="data:image/png;base64,"
-      alt="Image Alt Text"
+      alt="Image Alt Text 1"
+      onclick="this.style.border = '5px solid red'"
+    />
+    <img
+      src="data:image/png;base64,"
+      alt="Image Alt Text 2"
       onclick="this.style.border = '5px solid red'"
     />
   </section>
   <section>
-    <h2>getByTestId</h2>
+    <h2>*ByTitle</h2>
+    <span title="Title 1">1</span>
+    <span title="Title 2">2</span>
+  </section>
+  <section>
+    <h2>*ByRole</h2>
+    <div role="dialog">dialog 1</div>
+    <div role="dialog-fake">dialog 2</div>
+  </section>
+  <section>
+    <h2>*ByTestId</h2>
     <img
-      data-testid="image-with-random-alt-tag"
+      data-testid="image-with-random-alt-tag-1"
+      src="data:image/png;base64,"
+      onclick="this.style.border = '5px solid red'"
+    />
+    <img
+      data-testid="image-with-random-alt-tag-2"
       src="data:image/png;base64,"
       onclick="this.style.border = '5px solid red'"
     />
   </section>
   <section>
-    <h2>getAllByText</h2>
+    <h2>*AllByText</h2>
     <button onclick="this.innerText = 'Jackie Kicked'">Jackie Chan 1</button>
     <button onclick="this.innerText = 'Jackie Kicked'">Jackie Chan 2</button>
   </section>
   <section>
-    <h2>getByText on another page</h2>
+    <h2>*ByText on another page</h2>
     <a onclick='setTimeout(function() { window.location = "/next-page.html"; }, 100);'>Next Page</a>
   </section>
 <!-- Prettier unindents the script tag below -->
 <script>
 document
-  .querySelector('[data-testid="image-with-random-alt-tag"]')
+  .querySelector('[data-testid="image-with-random-alt-tag-1"]')
   .setAttribute('alt', 'Image Random Alt Text ' + Math.random())
 </script>
 </body>

@@ -7,7 +7,41 @@ const getDefaultCommandOptions = () => {
   }
 }
 
-const commands = Object.keys(queries).map(queryName => {
+const queryNames = Object.keys(queries);
+
+const getRegex = /^get/;
+const queryRegex = /^query/;
+const findRegex = /^find/;
+
+const getQueryNames = queryNames.filter(q => getRegex.test(q));
+const queryQueryNames = queryNames.filter(q => queryRegex.test(q));
+const findQueryNames = queryNames.filter(q => findRegex.test(q));
+
+const getCommands = getQueryNames.map(queryName => {
+  return {
+    name: queryName,
+    command: () => {
+      Cypress.log({
+        name: queryName
+      });
+
+      throw new Error(`You used '${queryName}' which has been removed from Cypress Testing Library because it does not make sense in this context. Please use '${queryName.replace(getRegex, 'find')}' instead.`)
+    }
+  }
+})
+
+const queryCommands = queryQueryNames.map(queryName => {
+  return createCommand(queryName, queryName);
+})
+
+const findCommands = findQueryNames.map(queryName => {
+  // dom-testing-library find* queries use a promise to look for an element, but that doesn't work well with Cypress retryability
+  // Use the query* commands so that we can lean on Cypress to do the retry for us
+  // When it does return a null or empty array, Cypress will retry until the assertions are satisfied or the command times out
+  return createCommand(queryName, queryName.replace(findRegex, 'query'));
+})
+
+function createCommand(queryName, implementationName) {
   return {
     name: queryName,
     command: (...args) => {
@@ -16,7 +50,7 @@ const commands = Object.keys(queries).map(queryName => {
       const waitOptions =
         typeof lastArg === 'object' ? {...defaults, ...lastArg} : defaults
 
-      const queryImpl = queries[queryName]
+      const queryImpl = queries[implementationName]
       const baseCommandImpl = doc => {
         const container = getContainer(waitOptions.container || doc)
         return queryImpl(container, ...args)
@@ -41,21 +75,8 @@ const commands = Object.keys(queries).map(queryName => {
         .window({log: false})
         .then((thenArgs) => {
           const getValue = () => {
-            let result;
-            try {
-              const value = commandImpl(thenArgs.document);
-              result = Cypress.$(value);
-            }
-            catch (err) {
-              // Catch exceptions where it can't find the element, so we can retry
-              if (/Unable to find an element with the text/.test(err.message))
-              {
-                consoleProps.error = err;
-                result = Cypress.$();
-              } else {
-                throw err;
-              }
-            }
+            const value = commandImpl(thenArgs.document);
+            const result = Cypress.$(value);
           
             // Overriding the selector of the jquery object because it's displayed in the long message of .should('exist') failure message
             // Hopefully it makes it clearer, because I find the normal response of "Expected to find element '', but never found it" confusing
@@ -77,7 +98,8 @@ const commands = Object.keys(queries).map(queryName => {
             })
           }
 
-          if (/queryBy|queryAllBy/.test(queryName)) {
+          if (queryRegex.test(queryName)) {
+            // For get* queries, do not retry
             return getValue();
           }
 
@@ -94,7 +116,7 @@ const commands = Object.keys(queries).map(queryName => {
         })
     },
   }
-})
+}
 
 function filterInputs(value) {
   if (Array.isArray(value) && value.length === 0) {
@@ -125,7 +147,13 @@ function queryArgument(args) {
     return input;
 }
 
-export {commands}
+const commands = [
+  ...getCommands,
+  ...findCommands,
+  ...queryCommands
+];
+
+export { commands }
 
 /* eslint no-new-func:0, complexity:0 */
 /* globals Cypress, cy */
