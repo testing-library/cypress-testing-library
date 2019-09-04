@@ -123,12 +123,12 @@ describe('find* dom-testing-library commands', () => {
   })
 
   it('findByText finding multiple items should error', () => {
-    const errorMessage = `Found multiple elements with the text: /^Button Text/i\n\n(If this is intentional, then use the \`*AllBy*\` variant of the query (like \`queryAllByText\`, \`getAllByText\`, or \`findAllByText\`)).`
+    const errorMessage = `Timed out retrying: Expected to find element: 'findByText(/^Button Text/i)', but never found it.`
     cy.on('fail', err => {
       expect(err.message).to.eq(errorMessage)
     })
 
-    cy.findByText(/^Button Text/i)
+    cy.findByText(/^Button Text/i, { timeout: 100 })
   })
 })
 
