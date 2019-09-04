@@ -75,8 +75,21 @@ function createCommand(queryName, implementationName) {
         .window({log: false})
         .then((thenArgs) => {
           const getValue = () => {
-            const value = commandImpl(thenArgs.document);
-            const result = Cypress.$(value);
+            let result;
+            try {
+              const value = commandImpl(thenArgs.document);
+              result = Cypress.$(value);
+            }
+            catch (err) {
+              // Only catch exceptions for multiple elements found, which we will continue to retry
+              if (/Found multiple elements/.test(err.message)) {
+                // Cannot delete after, because consoleProps() is called on the log object before I get the chance
+                consoleProps.CaughtError = err;
+                result = Cypress.$();
+              } else {
+                throw err; // Throw everything else
+              }
+            }
           
             // Overriding the selector of the jquery object because it's displayed in the long message of .should('exist') failure message
             // Hopefully it makes it clearer, because I find the normal response of "Expected to find element '', but never found it" confusing
@@ -103,16 +116,7 @@ function createCommand(queryName, implementationName) {
             return getValue();
           }
 
-          return resolveValue()
-            .then(subject => {
-    
-              // Remove the error that occurred because it is irrelevant now
-              if (consoleProps.error) {
-                delete consoleProps.error;
-              }
-    
-              return subject;
-            })
+          return resolveValue();
         })
     },
   }
