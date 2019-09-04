@@ -86,6 +86,13 @@
     <button onclick="this.innerText = 'Jackie Kicked'">Jackie Chan 2</button>
   </section>
   <section>
+    <h2>Remove element from DOM delayed</h2>
+    <ul>
+      <li>List Item</li>
+      <li>List Item <button onclick="li = this.parentElement; setTimeout(function() { li.remove(); }, 100)">Remove Parent</button></li>
+    </ul>
+  </section>
+  <section>
     <h2>*ByText on another page</h2>
     <a onclick='setTimeout(function() { window.location = "/next-page.html"; }, 100);'>Next Page</a>
   </section>

@@ -89,6 +89,11 @@ describe('find* dom-testing-library commands', () => {
     cy.findByText('Non-existing Button Text', {timeout: 100}).should('not.exist')
   })
 
+  it('findByText retry if multiple elements found', () => {
+    cy.findByText('Remove Parent').click()
+    cy.findByText('List Item', {timeout: 200}).should('exist')
+  })
+
   it('findByText within', () => {
     cy.get('#nested').within(() => {
       cy.findByText('Button Text 2').click()
