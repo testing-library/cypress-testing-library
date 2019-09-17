@@ -44,7 +44,7 @@
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "@testing-library/dom": "^6.0.0",
-    "@types/testing-library__cypress": "^4.1.0"
+    "@types/testing-library__cypress": "^5.0.0"
   },
   "devDependencies": {
     "cypress": "3.4.1",
