@@ -99,7 +99,7 @@ Add this line to your project's `cypress/support/commands.js`:
 import '@testing-library/cypress/add-commands'
 ```
 
-You can now use all of `DOM Testing Library`'s `getBy`, `getAllBy`, `queryBy`
+You can now use all of `DOM Testing Library`'s `findBy`, `findAllBy`, `queryBy`
 and `queryAllBy` commands.
 [See the `DOM Testing Library` docs for reference](https://testing-library.com)
 
@@ -109,15 +109,15 @@ To show some simple examples (from
 [cypress/integration/commands.spec.js](cypress/integration/commands.spec.js)):
 
 ```javascript
-cy.getAllByText('Jackie Chan').click()
+cy.findAllByText('Jackie Chan').click()
 cy.queryByText('Button Text').should('exist')
 cy.queryByText('Non-existing Button Text').should('not.exist')
 cy.queryByLabelText('Label text', {timeout: 7000}).should('exist')
 cy.get('form').within(() => {
-  cy.getByText('Button Text').should('exist')
+  cy.findByText('Button Text').should('exist')
 })
 cy.get('form').then(subject => {
-  cy.getByText('Button Text', {container: subject}).should('exist')
+  cy.findByText('Button Text', {container: subject}).should('exist')
 })
 ```
 
