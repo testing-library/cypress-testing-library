@@ -222,6 +222,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "juliusdelta",
+      "name": "JD Gonzales",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/10285055?v=4",
+      "profile": "https://jds.work",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "repoType": "github",

@@ -25,7 +25,7 @@ testing practices.</p>
 [![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-22-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors)
 [![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
@@ -168,6 +168,7 @@ Thanks goes to these people ([emoji key][emojis]):
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/Megoos"><img src="https://avatars2.githubusercontent.com/u/9866017?v=4" width="100px;" alt="Mikhail Guskov"/><br /><sub><b>Mikhail Guskov</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/issues?q=author%3AMegoos" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://jds.work"><img src="https://avatars1.githubusercontent.com/u/10285055?v=4" width="100px;" alt="JD Gonzales"/><br /><sub><b>JD Gonzales</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=juliusdelta" title="Documentation">📖</a></td>
   </tr>
 </table>
 
