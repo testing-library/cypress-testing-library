@@ -106,7 +106,7 @@ and `queryAllBy` commands.
 You can find [all Library definitions here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress/index.d.ts).
 
 To show some simple examples (from
-[cypress/integration/commands.spec.js](cypress/integration/commands.spec.js)):
+[cypress/integration/query.spec.js](cypress/integration/query.spec.js) or [cypress/integration/find.spec.js](cypress/integration/find.spec.js)):
 
 ```javascript
 cy.findAllByText('Jackie Chan').click()
