@@ -73,7 +73,7 @@ function createCommand(queryName, implementationName) {
 
       return cy
         .window({log: false})
-        .then((thenArgs) => {
+        .then({timeout: waitOptions.timeout + 100}, (thenArgs) => {
           const getValue = () => {
             const value = commandImpl(thenArgs.document);
             const result = Cypress.$(value);
