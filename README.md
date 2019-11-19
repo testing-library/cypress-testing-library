@@ -109,10 +109,10 @@ To show some simple examples (from
 [cypress/integration/query.spec.js](cypress/integration/query.spec.js) or [cypress/integration/find.spec.js](cypress/integration/find.spec.js)):
 
 ```javascript
-cy.findAllByText('Jackie Chan').click()
 cy.queryByText('Button Text').should('exist')
 cy.queryByText('Non-existing Button Text').should('not.exist')
 cy.queryByLabelText('Label text', {timeout: 7000}).should('exist')
+cy.findAllByText('Jackie Chan').click({multiple: true})
 cy.get('form').within(() => {
   cy.findByText('Button Text').should('exist')
 })
