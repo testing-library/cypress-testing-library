@@ -30,11 +30,11 @@ describe('find* dom-testing-library commands', () => {
       .click()
       .should('contain', 'Button Clicked')
   })
-  
+
   it('findAllByText', () => {
     cy.findAllByText(/^Button Text \d$/)
       .should('have.length', 2)
-      .click({ multiple: true })
+      .click({multiple: true})
       .should('contain', 'Button Clicked')
   })
 
@@ -44,10 +44,9 @@ describe('find* dom-testing-library commands', () => {
       .clear()
       .type('Some new text')
   })
-  
+
   it('findAllByDisplayValue', () => {
-    cy.findAllByDisplayValue(/^Display Value \d$/)
-      .should('have.length', 2)
+    cy.findAllByDisplayValue(/^Display Value \d$/).should('have.length', 2)
   })
 
   it('findByAltText', () => {
@@ -79,27 +78,44 @@ describe('find* dom-testing-library commands', () => {
   })
 
   it('findAllByTestId', () => {
-    cy.findAllByTestId(/^image-with-random-alt-tag-\d$/).should('have.length', 2)
+    cy.findAllByTestId(/^image-with-random-alt-tag-\d$/).should(
+      'have.length',
+      2,
+    )
   })
 
   /* Test the behaviour around these queries */
 
-  it('findByText with should(\'not.exist\')', () => {
+  it("findByText with should('not.exist')", () => {
     cy.findAllByText(/^Button Text \d$/).should('exist')
-    cy.findByText('Non-existing Button Text', {timeout: 100}).should('not.exist')
+    cy.findByText('Non-existing Button Text', {timeout: 100}).should(
+      'not.exist',
+    )
+  })
+
+  it('findByText with a previous subject', () => {
+    cy.get('#nested')
+      .findByText('Button Text 1')
+      .should('not.exist')
+    cy.get('#nested')
+      .findByText('Button Text 2')
+      .should('exist')
   })
 
   it('findByText within', () => {
     cy.get('#nested').within(() => {
-      cy.findByText('Button Text 2').click()
+      cy.findByText('Button Text 1').should('not.exist')
+      cy.findByText('Button Text 2').should('exist')
     })
   })
 
   it('findByText in container', () => {
-    return cy.get('#nested')
-      .then(subject => {
-        cy.findByText(/^Button Text/, {container: subject}).click()
-      })
+    // NOTE: Cypress' `then` doesn't actually return a promise
+    // eslint-disable-next-line jest/valid-expect-in-promise
+    cy.get('#nested').then(subject => {
+      cy.findByText('Button Text 1', {container: subject}).should('not.exist')
+      cy.findByText('Button Text 2', {container: subject}).should('exist')
+    })
   })
 
   it('findByText works when another page loads', () => {
