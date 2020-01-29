@@ -6,7 +6,7 @@
   ],
   "imageSize": 100,
   "commit": false,
-  "skipCi": false,
+  "skipCi": true,
   "contributors": [
     {
       "login": "kentcdodds",
@@ -261,10 +261,19 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "NicholasBoll",
+      "name": "Nicholas Boll",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/338257?v=4",
+      "profile": "https://github.com/NicholasBoll",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "repoType": "github",
   "repoHost": "https://github.com",
-  "contributorsPerLine": 7,
-  "skipCi": true
+  "contributorsPerLine": 7
 }
