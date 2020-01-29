@@ -1,6 +1,6 @@
 describe('query* dom-testing-library commands', () => {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('cypress/fixtures/test-app/')
   })
 
   // Test each of the types of queries: LabelText, PlaceholderText, Text, DisplayValue, AltText, Title, Role, TestId
@@ -30,7 +30,7 @@ describe('query* dom-testing-library commands', () => {
       .click()
       .should('contain', 'Button Clicked')
   })
-  
+
   it('queryAllByText', () => {
     cy.queryAllByText(/^Button Text \d$/)
       .should('have.length', 2)
@@ -44,7 +44,7 @@ describe('query* dom-testing-library commands', () => {
       .clear()
       .type('Some new text')
   })
-  
+
   it('queryAllByDisplayValue', () => {
     cy.queryAllByDisplayValue(/^Display Value \d$/)
       .should('have.length', 2)

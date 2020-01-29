@@ -1,6 +1,6 @@
 describe('get* queries should error', () => {
     beforeEach(() => {
-        cy.visit('/')
+        cy.visit('cypress/fixtures/test-app/')
     })
 
     const queryPrefixes = ['By', 'AllBy']
