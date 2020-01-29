@@ -1,6 +1,6 @@
 describe('find* dom-testing-library commands', () => {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit('cypress/fixtures/test-app/')
   })
 
   // Test each of the types of queries: LabelText, PlaceholderText, Text, DisplayValue, AltText, Title, Role, TestId
