@@ -21,10 +21,6 @@ const getCommands = getQueryNames.map(queryName => {
   return {
     name: queryName,
     command: () => {
-      Cypress.log({
-        name: queryName,
-      })
-
       throw new Error(
         `You used '${queryName}' which has been removed from Cypress Testing Library because it does not make sense in this context. Please use '${queryName.replace(
           getRegex,
