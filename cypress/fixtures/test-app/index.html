@@ -29,6 +29,9 @@
 
     <label for="by-text-input-2">Label 2</label>
     <input type="text" placeholder="Input 2" id="by-text-input-2" />
+
+    <p>Intentionally inaccessible label for error checking</p>
+    <label>Label 3</label>
   </section>
   <section>
     <h2>*ByText</h2>
@@ -88,6 +91,24 @@
   <section>
     <h2>*ByText on another page</h2>
     <a onclick='setTimeout(function() { window.location = "/cypress/fixtures/test-app/next-page.html"; }, 100);'>Next Page</a>
+  </section>
+  <section>
+    <h2>Eventual existence</h2>
+    <button id="eventually-will-exist"></button>
+    <script>
+      setTimeout(() => {
+        document.querySelector('#eventually-will-exist').innerHTML = 'Eventually Exists'
+      }, 500)
+    </script>
+  </section>
+  <section>
+    <h2>Eventual non-existence</h2>
+    <button id="eventually-will-not-exist">Eventually not exists</button>
+    <script>
+      setTimeout(() => {
+        document.querySelector('#eventually-will-not-exist').remove()
+      }, 500)
+    </script>
   </section>
 <!-- Prettier unindents the script tag below -->
 <script>
