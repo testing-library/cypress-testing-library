@@ -93,28 +93,15 @@ describe('find* dom-testing-library commands', () => {
     )
   })
 
-  it('findByText with a previous subject', () => {
-    cy.get('#nested')
-      .findByText('Button Text 1')
-      .should('not.exist')
-    cy.get('#nested')
-      .findByText('Button Text 2')
-      .should('exist')
-  })
-
   it('findByText within', () => {
     cy.get('#nested').within(() => {
-      cy.findByText('Button Text 1').should('not.exist')
-      cy.findByText('Button Text 2').should('exist')
+      cy.findByText('Button Text 2').click()
     })
   })
 
   it('findByText in container', () => {
-    // NOTE: Cypress' `then` doesn't actually return a promise
-    // eslint-disable-next-line jest/valid-expect-in-promise
-    cy.get('#nested').then(subject => {
-      cy.findByText('Button Text 1', {container: subject}).should('not.exist')
-      cy.findByText('Button Text 2', {container: subject}).should('exist')
+    return cy.get('#nested').then(subject => {
+      cy.findByText(/^Button Text/, {container: subject}).click()
     })
   })
 

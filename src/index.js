@@ -45,8 +45,7 @@ const findCommands = findQueryNames.map(queryName => {
 function createCommand(queryName, implementationName) {
   return {
     name: queryName,
-    options: {prevSubject: ['optional', 'document', 'element', 'window']},
-    command: (prevSubject, ...args) => {
+    command: (...args) => {
       const lastArg = args[args.length - 1]
       const defaults = getDefaultCommandOptions()
       const waitOptions =
@@ -54,9 +53,7 @@ function createCommand(queryName, implementationName) {
 
       const queryImpl = queries[implementationName]
       const baseCommandImpl = doc => {
-        const container = getContainer(
-          waitOptions.container || prevSubject || doc,
-        )
+        const container = getContainer(waitOptions.container || doc)
         return queryImpl(container, ...args)
       }
       const commandImpl = doc => baseCommandImpl(doc)
