@@ -6,7 +6,7 @@
   ],
   "imageSize": 100,
   "commit": false,
-  "skipCi": true,
+  "skipCi": false,
   "contributors": [
     {
       "login": "kentcdodds",
@@ -270,6 +270,15 @@
       "contributions": [
         "code",
         "test"
+      ]
+    },
+    {
+      "login": "FlopieUtd",
+      "name": "FlopieUtd",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/23555863?v=4",
+      "profile": "https://github.com/FlopieUtd",
+      "contributions": [
+        "doc"
       ]
     }
   ],

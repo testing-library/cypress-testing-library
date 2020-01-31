@@ -61,6 +61,7 @@ This allows you to use all the useful
 - [Installation](#installation)
   - [With TypeScript](#with-typescript)
 - [Usage](#usage)
+  - [Differences from DOM Testing Library](#differences-from-dom-testing-library)
 - [Other Solutions](#other-solutions)
 - [Contributors](#contributors)
 - [LICENSE](#license)
@@ -95,7 +96,7 @@ and should be added as follows in `tsconfig.json`:
 
 Add this line to your project's `cypress/support/commands.js`:
 
-```
+```javascript
 import '@testing-library/cypress/add-commands'
 ```
 
@@ -105,6 +106,11 @@ and `queryAllBy` commands.
 
 You can find [all Library definitions here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress/index.d.ts).
 
+To configure DOM Testing Library, use the following:
+```javascript
+cy.configureCypressTestingLibrary(config)
+```
+
 To show some simple examples (from
 [cypress/integration/query.spec.js](cypress/integration/query.spec.js) or [cypress/integration/find.spec.js](cypress/integration/find.spec.js)):
 
@@ -112,7 +118,7 @@ To show some simple examples (from
 cy.queryAllByText('Button Text').should('exist')
 cy.queryAllByText('Non-existing Button Text').should('not.exist')
 cy.queryAllByLabelText('Label text', {timeout: 7000}).should('exist')
-cy.findAllByText('Jackie Chan').click({multiple: true})
+cy.findAllByText('Jackie Chan').click();
 
 // findAllByText _inside_ a form element
 cy.get('form').within(() => {
@@ -124,7 +130,7 @@ cy.get('form').then(subject => {
 cy.get('form').findAllByText('Button Text').should('exist')
 ```
 
-### Differences DOM Testing Library
+### Differences from DOM Testing Library
 
 `Cypress Testing Library` supports both jQuery elements and DOM nodes. This is
 necessary because Cypress uses jQuery elements, while `DOM Testing Library`
@@ -137,7 +143,8 @@ for the `DOM Testing Library` functions.
 built-in retryability using error messages from `get*` APIs to forward as error
 messages if a query fails. `query*` also uses `get*` APIs, but disables retryability.
 
-`findBy*` is less useful in Cypress compared to `findAllBy*`. If you intend to limit
+`findAll*` can select more than one element and is closer in functionality to how
+Cypress built-in commands work. is less useful in Cypress compared to `findAllBy*`. If you intend to limit
 to only 1 element, the following will work:
 
 ```javascript
@@ -199,6 +206,7 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://www.franck-abgrall.me/"><img src="https://avatars3.githubusercontent.com/u/9840435?v=4" width="100px;" alt=""/><br /><sub><b>Franck Abgrall</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/pulls?q=is%3Apr+reviewed-by%3Akefranabg" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="http://twitter.com/tlrobinson"><img src="https://avatars0.githubusercontent.com/u/18193?v=4" width="100px;" alt=""/><br /><sub><b>Tom Robinson</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=tlrobinson" title="Code">💻</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=tlrobinson" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/NicholasBoll"><img src="https://avatars2.githubusercontent.com/u/338257?v=4" width="100px;" alt=""/><br /><sub><b>Nicholas Boll</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=NicholasBoll" title="Code">💻</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=NicholasBoll" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/FlopieUtd"><img src="https://avatars3.githubusercontent.com/u/23555863?v=4" width="100px;" alt=""/><br /><sub><b>FlopieUtd</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=FlopieUtd" title="Documentation">📖</a></td>
   </tr>
 </table>
 

@@ -7,7 +7,7 @@ test('adds commands to Cypress', () => {
 
   require('../add-commands')
 
-  expect(addMock).toHaveBeenCalledTimes(commands.length)
+  expect(addMock).toHaveBeenCalledTimes(commands.length + 1) // we're also adding a configuration command
   commands.forEach(({name}, index) => {
     expect(addMock.mock.calls[index]).toMatchObject([
       name,

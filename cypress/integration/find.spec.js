@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe('find* dom-testing-library commands', () => {
   beforeEach(() => {
     cy.visit('cypress/fixtures/test-app/')
@@ -110,7 +111,7 @@ describe('find* dom-testing-library commands', () => {
 
   it('findByText with a previous subject', () => {
     cy.get('#nested')
-      .findByText('Button Text 1', { fallbackToPreviousFunctionality: false })
+      .findByText('Button Text 1', { fallbackRetryWithoutPreviousSubject: false })
       .should('not.exist')
     cy.get('#nested')
       .findByText('Button Text 2')
@@ -125,8 +126,6 @@ describe('find* dom-testing-library commands', () => {
   })
 
   it('findByText in container', () => {
-    // NOTE: Cypress' `then` doesn't actually return a promise
-    // eslint-disable-next-line jest/valid-expect-in-promise
     cy.get('#nested').then(subject => {
       cy.findByText('Button Text 1', {container: subject}).should('not.exist')
       cy.findByText('Button Text 2', {container: subject}).should('exist')

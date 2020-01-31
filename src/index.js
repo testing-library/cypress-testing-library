@@ -1,6 +1,15 @@
 import {configure, queries} from '@testing-library/dom'
 import {getContainer} from './utils'
 
+let globalFallbackRetryWithoutPreviousSubject = true
+const configureFn = configDelta => {
+  if (configDelta.fallbackRetryWithoutPreviousSubject != null) {
+    globalFallbackRetryWithoutPreviousSubject = configDelta.fallbackRetryWithoutPreviousSubject
+    delete configDelta.fallbackRetryWithoutPreviousSubject
+  }
+  configure(configDelta)
+}
+
 const queryNames = Object.keys(queries)
 
 const getRegex = /^get/
@@ -42,8 +51,9 @@ function createCommand(queryName, implementationName) {
       const defaults = {
         // make the timeout extremely short to ensure `query*` commands pass or fail instantly
         timeout: queryRegex.test(queryName) ? 0 : Cypress.config().defaultCommandTimeout,
-        //
-        fallbackRetryWithoutPreviousSubject: true,
+        // setting this to false will disable the fallback to querying without a previous subject
+        // This is to prevent breaking changes, but also allow for prevSubject scoping
+        fallbackRetryWithoutPreviousSubject: globalFallbackRetryWithoutPreviousSubject,
         log: true,
       }
       const options =
@@ -93,9 +103,9 @@ function createCommand(queryName, implementationName) {
 
         consoleProps.elements = result.length
         if (result.length === 1) {
-          consoleProps.yielded = result.toArray()[0];
+          consoleProps.yielded = result.toArray()[0]
         } else if (result.length > 0) {
-          consoleProps.yielded = result.toArray();
+          consoleProps.yielded = result.toArray()
         }
 
         if (result.length > 1 && !/All/.test(queryName)) {
@@ -203,7 +213,7 @@ function queryArgument(args) {
 
 const commands = [...getCommands, ...findCommands, ...queryCommands]
 
-export {commands, configure}
+export {commands, configureFn as configure}
 
 /* eslint no-new-func:0, complexity:0 */
 /* globals Cypress, cy */

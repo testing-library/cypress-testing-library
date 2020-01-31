@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe('query* dom-testing-library commands', () => {
   beforeEach(() => {
     cy.visit('cypress/fixtures/test-app/')
