@@ -1,7 +1,7 @@
 import {commands} from './'
 
-commands.forEach(({name, command, options = {}}) => {
-  Cypress.Commands.add(name, options, command)
+commands.forEach(({name, command}) => {
+  Cypress.Commands.add(name, command)
 })
 
 /* global Cypress */
