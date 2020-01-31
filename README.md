@@ -112,7 +112,7 @@ To show some simple examples (from
 cy.queryByText('Button Text').should('exist')
 cy.queryByText('Non-existing Button Text').should('not.exist')
 cy.queryByLabelText('Label text', {timeout: 7000}).should('exist')
-cy.findAllByText('Jackie Chan').click({multiple: true})
+cy.findAllByText('Jackie Chan').eq(0).click();
 cy.get('form').within(() => {
   cy.findByText('Button Text').should('exist')
 })
