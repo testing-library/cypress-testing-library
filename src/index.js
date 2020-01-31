@@ -4,6 +4,7 @@ import {getContainer} from './utils'
 const getDefaultCommandOptions = () => {
   return {
     timeout: Cypress.config().defaultCommandTimeout,
+    fallbackToPreviousFunctionality: true,
     log: true,
   }
 }
@@ -37,27 +38,24 @@ const queryCommands = queryQueryNames.map(queryName => {
 })
 
 const findCommands = findQueryNames.map(queryName => {
-  // dom-testing-library find* queries use a promise to look for an element, but that doesn't work well with Cypress retryability
-  // Use the query* commands so that we can lean on Cypress to do the retry for us
-  // When it does return a null or empty array, Cypress will retry until the assertions are satisfied or the command times out
   return createCommand(queryName, queryName.replace(findRegex, 'get'))
 })
 
 function createCommand(queryName, implementationName) {
   return {
     name: queryName,
-    command: (...args) => {
+    options: {prevSubject: ['optional', 'document', 'element', 'window']},
+    command: (prevSubject, ...args) => {
       const lastArg = args[args.length - 1]
       const defaults = getDefaultCommandOptions()
       const options =
         typeof lastArg === 'object' ? {...defaults, ...lastArg} : defaults
 
       const queryImpl = queries[implementationName]
-      const baseCommandImpl = doc => {
-        const container = getContainer(options.container || doc)
-        return queryImpl(container, ...args)
+      const baseCommandImpl = container => {
+        return queryImpl(getContainer(container), ...args)
       }
-      const commandImpl = doc => baseCommandImpl(doc)
+      const commandImpl = container => baseCommandImpl(container)
 
       const inputArr = args.filter(filterInputs)
 
@@ -70,7 +68,7 @@ function createCommand(queryName, implementationName) {
         input: inputArr,
         Selector: getSelector(),
         'Applied To': getContainer(
-          options.container || win.document,
+          options.container || prevSubject || win.document,
         )
       }
 
@@ -82,8 +80,8 @@ function createCommand(queryName, implementationName) {
         })
       }
 
-      const getValue = () => {
-        const value = commandImpl(win.document)
+      const getValue = (container = options.container || prevSubject || win.document) => {
+        const value = commandImpl(container)
 
         const result = Cypress.$(value)
         if (value && options._log) {
@@ -115,20 +113,35 @@ function createCommand(queryName, implementationName) {
       }
 
       let error
+      let failedNewFunctionality = false
+      let failedOldFunctionality = false
       // Errors will be thrown by @testing-library/dom, but a query might be followed by `.should('not.exist')`
       // We just need to capture the error thrown by @testing-library/dom and return an empty jQuery NodeList
       // to allow Cypress assertions errors to happen naturally. If an assertion fails, we'll have a helpful
       // error message handy to pass on to the user
       const catchQueryError = err => {
         error = err
+        failedOldFunctionality = true
         const result = Cypress.$()
         result.selector = getSelector()
         return result
       }
 
+      // Before https://github.com/testing-library/cypress-testing-library/pull/100,
+      // queries were run without being scoped to previous subjects. There is code now that depends
+      // on functionality before #100. See if we can succeed using old functionality before finally failing
+      // This function can be removed as a breaking change
+      const catchAndTryOldFunctionality = err => {
+        error = err
+        failedNewFunctionality = true
+        const container = options.fallbackToPreviousFunctionality ? options.container || win.document : undefined
+        return getValue(container)
+      }
+
       const resolveValue = () => {
         // retry calling "getValue" until following assertions pass or this command times out
         return Cypress.Promise.try(getValue)
+          .catch(catchAndTryOldFunctionality)
           .catch(catchQueryError)
           .then(value => {
             return cy.verifyUpcomingAssertions(value, options, {
@@ -155,7 +168,11 @@ function createCommand(queryName, implementationName) {
         return subject
       }).finally(() => {
         if (options._log) {
-          options._log.end()
+          if (failedNewFunctionality && !failedOldFunctionality) {
+            options._log.error(Error(`@testing-library/cypress will soon only use previous subjects when queries are added to a chain of commands. We've detected an instance where the this functionality failed, but the old functionality passed. Please use cy.${queryName}(${queryArgument(args)}) instead of continuing from a previous chain.`))
+          } else {
+            options._log.end()
+          }
         }
       })
     },

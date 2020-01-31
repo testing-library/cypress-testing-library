@@ -110,15 +110,28 @@ describe('find* dom-testing-library commands', () => {
     )
   })
 
+  it('findByText with a previous subject', () => {
+    cy.get('#nested')
+      .findByText('Button Text 1', { fallbackToPreviousFunctionality: false })
+      .should('not.exist')
+    cy.get('#nested')
+      .findByText('Button Text 2')
+      .should('exist')
+  })
+
   it('findByText within', () => {
     cy.get('#nested').within(() => {
-      cy.findByText('Button Text 2').click()
+      cy.findByText('Button Text 1').should('not.exist')
+      cy.findByText('Button Text 2').should('exist')
     })
   })
 
   it('findByText in container', () => {
-    return cy.get('#nested').then(subject => {
-      cy.findByText(/^Button Text/, {container: subject}).click()
+    // NOTE: Cypress' `then` doesn't actually return a promise
+    // eslint-disable-next-line jest/valid-expect-in-promise
+    cy.get('#nested').then(subject => {
+      cy.findByText('Button Text 1', {container: subject}).should('not.exist')
+      cy.findByText('Button Text 2', {container: subject}).should('exist')
     })
   })
 
@@ -180,6 +193,12 @@ describe('find* dom-testing-library commands', () => {
     })
 
     cy.findByText(/^Button Text/i, {timeout: 100})
+  })
+
+  it('findByText should not break existing code', () => {
+    cy.window()
+      .findByText('Button Text 1')
+      .should('exist')
   })
 })
 
