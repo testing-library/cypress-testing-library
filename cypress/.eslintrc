@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "max-lines-per-function": "off",
+    "jest/valid-expect-in-promise": "off"
+  }
+}

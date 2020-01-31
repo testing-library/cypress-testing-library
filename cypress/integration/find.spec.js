@@ -1,5 +1,3 @@
-/* eslint-disable max-lines-per-function */
-
 describe('find* dom-testing-library commands', () => {
   beforeEach(() => {
     cy.visit('cypress/fixtures/test-app/')
@@ -164,7 +162,7 @@ describe('find* dom-testing-library commands', () => {
       expect(err.message).to.contain(errorMessage)
     })
 
-    cy.findByText(regex, {timeout: 100}) // Every find query is implicitly a `.should('exist')
+    cy.findByText(regex, {timeout: 100})
   })
 
   it('findByText should default to Cypress non-existence error message', () => {
@@ -183,7 +181,7 @@ describe('find* dom-testing-library commands', () => {
       expect(err.message).to.contain(errorMessage)
     })
 
-    cy.findByLabelText('Label 3', {timeout: 100}).should('exist')
+    cy.findByLabelText('Label 3', {timeout: 100})
   })
 
   it('findByText finding multiple items should error', () => {

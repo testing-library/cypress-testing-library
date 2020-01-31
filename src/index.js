@@ -1,14 +1,6 @@
 import {configure, queries} from '@testing-library/dom'
 import {getContainer} from './utils'
 
-const getDefaultCommandOptions = () => {
-  return {
-    timeout: Cypress.config().defaultCommandTimeout,
-    fallbackToPreviousFunctionality: true,
-    log: true,
-  }
-}
-
 const queryNames = Object.keys(queries)
 
 const getRegex = /^get/
@@ -47,7 +39,13 @@ function createCommand(queryName, implementationName) {
     options: {prevSubject: ['optional', 'document', 'element', 'window']},
     command: (prevSubject, ...args) => {
       const lastArg = args[args.length - 1]
-      const defaults = getDefaultCommandOptions()
+      const defaults = {
+        // make the timeout extremely short to ensure `query*` commands pass or fail instantly
+        timeout: queryRegex.test(queryName) ? 0 : Cypress.config().defaultCommandTimeout,
+        //
+        fallbackRetryWithoutPreviousSubject: true,
+        log: true,
+      }
       const options =
         typeof lastArg === 'object' ? {...defaults, ...lastArg} : defaults
 
@@ -100,7 +98,7 @@ function createCommand(queryName, implementationName) {
           consoleProps.yielded = result.toArray();
         }
 
-        if (result.length > 1 && !/all/i.test(queryName)) {
+        if (result.length > 1 && !/All/.test(queryName)) {
           // Is this useful?
           throw Error(`Found multiple elements with the text: ${queryArgument(args)}`)
         }
@@ -108,14 +106,12 @@ function createCommand(queryName, implementationName) {
         return result
       }
 
-      if (queryRegex.test(queryName)) {
-        // make the timeout extremely short to ensure `query*` commands pass or fail instantly
-        options.timeout = 0
-      }
-
-      let error
+      // This state tracking is not ideal, but it allows detection of compatibility mode for a warning message
       let failedNewFunctionality = false
       let failedOldFunctionality = false
+
+      let error
+
       // Errors will be thrown by @testing-library/dom, but a query might be followed by `.should('not.exist')`
       // We just need to capture the error thrown by @testing-library/dom and return an empty jQuery NodeList
       // to allow Cypress assertions errors to happen naturally. If an assertion fails, we'll have a helpful
@@ -135,7 +131,7 @@ function createCommand(queryName, implementationName) {
       const catchAndTryOldFunctionality = err => {
         error = err
         failedNewFunctionality = true
-        const container = options.fallbackToPreviousFunctionality ? options.container || win.document : undefined
+        const container = options.fallbackRetryWithoutPreviousSubject ? options.container || win.document : undefined
         return getValue(container)
       }
 
@@ -170,7 +166,7 @@ function createCommand(queryName, implementationName) {
       }).finally(() => {
         if (options._log) {
           if (failedNewFunctionality && !failedOldFunctionality) {
-            options._log.error(Error(`@testing-library/cypress will soon only use previous subjects when queries are added to a chain of commands. We've detected an instance where the this functionality failed, but the old functionality passed. Please use cy.${queryName}(${queryArgument(args)}) instead of continuing from a previous chain.`))
+            options._log.error(Error(`@testing-library/cypress will eventually only use previous subjects when queries are added to a chain of commands. We've detected an instance where the this functionality failed, but the old functionality passed (so your test may break in a future version). Please use cy.${queryName}(${queryArgument(args)}) instead of continuing from a previous chain.`))
           } else {
             options._log.end()
           }

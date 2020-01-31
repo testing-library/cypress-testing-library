@@ -1,5 +1,3 @@
-/* eslint-disable max-lines-per-function */
-
 describe('query* dom-testing-library commands', () => {
   beforeEach(() => {
     cy.visit('cypress/fixtures/test-app/')
