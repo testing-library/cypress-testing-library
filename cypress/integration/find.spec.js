@@ -200,6 +200,28 @@ describe('find* dom-testing-library commands', () => {
       .findByText('Button Text 1')
       .should('exist')
   })
+
+  it('findByText should show as a parent command if it starts a chain', () => {
+    const assertLog = (attrs, log) => {
+      if(log.get('name') === 'findByText') {
+        expect(log.get('type')).to.equal('parent')
+        cy.off('log:added', assertLog)
+      }
+    }
+    cy.on('log:added', assertLog)
+    cy.findByText('Button Text 1')
+  })
+
+  it('findByText should show as a child command if it continues a chain', () => {
+    const assertLog = (attrs, log) => {
+      if(log.get('name') === 'findByText') {
+        expect(log.get('type')).to.equal('child')
+        cy.off('log:added', assertLog)
+      }
+    }
+    cy.on('log:added', assertLog)
+    cy.get('body').findByText('Button Text 1')
+  })
 })
 
 /* global cy */

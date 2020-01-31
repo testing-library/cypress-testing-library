@@ -74,6 +74,7 @@ function createCommand(queryName, implementationName) {
 
       if (options.log) {
         options._log = Cypress.log({
+          type: prevSubject ? 'child' : 'parent',
           name: queryName,
           message: inputArr,
           consoleProps: () => consoleProps,
