@@ -144,12 +144,10 @@ built-in retryability using error messages from `get*` APIs to forward as error
 messages if a query fails. `query*` also uses `get*` APIs, but disables retryability.
 
 `findAll*` can select more than one element and is closer in functionality to how
-Cypress built-in commands work. is less useful in Cypress compared to `findAllBy*`. If you intend to limit
-to only 1 element, the following will work:
-
-```javascript
-cy.findAllByText('Some Text').should('have.length', 1)
-```
+Cypress built-in commands work. `findAll*` is preferred to `find*` queries.
+`find*` commands will fail if more than one element is found that matches the criteria
+which is not how built-in Cypress commands work, but is provided for closer compatibility
+to other Testing Libraries.
 
 Cypress handles actions when there is only one element found. For example, the following
 will work without having to limit to only 1 returned element. The `cy.click` will
@@ -157,6 +155,14 @@ automatically fail if more than 1 element is returned by the `findAllByText`:
 
 ```javascript
 cy.findAllByText('Some Text').click()
+```
+
+If you intend to enforce only 1 element is returned by a selector, the following
+examples will both fail if more than one element is found.
+
+```javascript
+cy.findAllByText('Some Text').should('have.length', 1)
+cy.findByText('Some Text').should('exist')
 ```
 
 ## Other Solutions
