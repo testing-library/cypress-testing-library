@@ -1,13 +1,12 @@
-import {configure, queries} from '@testing-library/dom'
+import {configure as configureDTL, queries} from '@testing-library/dom'
 import {getContainer} from './utils'
 
 let globalFallbackRetryWithoutPreviousSubject = true
-const configureFn = configDelta => {
-  if (configDelta.fallbackRetryWithoutPreviousSubject != null) {
-    globalFallbackRetryWithoutPreviousSubject = configDelta.fallbackRetryWithoutPreviousSubject
-    delete configDelta.fallbackRetryWithoutPreviousSubject
+function configure({fallbackRetryWithoutPreviousSubject, ...config}) {
+  if (fallbackRetryWithoutPreviousSubject != null) {
+    globalFallbackRetryWithoutPreviousSubject = fallbackRetryWithoutPreviousSubject
   }
-  configure(configDelta)
+  return configureDTL(config)
 }
 
 const queryNames = Object.keys(queries)
@@ -213,7 +212,7 @@ function queryArgument(args) {
 
 const commands = [...getCommands, ...findCommands, ...queryCommands]
 
-export {commands, configureFn as configure}
+export {commands, configure}
 
 /* eslint no-new-func:0, complexity:0 */
 /* globals Cypress, cy */
