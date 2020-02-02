@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe('query* dom-testing-library commands', () => {
   beforeEach(() => {
     cy.visit('cypress/fixtures/test-app/')
@@ -95,12 +96,30 @@ describe('query* dom-testing-library commands', () => {
     })
   })
 
+  it('queryByText should set the Cypress element to the found element', (done) => {
+    // This test is a little strange since snapshots show what element
+    // is selected, but snapshots themselves don't give access to those
+    // elements. I had to make the implementation specific so that the `$el`
+    // is the `subject` when the log is added and the `$el` is the `value`
+    // when the log is changed. It would be better to extract the `$el` from
+    // each snapshot
+
+    cy.on('log:changed', (attrs, log) => {
+      if (log.get('name') === 'queryByText') {
+        expect(log.get('$el')).to.have.text('Button Text 1')
+        done()
+      }
+    })
+
+    cy.queryByText('Button Text 1')
+  })
+
   it('query* will return immediately, and never retry', () => {
     cy.queryByText('Next Page').click()
 
-    const errorMessage = `expected 'queryByText(\`New Page Loaded\`)' to exist in the DOM`
+    const errorMessage = `Unable to find an element with the text: New Page Loaded.`
     cy.on('fail', err => {
-      expect(err.message).to.eq(errorMessage)
+      expect(err.message).to.contain(errorMessage)
     })
 
     cy.queryByText('New Page Loaded', { timeout: 300 }).should('exist')
@@ -129,23 +148,42 @@ describe('query* dom-testing-library commands', () => {
       .and('not.exist')
   })
 
-  it('queryAllByText with a should(\'exist\') must provide selector error message', () => {
+  it('queryAllByText should forward existence error message from @testing-library/dom', () => {
     const text = 'Supercalifragilistic'
-    const errorMessage = `expected 'queryAllByText(\`${text}\`)' to exist in the DOM`
+    const errorMessage = `Unable to find an element with the text: Supercalifragilistic.`
     cy.on('fail', err => {
-      expect(err.message).to.eq(errorMessage)
+      expect(err.message).to.contain(errorMessage)
     })
 
-    cy.queryAllByText(text, {timeout: 100}).should('exist') // NOT POSSIBLE WITH QUERYALL?
+    cy.queryAllByText(text, {timeout: 100}).should('exist')
+  })
+
+  it('queryByLabelText should forward useful error messages from @testing-library/dom', () => {
+    const errorMessage = `Found a label with the text of: Label 3, however no form control was found associated to that label.`
+    cy.on('fail', err => {
+      expect(err.message).to.contain(errorMessage)
+    })
+
+    cy.queryByLabelText('Label 3', {timeout: 100}).should('exist')
+  })
+
+  it('queryAllByText should default to Cypress non-existence error message', () => {
+    const errorMessage = `Expected <button> not to exist in the DOM, but it was continuously found.`
+    cy.on('fail', err => {
+      expect(err.message).to.contain(errorMessage)
+    })
+
+    cy.queryAllByText('Button Text 1', {timeout: 100})
+      .should('not.exist')
   })
 
   it('queryByText finding multiple items should error', () => {
-    const errorMessage = `Found multiple elements with the text: /^queryByText/i\n\n(If this is intentional, then use the \`*AllBy*\` variant of the query (like \`queryAllByText\`, \`getAllByText\`, or \`findAllByText\`)).`
+    const errorMessage = `Found multiple elements with the text: /^Button Text/i\n\n(If this is intentional, then use the \`*AllBy*\` variant of the query (like \`queryAllByText\`, \`getAllByText\`, or \`findAllByText\`)).`
     cy.on('fail', err => {
-      expect(err.message).to.eq(errorMessage)
+      expect(err.message).to.contain(errorMessage)
     })
 
-    cy.queryByText(/^queryByText/i)
+    cy.queryByText(/^Button Text/i)
   })
 })
 

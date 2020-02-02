@@ -15,7 +15,7 @@
     "test:cypress:run": "cypress run",
     "test:cypress:open": "cypress open",
     "test:cypress": "npm run test:cypress:run",
-    "test:cypress:dev": "test:cypress:open",
+    "test:cypress:dev": "npm run test:cypress:open",
     "validate": "kcd-scripts validate build,lint,test",
     "setup": "npm install && npm run validate -s"
   },

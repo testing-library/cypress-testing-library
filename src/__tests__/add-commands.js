@@ -7,10 +7,11 @@ test('adds commands to Cypress', () => {
 
   require('../add-commands')
 
-  expect(addMock).toHaveBeenCalledTimes(commands.length)
+  expect(addMock).toHaveBeenCalledTimes(commands.length + 1) // we're also adding a configuration command
   commands.forEach(({name}, index) => {
     expect(addMock.mock.calls[index]).toMatchObject([
       name,
+      {},
       // We get a new function that is `command.bind(null, cy)` i.e. global `cy` passed into the first argument.
       // The commands themselves will be tested separately in the Cypress end-to-end tests.
       expect.any(Function),
