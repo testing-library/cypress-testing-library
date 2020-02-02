@@ -15,6 +15,13 @@
     section {
       padding: 10px;
     }
+    input:valid + span {
+      display: none;
+    }
+    input:invalid + span {
+      display: block;
+      color: red;
+    }
   </style>
 </head>
 <body>
@@ -109,6 +116,13 @@
         document.querySelector('#eventually-will-not-exist').remove()
       }, 500)
     </script>
+  </section>
+  <section>
+    <h2>Chain selectors</h2>
+    <form onsubmit="return false" action="#">
+      <label>Required: <input type="text" required /><span>Error message</span></label>
+      <button type="submit">Submit</button>
+    </form>
   </section>
 <!-- Prettier unindents the script tag below -->
 <script>
