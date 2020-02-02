@@ -106,7 +106,8 @@ and `queryAllBy` commands.
 
 You can find [all Library definitions here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress/index.d.ts).
 
-To configure DOM Testing Library, use the following:
+To configure DOM Testing Library, use the following custom command:
+
 ```javascript
 cy.configureCypressTestingLibrary(config)
 ```
