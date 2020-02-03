@@ -215,6 +215,9 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://github.com/NicholasBoll"><img src="https://avatars2.githubusercontent.com/u/338257?v=4" width="100px;" alt=""/><br /><sub><b>Nicholas Boll</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=NicholasBoll" title="Code">💻</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=NicholasBoll" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/FlopieUtd"><img src="https://avatars3.githubusercontent.com/u/23555863?v=4" width="100px;" alt=""/><br /><sub><b>FlopieUtd</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=FlopieUtd" title="Documentation">📖</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/leosuncin"><img src="https://avatars1.githubusercontent.com/u/4307697?v=4" width="100px;" alt=""/><br /><sub><b>Jaime Leonardo Suncin Cruz</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/issues?q=author%3Aleosuncin" title="Bug reports">🐛</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=leosuncin" title="Code">💻</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=leosuncin" title="Tests">⚠️</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
