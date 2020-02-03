@@ -88,18 +88,15 @@ describe('find* dom-testing-library commands', () => {
   /* Test the behaviour around these queries */
 
   it('findByText should handle non-existence', () => {
-    cy.findByText('Does Not Exist')
-      .should('not.exist')
+    cy.findByText('Does Not Exist').should('not.exist')
   })
 
   it('findByText should handle eventual existence', () => {
-    cy.findByText('Eventually Exists')
-      .should('exist')
+    cy.findByText('Eventually Exists').should('exist')
   })
 
   it('findByText should handle eventual non-existence', () => {
-    cy.findByText('Eventually Not exists')
-      .should('not.exist')
+    cy.findByText('Eventually Not exists').should('not.exist')
   })
 
   it("findByText with should('not.exist')", () => {
@@ -111,7 +108,7 @@ describe('find* dom-testing-library commands', () => {
 
   it('findByText with a previous subject', () => {
     cy.get('#nested')
-      .findByText('Button Text 1', { fallbackRetryWithoutPreviousSubject: false })
+      .findByText('Button Text 1', {fallbackRetryWithoutPreviousSubject: false})
       .should('not.exist')
     cy.get('#nested')
       .findByText('Button Text 2')
@@ -170,8 +167,7 @@ describe('find* dom-testing-library commands', () => {
       expect(err.message).to.contain(errorMessage)
     })
 
-    cy.findByText('Button Text 1', {timeout: 100})
-      .should('not.exist')
+    cy.findByText('Button Text 1', {timeout: 100}).should('not.exist')
   })
 
   it('findByLabelText should forward useful error messages from @testing-library/dom', () => {
@@ -196,11 +192,14 @@ describe('find* dom-testing-library commands', () => {
     cy.window()
       .findByText('Button Text 1')
       .should('exist')
+    cy.location()
+      .findByText('Button Text 1')
+      .should('exist')
   })
 
   it('findByText should show as a parent command if it starts a chain', () => {
     const assertLog = (attrs, log) => {
-      if(log.get('name') === 'findByText') {
+      if (log.get('name') === 'findByText') {
         expect(log.get('type')).to.equal('parent')
         cy.off('log:added', assertLog)
       }
@@ -211,13 +210,24 @@ describe('find* dom-testing-library commands', () => {
 
   it('findByText should show as a child command if it continues a chain', () => {
     const assertLog = (attrs, log) => {
-      if(log.get('name') === 'findByText') {
+      if (log.get('name') === 'findByText') {
         expect(log.get('type')).to.equal('child')
         cy.off('log:added', assertLog)
       }
     }
     cy.on('log:added', assertLog)
     cy.get('body').findByText('Button Text 1')
+  })
+
+  it('should chain findBy* with subject different of document, element or window', () => {
+    cy.wrap(true)
+      .should('be.true')
+      .findByText('Error message')
+      .findByLabelText(/Required/i)
+      .type('something')
+      .findByText('Submit')
+      .queryByText('Error message')
+      .should('not.be.visible')
   })
 })
 

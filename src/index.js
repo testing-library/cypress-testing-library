@@ -44,7 +44,7 @@ const findCommands = findQueryNames.map(queryName => {
 function createCommand(queryName, implementationName) {
   return {
     name: queryName,
-    options: {prevSubject: ['optional', 'document', 'element', 'window']},
+    options: {prevSubject: ['optional']},
     command: (prevSubject, ...args) => {
       const lastArg = args[args.length - 1]
       const defaults = {
