@@ -291,6 +291,15 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "travi",
+      "name": "Matt Travi",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/126441?v=4",
+      "profile": "https://matt.travi.org",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github",
