@@ -42,12 +42,12 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "@testing-library/dom": "^6.12.2",
-    "@types/testing-library__cypress": "^5.0.2"
+    "@testing-library/dom": "^6.15.0",
+    "@types/testing-library__cypress": "^5.0.3"
   },
   "devDependencies": {
     "cypress": "^4.0.0",
-    "kcd-scripts": "^5.0.0",
+    "kcd-scripts": "^5.4.0",
     "npm-run-all": "^4.1.5"
   },
   "peerDependencies": {
