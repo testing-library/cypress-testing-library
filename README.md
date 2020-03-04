@@ -218,6 +218,7 @@ Thanks goes to these people ([emoji key][emojis]):
   <tr>
     <td align="center"><a href="https://github.com/leosuncin"><img src="https://avatars1.githubusercontent.com/u/4307697?v=4" width="100px;" alt=""/><br /><sub><b>Jaime Leonardo Suncin Cruz</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/issues?q=author%3Aleosuncin" title="Bug reports">🐛</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=leosuncin" title="Code">💻</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=leosuncin" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://matt.travi.org"><img src="https://avatars1.githubusercontent.com/u/126441?v=4" width="100px;" alt=""/><br /><sub><b>Matt Travi</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=travi" title="Code">💻</a></td>
+    <td align="center"><a href="https://michaeldeboey.be"><img src="https://avatars3.githubusercontent.com/u/6643991?v=4" width="100px;" alt=""/><br /><sub><b>Michaël De Boey</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=MichaelDeBoey" title="Code">💻</a></td>
   </tr>
 </table>
 
