@@ -166,6 +166,17 @@ cy.findAllByText('Some Text').should('have.length', 1)
 cy.findByText('Some Text').should('exist')
 ```
 
+## Config testIdAttribute
+
+If you would like to change the default testId from `data-testId` to `data-test-id`, add to your project's `cypress/support/index.js`:
+
+```javascript
+import {configure} from '@testing-library/cypress'
+configure({testIdAttribute: 'data-test-id'})
+```
+
+It accepts all configurations listed in [DOM testing library](https://testing-library.com/docs/dom-testing-library/api-configuration).
+
 ## Other Solutions
 
 I'm not aware of any, if you are please [make a pull request][prs] and add it
