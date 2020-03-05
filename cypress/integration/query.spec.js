@@ -85,6 +85,18 @@ describe('query* dom-testing-library commands', () => {
 
   /* Test the behaviour around these queries */
 
+  it('should handle previous ways of querying non-existence', () => {
+    cy.queryByText('Eventually not exists').then($el => {
+      cy.wrap($el).should('not.exist')
+    })
+  })
+
+  it('should handle previous ways of querying eventual non-existence', () => {
+    cy.queryByText(`Currently does not exist`).then($el => {
+      cy.wrap($el).should('not.exist')
+    })
+  })
+
   it('queryByText with .should(\'not.exist\')', () => {
     cy.queryAllByText(/^Button Text \d$/).should('exist')
     cy.queryByText('Non-existing Button Text', {timeout: 100}).should('not.exist')
@@ -117,7 +129,7 @@ describe('query* dom-testing-library commands', () => {
   it('query* will return immediately, and never retry', () => {
     cy.queryByText('Next Page').click()
 
-    const errorMessage = `Unable to find an element with the text: New Page Loaded.`
+    const errorMessage = "'queryByText(`New Page Loaded`)' to exist in the DOM"
     cy.on('fail', err => {
       expect(err.message).to.contain(errorMessage)
     })
@@ -150,7 +162,7 @@ describe('query* dom-testing-library commands', () => {
 
   it('queryAllByText should forward existence error message from @testing-library/dom', () => {
     const text = 'Supercalifragilistic'
-    const errorMessage = `Unable to find an element with the text: Supercalifragilistic.`
+    const errorMessage = "'queryAllByText(`Supercalifragilistic`)' to exist in the DOM"
     cy.on('fail', err => {
       expect(err.message).to.contain(errorMessage)
     })
@@ -159,7 +171,7 @@ describe('query* dom-testing-library commands', () => {
   })
 
   it('queryByLabelText should forward useful error messages from @testing-library/dom', () => {
-    const errorMessage = `Found a label with the text of: Label 3, however no form control was found associated to that label.`
+    const errorMessage = "'queryByLabelText(`Label 3`)' to exist in the DOM"
     cy.on('fail', err => {
       expect(err.message).to.contain(errorMessage)
     })
@@ -168,7 +180,7 @@ describe('query* dom-testing-library commands', () => {
   })
 
   it('queryAllByText should default to Cypress non-existence error message', () => {
-    const errorMessage = `Expected <button> not to exist in the DOM, but it was continuously found.`
+    const errorMessage = `expected '<button>' not to exist in the DOM`
     cy.on('fail', err => {
       expect(err.message).to.contain(errorMessage)
     })

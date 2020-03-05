@@ -34,7 +34,7 @@ const getCommands = getQueryNames.map(queryName => {
 })
 
 const queryCommands = queryQueryNames.map(queryName => {
-  return createCommand(queryName, queryName.replace(queryRegex, 'get'))
+  return createCommand(queryName, queryName)
 })
 
 const findCommands = findQueryNames.map(queryName => {
@@ -160,6 +160,13 @@ function createCommand(queryName, implementationName) {
               }
             })
         })
+      }
+
+      if (queryRegex.test(queryName)) {
+        const value = getValue()
+        options._log.snapshot().error(Error(`@testing-library/cypress is deprecating all 'query*' commands. 'find*' queries support non-existence starting with version 5 (E.g. cy.findByText('Does Not Exist').should('not.exist')). Please use cy.${queryName.replace(queryRegex, 'find')}(${queryArgument(args)}) instead.`))
+
+        return value
       }
 
       return resolveValue().then(subject => {
