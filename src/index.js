@@ -34,7 +34,7 @@ const getCommands = getQueryNames.map(queryName => {
 })
 
 const queryCommands = queryQueryNames.map(queryName => {
-  return createCommand(queryName, queryName)
+  return createCommand(queryName, queryName.replace(queryRegex, 'get'))
 })
 
 const findCommands = findQueryNames.map(queryName => {
@@ -162,13 +162,6 @@ function createCommand(queryName, implementationName) {
         })
       }
 
-      if (queryRegex.test(queryName)) {
-        const value = getValue()
-        options._log.snapshot().error(Error(`@testing-library/cypress is deprecating all 'query*' commands. 'find*' queries support non-existence starting with version 5 (E.g. cy.findByText('Does Not Exist').should('not.exist')). Please use cy.${queryName.replace(queryRegex, 'find')}(${queryArgument(args)}) instead.`))
-
-        return value
-      }
-
       return resolveValue().then(subject => {
         // Remove the error that occurred because it is irrelevant now
         if (consoleProps.error) {
@@ -181,7 +174,9 @@ function createCommand(queryName, implementationName) {
         return subject
       }).finally(() => {
         if (options._log) {
-          if (failedNewFunctionality && !failedOldFunctionality) {
+          if (queryRegex.test(queryName)) {
+            options._log.error(Error(`@testing-library/cypress is deprecating all 'query*' commands. 'find*' queries support non-existence starting with version 5 (E.g. cy.findByText('Does Not Exist').should('not.exist')). Please use cy.${queryName.replace(queryRegex, 'find')}(${queryArgument(args)}) instead.`))
+          } else if (failedNewFunctionality && !failedOldFunctionality) {
             options._log.error(Error(`@testing-library/cypress will eventually only use previous subjects when queries are added to a chain of commands. We've detected an instance where the this functionality failed, but the old functionality passed (so your test may break in a future version). Please use cy.${queryName}(${queryArgument(args)}) instead of continuing from a previous chain.`))
           } else {
             options._log.end()

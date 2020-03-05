@@ -85,16 +85,18 @@ describe('query* dom-testing-library commands', () => {
 
   /* Test the behaviour around these queries */
 
-  it('should handle previous ways of querying non-existence', () => {
-    cy.queryByText('Eventually not exists').then($el => {
-      cy.wrap($el).should('not.exist')
+  it('queryByText should show a deprecation warning', () => {
+    let addedLog
+    cy.on('log:added', (_, log) => {
+      addedLog = log
     })
-  })
-
-  it('should handle previous ways of querying eventual non-existence', () => {
-    cy.queryByText(`Currently does not exist`).then($el => {
-      cy.wrap($el).should('not.exist')
-    })
+    cy.queryByText('Button Text 1')
+      .then(() => {
+        const attrs = addedLog.toJSON()
+        expect(attrs).to.have.property('state', 'failed')
+        expect(attrs).to.have.deep.property('err.message')
+        expect(attrs.err.message).to.contain(`@testing-library/cypress is deprecating all 'query*' commands.`)
+      })
   })
 
   it('queryByText with .should(\'not.exist\')', () => {
@@ -129,7 +131,7 @@ describe('query* dom-testing-library commands', () => {
   it('query* will return immediately, and never retry', () => {
     cy.queryByText('Next Page').click()
 
-    const errorMessage = "'queryByText(`New Page Loaded`)' to exist in the DOM"
+    const errorMessage = `Unable to find an element with the text: New Page Loaded.`
     cy.on('fail', err => {
       expect(err.message).to.contain(errorMessage)
     })
@@ -162,7 +164,7 @@ describe('query* dom-testing-library commands', () => {
 
   it('queryAllByText should forward existence error message from @testing-library/dom', () => {
     const text = 'Supercalifragilistic'
-    const errorMessage = "'queryAllByText(`Supercalifragilistic`)' to exist in the DOM"
+    const errorMessage = `Unable to find an element with the text: Supercalifragilistic.`
     cy.on('fail', err => {
       expect(err.message).to.contain(errorMessage)
     })
@@ -171,7 +173,7 @@ describe('query* dom-testing-library commands', () => {
   })
 
   it('queryByLabelText should forward useful error messages from @testing-library/dom', () => {
-    const errorMessage = "'queryByLabelText(`Label 3`)' to exist in the DOM"
+    const errorMessage = `Found a label with the text of: Label 3, however no form control was found associated to that label.`
     cy.on('fail', err => {
       expect(err.message).to.contain(errorMessage)
     })
@@ -180,7 +182,7 @@ describe('query* dom-testing-library commands', () => {
   })
 
   it('queryAllByText should default to Cypress non-existence error message', () => {
-    const errorMessage = `expected '<button>' not to exist in the DOM`
+    const errorMessage = `Expected <button> not to exist in the DOM, but it was continuously found.`
     cy.on('fail', err => {
       expect(err.message).to.contain(errorMessage)
     })
