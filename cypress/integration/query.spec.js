@@ -87,11 +87,16 @@ describe('query* dom-testing-library commands', () => {
 
   it('queryByText should show a deprecation warning', () => {
     let addedLog
-    cy.on('log:added', (_, log) => {
+    function addLog (_, log) {
       addedLog = log
-    })
+      cy.off('log:added', addLog)
+    }
+    cy.on('log:added', addLog)
+
     cy.queryByText('Button Text 1')
-      .then(() => {
+      // query* doesn't retry more than once, but our log could be updated later depending on timing.
+      // the `cy.wrap` adds a retryable step in to deal with possible timing issues of the assertions.
+      cy.wrap(null).should(() => {
         const attrs = addedLog.toJSON()
         expect(attrs).to.have.property('state', 'failed')
         expect(attrs).to.have.deep.property('err.message')
