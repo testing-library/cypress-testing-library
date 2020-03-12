@@ -85,6 +85,25 @@ describe('query* dom-testing-library commands', () => {
 
   /* Test the behaviour around these queries */
 
+  it('queryByText should show a deprecation warning', () => {
+    let addedLog
+    function addLog (_, log) {
+      addedLog = log
+      cy.off('log:added', addLog)
+    }
+    cy.on('log:added', addLog)
+
+    cy.queryByText('Button Text 1')
+      // query* doesn't retry more than once, but our log could be updated later depending on timing.
+      // the `cy.wrap` adds a retryable step in to deal with possible timing issues of the assertions.
+      cy.wrap(null).should(() => {
+        const attrs = addedLog.toJSON()
+        expect(attrs).to.have.property('state', 'failed')
+        expect(attrs).to.have.nested.property('err.message')
+        expect(attrs.err.message).to.contain(`@testing-library/cypress is deprecating all 'query*' commands.`)
+      })
+  })
+
   it('queryByText with .should(\'not.exist\')', () => {
     cy.queryAllByText(/^Button Text \d$/).should('exist')
     cy.queryByText('Non-existing Button Text', {timeout: 100}).should('not.exist')
