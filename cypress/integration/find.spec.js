@@ -108,7 +108,7 @@ describe('find* dom-testing-library commands', () => {
 
   it('findByText with a previous subject', () => {
     cy.get('#nested')
-      .findByText('Button Text 1', {fallbackRetryWithoutPreviousSubject: false})
+      .findByText('Button Text 1')
       .should('not.exist')
     cy.get('#nested')
       .findByText('Button Text 2')
@@ -188,15 +188,6 @@ describe('find* dom-testing-library commands', () => {
     cy.findByText(/^Button Text/i, {timeout: 100})
   })
 
-  it('findByText should not break existing code', () => {
-    cy.window()
-      .findByText('Button Text 1')
-      .should('exist')
-    cy.location()
-      .findByText('Button Text 1')
-      .should('exist')
-  })
-
   it('findByText should show as a parent command if it starts a chain', () => {
     const assertLog = (attrs, log) => {
       if (log.get('name') === 'findByText') {
@@ -217,17 +208,6 @@ describe('find* dom-testing-library commands', () => {
     }
     cy.on('log:added', assertLog)
     cy.get('body').findByText('Button Text 1')
-  })
-
-  it('should chain findBy* with subject different of document, element or window', () => {
-    cy.wrap(true)
-      .should('be.true')
-      .findByText('Error message')
-      .findByLabelText(/Required/i)
-      .type('something')
-      .findByText('Submit')
-      .queryByText('Error message')
-      .should('not.be.visible')
   })
 })
 

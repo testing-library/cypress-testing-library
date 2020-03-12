@@ -1,40 +1,30 @@
 import {configure as configureDTL, queries} from '@testing-library/dom'
 import {getContainer} from './utils'
 
-let globalFallbackRetryWithoutPreviousSubject = true
 function configure({fallbackRetryWithoutPreviousSubject, ...config}) {
-  if (fallbackRetryWithoutPreviousSubject != null) {
-    globalFallbackRetryWithoutPreviousSubject = fallbackRetryWithoutPreviousSubject
-  }
   return configureDTL(config)
 }
 
 const queryNames = Object.keys(queries)
 
-const getRegex = /^get/
-const queryRegex = /^query/
+const deprecatedRegex = /^(get|query)/
 const findRegex = /^find/
 
-const getQueryNames = queryNames.filter(q => getRegex.test(q))
-const queryQueryNames = queryNames.filter(q => queryRegex.test(q))
+const deprecatedQueryNames = queryNames.filter(q => deprecatedRegex.test(q))
 const findQueryNames = queryNames.filter(q => findRegex.test(q))
 
-const getCommands = getQueryNames.map(queryName => {
+const deprecatedCommands = deprecatedQueryNames.map(queryName => {
   return {
     name: queryName,
     command: () => {
       throw new Error(
         `You used '${queryName}' which has been removed from Cypress Testing Library because it does not make sense in this context. Please use '${queryName.replace(
-          getRegex,
+          deprecatedRegex,
           'find',
         )}' instead.`,
       )
     },
   }
-})
-
-const queryCommands = queryQueryNames.map(queryName => {
-  return createCommand(queryName, queryName.replace(queryRegex, 'get'))
 })
 
 const findCommands = findQueryNames.map(queryName => {
@@ -48,11 +38,7 @@ function createCommand(queryName, implementationName) {
     command: (prevSubject, ...args) => {
       const lastArg = args[args.length - 1]
       const defaults = {
-        // make the timeout extremely short to ensure `query*` commands pass or fail instantly
-        timeout: queryRegex.test(queryName) ? 0 : Cypress.config().defaultCommandTimeout,
-        // setting this to false will disable the fallback to querying without a previous subject
-        // This is to prevent breaking changes, but also allow for prevSubject scoping
-        fallbackRetryWithoutPreviousSubject: globalFallbackRetryWithoutPreviousSubject,
+        timeout: Cypress.config().defaultCommandTimeout,
         log: true,
       }
       const options =
@@ -76,7 +62,7 @@ function createCommand(queryName, implementationName) {
         Selector: getSelector(),
         'Applied To': getContainer(
           options.container || prevSubject || win.document,
-        )
+        ),
       }
 
       if (options.log) {
@@ -88,7 +74,9 @@ function createCommand(queryName, implementationName) {
         })
       }
 
-      const getValue = (container = options.container || prevSubject || win.document) => {
+      const getValue = (
+        container = options.container || prevSubject || win.document,
+      ) => {
         const value = commandImpl(container)
 
         const result = Cypress.$(value)
@@ -109,15 +97,13 @@ function createCommand(queryName, implementationName) {
 
         if (result.length > 1 && !/All/.test(queryName)) {
           // Is this useful?
-          throw Error(`Found multiple elements with the text: ${queryArgument(args)}`)
+          throw Error(
+            `Found multiple elements with the text: ${queryArgument(args)}`,
+          )
         }
 
         return result
       }
-
-      // This state tracking is not ideal, but it allows detection of compatibility mode for a warning message
-      let failedNewFunctionality = false
-      let failedOldFunctionality = false
 
       let error
 
@@ -127,27 +113,14 @@ function createCommand(queryName, implementationName) {
       // error message handy to pass on to the user
       const catchQueryError = err => {
         error = err
-        failedOldFunctionality = true
         const result = Cypress.$()
         result.selector = getSelector()
         return result
       }
 
-      // Before https://github.com/testing-library/cypress-testing-library/pull/100,
-      // queries were run without being scoped to previous subjects. There is code now that depends
-      // on functionality before #100. See if we can succeed using old functionality before finally failing
-      // This function can be removed as a breaking change
-      const catchAndTryOldFunctionality = err => {
-        error = err
-        failedNewFunctionality = true
-        const container = options.fallbackRetryWithoutPreviousSubject ? options.container || win.document : undefined
-        return getValue(container)
-      }
-
       const resolveValue = () => {
         // retry calling "getValue" until following assertions pass or this command times out
         return Cypress.Promise.try(getValue)
-          .catch(catchAndTryOldFunctionality)
           .catch(catchQueryError)
           .then(value => {
             return cy.verifyUpcomingAssertions(value, options, {
@@ -157,32 +130,28 @@ function createCommand(queryName, implementationName) {
                 if (error) {
                   options.error = error
                 }
-              }
+              },
             })
-        })
+          })
       }
 
-      return resolveValue().then(subject => {
-        // Remove the error that occurred because it is irrelevant now
-        if (consoleProps.error) {
-          delete consoleProps.error
-        }
-        if (options._log) {
-          options._log.snapshot()
-        }
+      return resolveValue()
+        .then(subject => {
+          // Remove the error that occurred because it is irrelevant now
+          if (consoleProps.error) {
+            delete consoleProps.error
+          }
+          if (options._log) {
+            options._log.snapshot()
+          }
 
-        return subject
-      }).finally(() => {
-        if (options._log) {
-          if (queryRegex.test(queryName)) {
-            options._log.error(Error(`@testing-library/cypress is deprecating all 'query*' commands. 'find*' queries support non-existence starting with version 5 (E.g. cy.findByText('Does Not Exist').should('not.exist')). Please use cy.${queryName.replace(queryRegex, 'find')}(${queryArgument(args)}) instead.`))
-          } else if (failedNewFunctionality && !failedOldFunctionality) {
-            options._log.error(Error(`@testing-library/cypress will eventually only use previous subjects when queries are added to a chain of commands. We've detected an instance where the this functionality failed, but the old functionality passed (so your test may break in a future version). Please use cy.${queryName}(${queryArgument(args)}) instead of continuing from a previous chain.`))
-          } else {
+          return subject
+        })
+        .finally(() => {
+          if (options._log) {
             options._log.end()
           }
-        }
-      })
+        })
     },
   }
 }
@@ -212,7 +181,7 @@ function queryArgument(args) {
   return input
 }
 
-const commands = [...getCommands, ...findCommands, ...queryCommands]
+const commands = [...findCommands, ...deprecatedCommands]
 
 export {commands, configure}
 
