@@ -57,7 +57,6 @@ This allows you to use all the useful
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Installation](#installation)
   - [With TypeScript](#with-typescript)
 - [Usage](#usage)
@@ -79,7 +78,8 @@ npm install --save-dev @testing-library/cypress
 
 ### With TypeScript
 
-Typings are defined in `@types/testing-library__cypress` at [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress),
+Typings are defined in `@types/testing-library__cypress` at
+[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress),
 and should be added as follows in `tsconfig.json`:
 
 ```json
@@ -100,11 +100,12 @@ Add this line to your project's `cypress/support/commands.js`:
 import '@testing-library/cypress/add-commands'
 ```
 
-You can now use all of `DOM Testing Library`'s `findBy`, `findAllBy`, `queryBy`
-and `queryAllBy` commands.
+You can now use all of `DOM Testing Library`'s `findBy` and `findAllBy`
+commands.
 [See the `DOM Testing Library` docs for reference](https://testing-library.com)
 
-You can find [all Library definitions here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress/index.d.ts).
+You can find
+[all Library definitions here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress/index.d.ts).
 
 To configure DOM Testing Library, use the following custom command:
 
@@ -113,46 +114,43 @@ cy.configureCypressTestingLibrary(config)
 ```
 
 To show some simple examples (from
-[cypress/integration/query.spec.js](cypress/integration/query.spec.js) or [cypress/integration/find.spec.js](cypress/integration/find.spec.js)):
+[cypress/integration/find.spec.js](cypress/integration/find.spec.js)):
 
 ```javascript
-cy.queryAllByText('Button Text').should('exist')
-cy.queryAllByText('Non-existing Button Text').should('not.exist')
-cy.queryAllByLabelText('Label text', {timeout: 7000}).should('exist')
-cy.findAllByText('Jackie Chan').click();
+cy.findAllByText('Button Text').should('exist')
+cy.findAllByText('Non-existing Button Text').should('not.exist')
+cy.findAllByLabelText('Label text', {timeout: 7000}).should('exist')
+cy.findAllByText('Jackie Chan').click()
 
 // findAllByText _inside_ a form element
-cy.get('form').within(() => {
-  cy.findAllByText('Button Text').should('exist')
-})
-cy.get('form').then(subject => {
-  cy.findAllByText('Button Text', {container: subject}).should('exist')
-})
-cy.get('form').findAllByText('Button Text').should('exist')
+cy.get('form')
+  .findAllByText('Button Text')
+  .should('exist')
 ```
 
 ### Differences from DOM Testing Library
 
 `Cypress Testing Library` supports both jQuery elements and DOM nodes. This is
 necessary because Cypress uses jQuery elements, while `DOM Testing Library`
-expects DOM nodes. When you pass a jQuery element as `container`, it will get
-the first DOM node from the collection and use that as the `container` parameter
-for the `DOM Testing Library` functions.
+expects DOM nodes. When you chain a query, it will get the first DOM node from
+`subject` of the collection and use that as the `container` parameter for the
+`DOM Testing Library` functions.
 
-`get*` queries are disabled. `find*` queries do not use the Promise API of
-`DOM Testing Library`, but instead forward to the `get*` queries and use Cypress'
-built-in retryability using error messages from `get*` APIs to forward as error
-messages if a query fails. `query*` also uses `get*` APIs, but disables retryability.
+`get*` and `query*` queries are disabled. `find*` queries do not use the Promise
+API of `DOM Testing Library`, but instead forward to the `get*` queries and use
+Cypress' built-in retryability using error messages from `get*` APIs to forward
+as error messages if a query fails.
 
-`findAll*` can select more than one element and is closer in functionality to how
-Cypress built-in commands work. `findAll*` is preferred to `find*` queries.
-`find*` commands will fail if more than one element is found that matches the criteria
-which is not how built-in Cypress commands work, but is provided for closer compatibility
-to other Testing Libraries.
+`findAll*` can select more than one element and is closer in functionality to
+how Cypress built-in commands work. `find*` commands will fail if more than one
+element is found that matches the criteria which is not how built-in Cypress
+commands work, but is provided for closer compatibility to other Testing
+Libraries.
 
-Cypress handles actions when there is only one element found. For example, the following
-will work without having to limit to only 1 returned element. The `cy.click` will
-automatically fail if more than 1 element is returned by the `findAllByText`:
+Cypress handles actions when there is only one element found. For example, the
+following will work without having to limit to only 1 returned element. The
+`cy.click` will automatically fail if more than 1 element is returned by the
+`findAllByText`:
 
 ```javascript
 cy.findAllByText('Some Text').click()
@@ -223,6 +221,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
