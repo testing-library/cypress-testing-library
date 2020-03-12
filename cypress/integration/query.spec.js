@@ -99,7 +99,7 @@ describe('query* dom-testing-library commands', () => {
       cy.wrap(null).should(() => {
         const attrs = addedLog.toJSON()
         expect(attrs).to.have.property('state', 'failed')
-        expect(attrs).to.have.deep.property('err.message')
+        expect(attrs).to.have.nested.property('err.message')
         expect(attrs.err.message).to.contain(`@testing-library/cypress is deprecating all 'query*' commands.`)
       })
   })
