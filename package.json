@@ -4,7 +4,8 @@
   "description": "Simple and complete custom Cypress commands and utilities that encourage good testing practices.",
   "main": "dist/index.js",
   "engines": {
-    "node": ">=10"
+    "node": ">=10",
+    "npm": ">=6"
   },
   "scripts": {
     "build": "kcd-scripts build",
@@ -12,17 +13,12 @@
     "setup": "npm install && npm run validate -s",
     "test": "npm-run-all --parallel test:unit test:cypress",
     "test:cypress": "npm run test:cypress:run",
+    "test:cypress:dev": "npm run test:cypress:open",
     "test:cypress:open": "cypress open",
     "test:cypress:run": "cypress run",
     "test:unit": "kcd-scripts test --no-watch",
     "test:unit:watch": "kcd-scripts test",
-    "test:cypress:dev": "npm run test:cypress:open",
     "validate": "kcd-scripts validate build,lint,test"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "kcd-scripts pre-commit"
-    }
   },
   "files": [
     "dist",
@@ -41,13 +37,13 @@
   "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com)",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.8.7",
-    "@testing-library/dom": "^7.0.2",
+    "@babel/runtime": "^7.9.2",
+    "@testing-library/dom": "^7.1.0",
     "@types/testing-library__cypress": "^5.0.3"
   },
   "devDependencies": {
-    "cypress": "^4.0.0",
-    "kcd-scripts": "^5.4.0",
+    "cypress": "^4.2.0",
+    "kcd-scripts": "^5.5.0",
     "npm-run-all": "^4.1.5"
   },
   "peerDependencies": {
