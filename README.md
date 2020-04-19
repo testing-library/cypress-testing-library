@@ -90,6 +90,16 @@ and should be added as follows in `tsconfig.json`:
 }
 ```
 
+### Intellisense for JavaScript with VS Code
+
+If you're not using TypeScript, you use VS Code, and want to have code-completion with the methods from this library, simply add the following line to your project's root-level `jsconfig.json` file:
+
+```json
+{
+  "include": ["node_modules/cypress", "./cypress/**/*.js"]
+}
+```
+
 ## Usage
 
 `Cypress Testing Library` extends Cypress' `cy` command.
