@@ -15,6 +15,7 @@ notifications:
 node_js:
   - 10.18
   - 12
+  - 14
   - node
 install: npm install
 script:
@@ -28,6 +29,6 @@ branches:
 jobs:
   include:
     - stage: release
-      node_js: 12
+      node_js: 14
       script: kcd-scripts travis-release
       if: fork = false
