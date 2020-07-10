@@ -1,0 +1,7 @@
+{
+  "extends": "./node_modules/kcd-scripts/eslint.js",
+  "rules": {
+    "max-lines-per-function": "off",
+    "testing-library/no-dom-import": "off" // We're not using React Testing Library here. We're wrapping DOM Testing Library directly
+  }
+}
