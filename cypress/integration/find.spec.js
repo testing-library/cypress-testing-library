@@ -7,9 +7,7 @@ describe('find* dom-testing-library commands', () => {
   // Test each of the types of queries: LabelText, PlaceholderText, Text, DisplayValue, AltText, Title, Role, TestId
 
   it('findByLabelText', () => {
-    cy.findByLabelText('Label 1')
-      .click()
-      .type('Hello Input Labelled By Id')
+    cy.findByLabelText('Label 1').click().type('Hello Input Labelled By Id')
   })
 
   it('findAllByLabelText', () => {
@@ -17,9 +15,7 @@ describe('find* dom-testing-library commands', () => {
   })
 
   it('findByPlaceholderText', () => {
-    cy.findByPlaceholderText('Input 1')
-      .click()
-      .type('Hello Placeholder')
+    cy.findByPlaceholderText('Input 1').click().type('Hello Placeholder')
   })
 
   it('findAllByPlaceholderText', () => {
@@ -27,9 +23,7 @@ describe('find* dom-testing-library commands', () => {
   })
 
   it('findByText', () => {
-    cy.findByText('Button Text 1')
-      .click()
-      .should('contain', 'Button Clicked')
+    cy.findByText('Button Text 1').click().should('contain', 'Button Clicked')
   })
 
   it('findAllByText', () => {
@@ -107,12 +101,8 @@ describe('find* dom-testing-library commands', () => {
   })
 
   it('findByText with a previous subject', () => {
-    cy.get('#nested')
-      .findByText('Button Text 1')
-      .should('not.exist')
-    cy.get('#nested')
-      .findByText('Button Text 2')
-      .should('exist')
+    cy.get('#nested').findByText('Button Text 1').should('not.exist')
+    cy.get('#nested').findByText('Button Text 2').should('exist')
   })
 
   it('findByText within', () => {
@@ -180,7 +170,7 @@ describe('find* dom-testing-library commands', () => {
   })
 
   it('findByText finding multiple items should error', () => {
-    const errorMessage = `Found multiple elements with the text: /^Button Text/i\n\n(If this is intentional, then use the \`*AllBy*\` variant of the query (like \`queryAllByText\`, \`getAllByText\`, or \`findAllByText\`)).`
+    const errorMessage = `Found multiple elements with the text: /^Button Text/i`
     cy.on('fail', err => {
       expect(err.message).to.contain(errorMessage)
     })
