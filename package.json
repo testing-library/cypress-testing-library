@@ -20,7 +20,7 @@
     "test:unit": "kcd-scripts test --no-watch",
     "test:unit:watch": "kcd-scripts test",
     "typecheck": "dtslint ./types/",
-    "validate": "kcd-scripts validate build,lint,test"
+    "validate": "kcd-scripts validate build,lint,test,typecheck"
   },
   "files": [
     "dist",
