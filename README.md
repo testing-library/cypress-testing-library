@@ -58,10 +58,13 @@ This allows you to use all the useful
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Installation](#installation)
   - [With TypeScript](#with-typescript)
+  - [Intellisense for JavaScript with VS Code](#intellisense-for-javascript-with-vs-code)
 - [Usage](#usage)
   - [Differences from DOM Testing Library](#differences-from-dom-testing-library)
+- [Config testIdAttribute](#config-testidattribute)
 - [Other Solutions](#other-solutions)
 - [Contributors](#contributors)
 - [LICENSE](#license)
@@ -79,21 +82,21 @@ npm install --save-dev @testing-library/cypress
 
 ### With TypeScript
 
-Typings are defined in `@types/testing-library__cypress` at
-[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress),
-and should be added as follows in `tsconfig.json`:
+Typings should be added as follows in `tsconfig.json`:
 
 ```json
 {
   "compilerOptions": {
-    "types": ["cypress", "@types/testing-library__cypress"]
+    "types": ["cypress", "@testing-library/cypress"]
   }
 }
 ```
 
 ### Intellisense for JavaScript with VS Code
 
-If you're not using TypeScript, you use VS Code, and want to have code-completion with the methods from this library, simply add the following line to your project's root-level `jsconfig.json` file:
+If you're not using TypeScript, you use VS Code, and want to have
+code-completion with the methods from this library, simply add the following
+line to your project's root-level `jsconfig.json` file:
 
 ```json
 {
@@ -116,7 +119,7 @@ commands.
 [See the `DOM Testing Library` docs for reference](https://testing-library.com)
 
 You can find
-[all Library definitions here](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/testing-library__cypress/index.d.ts).
+[all Library definitions here](https://github.com/testing-library/cypress-testing-library/tree/master/types/index.d.ts).
 
 To configure DOM Testing Library, use the following custom command:
 
@@ -134,9 +137,7 @@ cy.findAllByLabelText('Label text', {timeout: 7000}).should('exist')
 cy.findAllByText('Jackie Chan').click()
 
 // findAllByText _inside_ a form element
-cy.get('form')
-  .findAllByText('Button Text')
-  .should('exist')
+cy.get('form').findAllByText('Button Text').should('exist')
 ```
 
 ### Differences from DOM Testing Library
@@ -177,14 +178,16 @@ cy.findByText('Some Text').should('exist')
 
 ## Config testIdAttribute
 
-If you would like to change the default testId from `data-testId` to `data-test-id`, add to your project's `cypress/support/index.js`:
+If you would like to change the default testId from `data-testId` to
+`data-test-id`, add to your project's `cypress/support/index.js`:
 
 ```javascript
 import {configure} from '@testing-library/cypress'
 configure({testIdAttribute: 'data-test-id'})
 ```
 
-It accepts all configurations listed in [DOM testing library](https://testing-library.com/docs/dom-testing-library/api-configuration).
+It accepts all configurations listed in
+[DOM testing library](https://testing-library.com/docs/dom-testing-library/api-configuration).
 
 ## Other Solutions
 
@@ -247,6 +250,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
@@ -297,5 +301,6 @@ MIT
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [dom-testing-library]: https://github.com/testing-library/dom-testing-library
 [cypress]: https://www.cypress.io/
-[discord-badge]: https://img.shields.io/discord/723559267868737556.svg?color=7389D8&labelColor=6A7EC2&logo=discord&logoColor=ffffff&style=flat-square
+[discord-badge]:
+  https://img.shields.io/discord/723559267868737556.svg?color=7389D8&labelColor=6A7EC2&logo=discord&logoColor=ffffff&style=flat-square
 [discord]: https://discord.gg/c6JN9fM
