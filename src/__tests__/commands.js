@@ -1,9 +1,11 @@
 import {queries} from '@testing-library/dom'
 import {commands} from '../'
 
+const queryNames = Object.keys(queries).filter(q => /^(find|get)/.test(q))
+
 test('exports expected commands', () => {
   expect(commands).toMatchObject(expect.any(Array))
-  const sortedQueryNames = Object.keys(queries).sort()
+  const sortedQueryNames = queryNames.sort()
   const sortedCommandNames = commands.map(({name}) => name).sort()
   expect(sortedCommandNames).toEqual(sortedQueryNames)
   commands.forEach(command =>

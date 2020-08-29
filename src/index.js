@@ -5,10 +5,11 @@ function configure({fallbackRetryWithoutPreviousSubject, ...config}) {
   return configureDTL(config)
 }
 
-const queryNames = Object.keys(queries)
-
-const deprecatedRegex = /^(get|query)/
+const availableRegex = /^(find|get)/
+const deprecatedRegex = /^(get)/
 const findRegex = /^find/
+
+const queryNames = Object.keys(queries).filter(q => availableRegex.test(q))
 
 const deprecatedQueryNames = queryNames.filter(q => deprecatedRegex.test(q))
 const findQueryNames = queryNames.filter(q => findRegex.test(q))
