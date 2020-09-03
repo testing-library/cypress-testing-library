@@ -5,29 +5,10 @@ function configure({fallbackRetryWithoutPreviousSubject, ...config}) {
   return configureDTL(config)
 }
 
-const queryNames = Object.keys(queries)
-
-const deprecatedRegex = /^(get|query)/
 const findRegex = /^find/
+const queryNames = Object.keys(queries).filter(q => findRegex.test(q))
 
-const deprecatedQueryNames = queryNames.filter(q => deprecatedRegex.test(q))
-const findQueryNames = queryNames.filter(q => findRegex.test(q))
-
-const deprecatedCommands = deprecatedQueryNames.map(queryName => {
-  return {
-    name: queryName,
-    command: () => {
-      throw new Error(
-        `You used '${queryName}' which has been removed from Cypress Testing Library because it does not make sense in this context. Please use '${queryName.replace(
-          deprecatedRegex,
-          'find',
-        )}' instead.`,
-      )
-    },
-  }
-})
-
-const findCommands = findQueryNames.map(queryName => {
+const commands = queryNames.map(queryName => {
   return createCommand(queryName, queryName.replace(findRegex, 'get'))
 })
 
@@ -180,8 +161,6 @@ function queryArgument(args) {
 
   return input
 }
-
-const commands = [...findCommands, ...deprecatedCommands]
 
 export {commands, configure}
 
