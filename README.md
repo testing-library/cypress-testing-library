@@ -58,7 +58,6 @@ This allows you to use all the useful
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Installation](#installation)
   - [With TypeScript](#with-typescript)
   - [Intellisense for JavaScript with VS Code](#intellisense-for-javascript-with-vs-code)
@@ -148,8 +147,11 @@ expects DOM nodes. When you chain a query, it will get the first DOM node from
 `subject` of the collection and use that as the `container` parameter for the
 `DOM Testing Library` functions.
 
-`get*` and `query*` queries are disabled. `find*` queries do not use the Promise
-API of `DOM Testing Library`, but instead forward to the `get*` queries and use
+`query*` queries are not supported. You should use the `should('not.exist')
+assertion instead to check for the absence of an element.
+
+`get*` queries are not supported. `find*` queries do not use the Promise API of
+`DOM Testing Library`, but instead forward to the `get*` queries and use
 Cypress' built-in retryability using error messages from `get*` APIs to forward
 as error messages if a query fails.
 

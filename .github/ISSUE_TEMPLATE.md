@@ -1,5 +1,5 @@
 <!--
-HI! PLEASE STOP TO READ THIS!! If you're issue is regarding one of the query
+HI! PLEASE STOP TO READ THIS!! If your issue is regarding one of the query
 APIs (`getByText`, `getByLabelText`, etc), then please file it on the
 https://github.com/kentcdodds/dom-testing-library repository instead. If you
 file it here it will be closed. Thanks :)
@@ -23,6 +23,7 @@ learn how: http://kcd.im/pull-request
 Relevant code or config
 
 ```javascript
+
 ```
 
 What you did:
