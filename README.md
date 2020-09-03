@@ -150,7 +150,7 @@ expects DOM nodes. When you chain a query, it will get the first DOM node from
 `query*` queries are not supported. You should use the `should('not.exist')
 assertion instead to check for the absence of an element.
 
-`get*` queries are disabled. `find*` queries do not use the Promise API of
+`get*` queries are not supported. `find*` queries do not use the Promise API of
 `DOM Testing Library`, but instead forward to the `get*` queries and use
 Cypress' built-in retryability using error messages from `get*` APIs to forward
 as error messages if a query fails.
