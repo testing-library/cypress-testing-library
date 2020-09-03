@@ -1,7 +1,7 @@
 import {queries} from '@testing-library/dom'
 import {commands} from '../'
 
-const queryNames = Object.keys(queries).filter(q => /^(find|get)/.test(q))
+const queryNames = Object.keys(queries).filter(q => /^find/.test(q))
 
 test('exports expected commands', () => {
   expect(commands).toMatchObject(expect.any(Array))
