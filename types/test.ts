@@ -1,8 +1,8 @@
 /// <reference types="Cypress" />
-import { configure } from '@testing-library/cypress'
+import {configure} from '@testing-library/cypress'
 import '@testing-library/cypress/add-commands'
 
-configure({ testIdAttribute: 'data-myown-testid' })
+configure({testIdAttribute: 'data-myown-testid'})
 
 // findBy*
 cy.findByPlaceholderText('foo') // $ExpectType Chainable<JQuery<HTMLElement>>
@@ -23,3 +23,6 @@ cy.findAllByTestId('foo') // $ExpectType Chainable<JQuery<HTMLElement>>
 cy.findAllByTitle('foo') // $ExpectType Chainable<JQuery<HTMLElement>>
 cy.findAllByDisplayValue('foo') // $ExpectType Chainable<JQuery<HTMLElement>>
 cy.findAllByRole('foo') // $ExpectType Chainable<JQuery<HTMLElement>>
+
+// configure
+cy.configureCypressTestingLibrary({testIdAttribute: 'data-myawesome-testid'}) // $ExpectType Chainable<void>
