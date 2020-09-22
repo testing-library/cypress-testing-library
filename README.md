@@ -247,12 +247,12 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://huchen.dev"><img src="https://avatars3.githubusercontent.com/u/2078389?v=4" width="100px;" alt=""/><br /><sub><b>Hu Chen</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=huchenme" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/frederickfogerty"><img src="https://avatars0.githubusercontent.com/u/615334?v=4" width="100px;" alt=""/><br /><sub><b>Frederick Fogerty</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=frederickfogerty" title="Code">💻</a></td>
     <td align="center"><a href="https://kylemh.com"><img src="https://avatars1.githubusercontent.com/u/9523719?v=4" width="100px;" alt=""/><br /><sub><b>Kyle Holmberg</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=kylemh" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Thisen"><img src="https://avatars2.githubusercontent.com/u/10807938?v=4" width="100px;" alt=""/><br /><sub><b>Mathis Møller</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=Thisen" title="Code">💻</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=Thisen" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
