@@ -336,6 +336,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Thisen",
+      "name": "Mathis Møller",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10807938?v=4",
+      "profile": "https://github.com/Thisen",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github",
