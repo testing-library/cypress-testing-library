@@ -18,20 +18,18 @@ testing practices.</p>
 
 </div>
 
-<hr />
+---
 
+<!-- prettier-ignore-start -->
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
-[![version][version-badge]][package] [![downloads][downloads-badge]][npmtrends]
+[![version][version-badge]][package]
+[![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-25-orange.svg?style=flat-square)](#contributors)
-[![PRs Welcome][prs-badge]][prs] [![Code of Conduct][coc-badge]][coc]
-[![Discord][discord-badge]][discord]
-
-[![Watch on GitHub][github-watch-badge]][github-watch]
-[![Star on GitHub][github-star-badge]][github-star]
-[![Tweet][twitter-badge]][twitter]
+[![All Contributors][all-contributors-badge]](#contributors-)
+[![PRs Welcome][prs-badge]][prs]
+[![Code of Conduct][coc-badge]][coc]
+<!-- prettier-ignore-end -->
 
 <div align="center">
   <a href="https://testingjavascript.com">
@@ -65,7 +63,10 @@ This allows you to use all the useful
   - [Differences from DOM Testing Library](#differences-from-dom-testing-library)
 - [Config testIdAttribute](#config-testidattribute)
 - [Other Solutions](#other-solutions)
-- [Contributors](#contributors)
+- [Issues](#issues)
+  - [🐛 Bugs](#-bugs)
+  - [💡 Feature Requests](#-feature-requests)
+- [Contributors ✨](#contributors-)
 - [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -196,7 +197,25 @@ It accepts all configurations listed in
 I'm not aware of any, if you are please [make a pull request][prs] and add it
 here!
 
-## Contributors
+## Issues
+
+_Looking to contribute? Look for the [Good First Issue][good-first-issue]
+label._
+
+### 🐛 Bugs
+
+Please file an issue for bugs, missing documentation, or unexpected behavior.
+
+[**See Bugs**][bugs]
+
+### 💡 Feature Requests
+
+Please file an issue to suggest new features. Vote on feature requests by adding
+a 👍. This helps maintainers prioritize what to work on.
+
+[**See Feature Requests**][requests]
+
+## Contributors ✨
 
 Thanks goes to these people ([emoji key][emojis]):
 
@@ -253,6 +272,7 @@ Thanks goes to these people ([emoji key][emojis]):
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.
@@ -262,47 +282,30 @@ Contributions of any kind welcome!
 
 MIT
 
-[npm]: https://www.npmjs.com/
+<!-- prettier-ignore-start -->
+[npm]: https://npmjs.com
 [node]: https://nodejs.org
-[build-badge]:
-  https://img.shields.io/travis/testing-library/cypress-testing-library.svg?style=flat-square
-[build]: https://travis-ci.org/testing-library/cypress-testing-library
-[coverage-badge]:
-  https://img.shields.io/codecov/c/github/testing-library/cypress-testing-library.svg?style=flat-square
+[build-badge]: https://img.shields.io/github/workflow/status/testing-library/cypress-testing-library/validate?logo=github&style=flat-square
+[build]: https://github.com/testing-library/cypress-testing-library/actions?query=workflow%3Avalidate
+[coverage-badge]: https://img.shields.io/codecov/c/github/testing-library/cypress-testing-library.svg?style=flat-square
 [coverage]: https://codecov.io/github/testing-library/cypress-testing-library
-[version-badge]:
-  https://img.shields.io/npm/v/cypress-testing-library.svg?style=flat-square
+[version-badge]: https://img.shields.io/npm/v/@testing-library/cypress.svg?style=flat-square
 [package]: https://www.npmjs.com/package/@testing-library/cypress
-[downloads-badge]:
-  https://img.shields.io/npm/dm/@testing-library/cypress.svg?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dm/@testing-library/cypress.svg?style=flat-square
 [npmtrends]: http://www.npmtrends.com/@testing-library/cypress
-[license-badge]:
-  https://img.shields.io/npm/l/@testing-library/cypress.svg?style=flat-square
-[license]:
-  https://github.com/testing-library/cypress-testing-library/blob/master/LICENSE
-[prs-badge]:
-  https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[license-badge]: https://img.shields.io/npm/l/@testing-library/cypress.svg?style=flat-square
+[license]: https://github.com/testing-library/cypress-testing-library/blob/master/LICENSE
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
-[coc-badge]:
-  https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]:
-  https://github.com/testing-library/cypress-testing-library/blob/master/other/CODE_OF_CONDUCT.md
-[github-watch-badge]:
-  https://img.shields.io/github/watchers/testing-library/cypress-testing-library.svg?style=social
-[github-watch]:
-  https://github.com/testing-library/cypress-testing-library/watchers
-[github-star-badge]:
-  https://img.shields.io/github/stars/testing-library/cypress-testing-library.svg?style=social
-[github-star]:
-  https://github.com/testing-library/cypress-testing-library/stargazers
-[twitter]:
-  https://twitter.com/intent/tweet?text=Check%20out%20cypress-testing-library%20by%20%40kentcdodds%20https%3A%2F%2Fgithub.com%2Fkentcdodds%2Fcypress-testing-library%20%F0%9F%91%8D
-[twitter-badge]:
-  https://img.shields.io/twitter/url/https/github.com/testing-library/cypress-testing-library.svg?style=social
-[emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
+[coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
+[coc]: https://github.com/testing-library/cypress-testing-library/blob/master/other/CODE_OF_CONDUCT.md
+[emojis]: https://allcontributors.org/docs/en/emoji-key
 [all-contributors]: https://github.com/all-contributors/all-contributors
+[all-contributors-badge]: https://img.shields.io/github/all-contributors/testing-library/cypress-testing-library?color=orange&style=flat-square
+[bugs]: https://github.com/testing-library/cypress-testing-library/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%90%9B+Bug%22+sort%3Acreated-desc
+[requests]: https://github.com/testing-library/cypress-testing-library/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3Aenhancement
+[good-first-issue]: https://github.com/testing-library/cypress-testing-library/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc+label%3A%22good+first+issue%22
+
+[cypress]: https://cypress.io
 [dom-testing-library]: https://github.com/testing-library/dom-testing-library
-[cypress]: https://www.cypress.io/
-[discord-badge]:
-  https://img.shields.io/discord/723559267868737556.svg?color=7389D8&labelColor=6A7EC2&logo=discord&logoColor=ffffff&style=flat-square
-[discord]: https://discord.gg/c6JN9fM
+<!-- prettier-ignore-end -->
