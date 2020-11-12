@@ -3,14 +3,16 @@ on:
   push:
     branches:
       [
-        "+([0-9])?(.{+([0-9]),x}).x",
-        "master",
-        "next",
-        "next-major",
-        "beta",
-        "alpha",
+        '+([0-9])?(.{+([0-9]),x}).x',
+        'master',
+        'next',
+        'next-major',
+        'beta',
+        'alpha',
+        '!all-contributors/**',
       ]
-  pull_request: {}
+  pull_request:
+    branches-ignore: ['all-contributors/**']
 jobs:
   main:
     strategy:
@@ -41,7 +43,7 @@ jobs:
     needs: main
     runs-on: ubuntu-latest
     if:
-      ${{ github.repository == 'MichaelDeBoey/gatsby-remark-embedder' &&
+      ${{ github.repository == 'testing-library/cypress-testing-library' &&
       contains('refs/heads/master,refs/heads/beta,refs/heads/next,refs/heads/alpha',
       github.ref) && github.event_name == 'push' }}
     steps:
