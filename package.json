@@ -40,15 +40,15 @@
   "author": "Kent C. Dodds <me@kentcdodds.com> (https://kentcdodds.com)",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.11.2",
-    "@testing-library/dom": "^7.22.2"
+    "@babel/runtime": "^7.12.5",
+    "@testing-library/dom": "^7.26.6"
   },
   "devDependencies": {
-    "cypress": "^5.0.0",
-    "dtslint": "^3.6.14",
-    "kcd-scripts": "^6.2.4",
+    "cypress": "^5.6.0",
+    "dtslint": "^4.0.5",
+    "kcd-scripts": "^7.0.3",
     "npm-run-all": "^4.1.5",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.5"
   },
   "peerDependencies": {
     "cypress": "^2.1.0 || ^3.0.0 || ^4.0.0 || ^5.0.0"

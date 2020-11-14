@@ -21,6 +21,8 @@ export type SelectorMatcherOptions =
 
 declare global {
   namespace Cypress {
+    // 🤔 unsure why this Subject is unused, nor what to do with it...
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     interface Chainable<Subject = any> {
       /**
        * dom-testing-library helpers for Cypress
