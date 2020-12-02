@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import {configure} from '@testing-library/cypress'
+import {configure} from '.'
 import '@testing-library/cypress/add-commands'
 
 configure({testIdAttribute: 'data-myown-testid'})

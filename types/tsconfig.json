@@ -1,16 +1,4 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "lib": ["es6", "dom"],
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "baseUrl": ".",
-    "noEmit": true,
-    "types": [],
-    "paths": {
-      "@testing-library/cypress": ["."]
-    }
-  }
+  "extends": "../node_modules/kcd-scripts/shared-tsconfig.json",
+  "include": ["."]
 }
