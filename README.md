@@ -268,6 +268,9 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://kylemh.com"><img src="https://avatars1.githubusercontent.com/u/9523719?v=4" width="100px;" alt=""/><br /><sub><b>Kyle Holmberg</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=kylemh" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/Thisen"><img src="https://avatars2.githubusercontent.com/u/10807938?v=4" width="100px;" alt=""/><br /><sub><b>Mathis Møller</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=Thisen" title="Code">💻</a> <a href="https://github.com/testing-library/cypress-testing-library/commits?author=Thisen" title="Tests">⚠️</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/SimenB"><img src="https://avatars1.githubusercontent.com/u/1404810?v=4" width="100px;" alt=""/><br /><sub><b>Simen Bekkhus</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=SimenB" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
