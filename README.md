@@ -148,7 +148,7 @@ expects DOM nodes. When you chain a query, it will get the first DOM node from
 `subject` of the collection and use that as the `container` parameter for the
 `DOM Testing Library` functions.
 
-`query*` queries are not supported. You should use the `should('not.exist')
+`query*` queries are not supported. You should use the `should('not.exist')`
 assertion instead to check for the absence of an element.
 
 `get*` queries are not supported. `find*` queries do not use the Promise API of
