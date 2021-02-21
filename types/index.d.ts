@@ -3,6 +3,7 @@
 import {
   configure,
   Matcher,
+  ByRoleMatcher,
   MatcherOptions as DTLMatcherOptions,
   ByRoleOptions as DTLByRoleOptions,
   SelectorMatcherOptions as DTLSelectorMatcherOptions,
@@ -211,7 +212,7 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findByRole(id: Matcher, options?: ByRoleOptions): Chainable<JQuery>
+      findByRole(id: ByRoleMatcher, options?: ByRoleOptions): Chainable<JQuery>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -222,7 +223,7 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findAllByRole(id: Matcher, options?: ByRoleOptions): Chainable<JQuery>
+      findAllByRole(id: ByRoleMatcher, options?: ByRoleOptions): Chainable<JQuery>
 
       /**
        * dom-testing-library helpers for Cypress
