@@ -25,7 +25,7 @@
   "files": [
     "dist",
     "add-commands.js",
-    "types"
+    "types/*.d.ts"
   ],
   "keywords": [
     "testing",
