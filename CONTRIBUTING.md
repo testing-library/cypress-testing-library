@@ -15,7 +15,7 @@ series [How to Contribute to an Open Source Project on GitHub][egghead]
 > pull requests from branches on your fork. To do this, run:
 >
 > ```
-> git remote add upstream https://github.com/kentcdodds/cypress-testing-library.git
+> git remote add upstream https://github.com/testing-library/cypress-testing-library.git
 > git fetch upstream
 > git branch --set-upstream-to=upstream/master master
 > ```
@@ -50,5 +50,5 @@ Also, please watch the repo and respond to questions/bug reports/feature
 requests! Thanks!
 
 [egghead]:
-  https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
-[issues]: https://github.com/kentcdodds/cypress-testing-library/issues
+  https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github
+[issues]: https://github.com/testing-library/cypress-testing-library/issues
