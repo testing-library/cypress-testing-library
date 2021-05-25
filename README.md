@@ -6,7 +6,7 @@
     height="80"
     width="80"
     alt="tiger"
-    src="https://raw.githubusercontent.com/testing-library/cypress-testing-library/master/other/tiger.png"
+    src="https://raw.githubusercontent.com/testing-library/cypress-testing-library/main/other/tiger.png"
   />
 </a>
 
@@ -36,7 +36,7 @@ testing practices.</p>
     <img
       width="500"
       alt="TestingJavaScript.com Learn the smart, efficient way to test any JavaScript application."
-      src="https://raw.githubusercontent.com/testing-library/cypress-testing-library/master/other/testingjavascript.jpg"
+      src="https://raw.githubusercontent.com/testing-library/cypress-testing-library/main/other/testingjavascript.jpg"
     />
   </a>
 </div>
@@ -119,7 +119,7 @@ commands.
 [See the `DOM Testing Library` docs for reference](https://testing-library.com)
 
 You can find
-[all Library definitions here](https://github.com/testing-library/cypress-testing-library/tree/master/types/index.d.ts).
+[all Library definitions here](https://github.com/testing-library/cypress-testing-library/tree/main/types/index.d.ts).
 
 To configure DOM Testing Library, use the following custom command:
 
@@ -297,11 +297,11 @@ MIT
 [downloads-badge]: https://img.shields.io/npm/dm/@testing-library/cypress.svg?style=flat-square
 [npmtrends]: http://www.npmtrends.com/@testing-library/cypress
 [license-badge]: https://img.shields.io/npm/l/@testing-library/cypress.svg?style=flat-square
-[license]: https://github.com/testing-library/cypress-testing-library/blob/master/LICENSE
+[license]: https://github.com/testing-library/cypress-testing-library/blob/main/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
 [coc-badge]: https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square
-[coc]: https://github.com/testing-library/cypress-testing-library/blob/master/other/CODE_OF_CONDUCT.md
+[coc]: https://github.com/testing-library/cypress-testing-library/blob/main/other/CODE_OF_CONDUCT.md
 [emojis]: https://allcontributors.org/docs/en/emoji-key
 [all-contributors]: https://github.com/all-contributors/all-contributors
 [all-contributors-badge]: https://img.shields.io/github/all-contributors/testing-library/cypress-testing-library?color=orange&style=flat-square
