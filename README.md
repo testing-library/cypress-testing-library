@@ -272,6 +272,7 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://github.com/SimenB"><img src="https://avatars1.githubusercontent.com/u/1404810?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Simen Bekkhus</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=SimenB" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/amitmiran137"><img src="https://avatars.githubusercontent.com/u/47772523?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Amit Miran</b></sub></a><br /><a href="#infra-amitmiran137" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
     <td align="center"><a href="https://github.com/leschdom"><img src="https://avatars.githubusercontent.com/u/62334278?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dominik Lesch</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=leschdom" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Andarist"><img src="https://avatars.githubusercontent.com/u/9800850?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mateusz Burzyński</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=Andarist" title="Code">💻</a></td>
   </tr>
 </table>
 
