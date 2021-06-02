@@ -9,8 +9,9 @@ import {
   SelectorMatcherOptions as DTLSelectorMatcherOptions,
 } from '@testing-library/dom'
 
-export interface CTLMatcherOptions {
-  timeout?: number
+export interface CTLMatcherOptions
+  extends Partial<Cypress.Timeoutable>,
+    Partial<Cypress.Loggable> {
   container?: Element | JQuery<Element>
 }
 
@@ -223,7 +224,10 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findAllByRole(id: ByRoleMatcher, options?: ByRoleOptions): Chainable<JQuery>
+      findAllByRole(
+        id: ByRoleMatcher,
+        options?: ByRoleOptions,
+      ): Chainable<JQuery>
 
       /**
        * dom-testing-library helpers for Cypress
