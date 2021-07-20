@@ -15,11 +15,11 @@ export interface CTLMatcherOptions
   container?: Element | JQuery<Element>
 }
 
-export type MatcherOptions = DTLMatcherOptions | CTLMatcherOptions
-export type ByRoleOptions = DTLByRoleOptions | CTLMatcherOptions
+export type MatcherOptions = CTLMatcherOptions | DTLMatcherOptions
+export type ByRoleOptions = CTLMatcherOptions | DTLByRoleOptions
 export type SelectorMatcherOptions =
-  | DTLSelectorMatcherOptions
   | CTLMatcherOptions
+  | DTLSelectorMatcherOptions
 
 declare global {
   namespace Cypress {
