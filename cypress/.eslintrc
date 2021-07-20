@@ -2,6 +2,7 @@
   "rules": {
     "testing-library/await-async-query": "off", // Cypress chains don't use promises
     "testing-library/prefer-screen-queries": "off", // screen queries don't make sense in the context of Cypress Testing Library
+    "testing-library/prefer-explicit-assert": "off", // we're lazy
 
     // No Jest here
     "jest/valid-expect": "off",
