@@ -7,10 +7,11 @@ function getFirstElement(jqueryOrElement) {
 
 function getContainer(container) {
   const withinContainer = cy.state('withinSubject')
-  if (withinContainer) {
+  if (container === undefined && withinContainer) {
     return getFirstElement(withinContainer)
   }
-  return getFirstElement(container)
+
+  return getFirstElement(container || cy.state('window').document)
 }
 
 export {getFirstElement, getContainer}

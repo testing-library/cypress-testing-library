@@ -35,14 +35,12 @@ function createCommand(queryName, implementationName) {
 
       const getSelector = () => `${queryName}(${queryArgument(args)})`
 
-      const win = cy.state('window')
-
       const consoleProps = {
         // TODO: Would be good to completely separate out the types of input into their own properties
         input: inputArr,
         Selector: getSelector(),
         'Applied To': getContainer(
-          options.container || prevSubject || win.document,
+          options.container || prevSubject,
         ),
       }
 
@@ -56,7 +54,7 @@ function createCommand(queryName, implementationName) {
       }
 
       const getValue = (
-        container = options.container || prevSubject || win.document,
+        container = options.container || prevSubject,
       ) => {
         const value = commandImpl(container)
 

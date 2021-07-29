@@ -28,7 +28,7 @@ describe('find* dom-testing-library commands', () => {
 
   it('findAllByText', () => {
     cy.findAllByText(/^Button Text \d$/)
-      .should('have.length', 2)
+      .should('have.length', 3)
       .click({multiple: true})
       .should('contain', 'Button Clicked')
   })
@@ -109,6 +109,13 @@ describe('find* dom-testing-library commands', () => {
     cy.get('#nested').within(() => {
       cy.findByText('Button Text 1').should('not.exist')
       cy.findByText('Button Text 2').should('exist')
+    })
+  })
+
+  it('findByText chain overrides within', () => {
+    cy.get('#nested').within(() => {
+      cy.get('#nested-twice').findByText('Button Text 2').should('not.exist')
+      cy.get('#nested-twice').findByText('Button Text 3').should('exist')
     })
   })
 
