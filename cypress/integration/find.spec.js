@@ -119,6 +119,20 @@ describe('find* dom-testing-library commands', () => {
     })
   })
 
+  it('findByText inside within and with a previous subject', () => {
+    cy.get('section:nth-of-type(2)').within(() => {
+      cy.findByText(/Button Text 1/).should('exist')
+    })
+    cy.get('#nested')
+      .findByText(/Button Text/)
+      .should('exist')
+    cy.get('section:nth-of-type(2)').within(() => {
+      cy.get('#nested')
+        .findByText(/Button Text/)
+        .should('exist')
+    })
+  })
+
   it('findByText works when another page loads', () => {
     cy.findByText('Next Page').click()
     cy.findByText('New Page Loaded').should('exist')
