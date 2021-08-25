@@ -6,8 +6,10 @@ function getFirstElement(jqueryOrElement) {
 }
 
 function getContainer(container) {
+  const subject = cy.state('subject')
   const withinContainer = cy.state('withinSubject')
-  if (withinContainer) {
+
+  if (!subject && withinContainer) {
     return getFirstElement(withinContainer)
   }
   return getFirstElement(container)
