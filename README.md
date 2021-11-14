@@ -274,6 +274,7 @@ Thanks goes to these people ([emoji key][emojis]):
     <td align="center"><a href="https://github.com/leschdom"><img src="https://avatars.githubusercontent.com/u/62334278?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dominik Lesch</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=leschdom" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/Andarist"><img src="https://avatars.githubusercontent.com/u/9800850?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mateusz Burzyński</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=Andarist" title="Code">💻</a></td>
     <td align="center"><a href="https://nielsdb97.nl"><img src="https://avatars.githubusercontent.com/u/11021818?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Niels de Bruin</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=nielsdB97" title="Code">💻</a></td>
+    <td align="center"><a href="https://matan.io"><img src="https://avatars.githubusercontent.com/u/12711091?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matan Borenkraout</b></sub></a><br /><a href="https://github.com/testing-library/cypress-testing-library/commits?author=MatanBobi" title="Code">💻</a></td>
   </tr>
 </table>
 
