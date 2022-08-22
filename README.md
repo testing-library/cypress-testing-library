@@ -128,7 +128,7 @@ cy.configureCypressTestingLibrary(config)
 ```
 
 To show some simple examples (from
-[cypress/integration/find.spec.js](cypress/integration/find.spec.js)):
+[cypress/e2e/find.cy.js](cypress/e2e/find.cy.js)):
 
 ```javascript
 cy.findAllByText('Button Text').should('exist')
