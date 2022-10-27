@@ -1,6 +1,5 @@
 node_modules
 coverage
-dist
 .DS_Store
 
 # these cause more harm than good
