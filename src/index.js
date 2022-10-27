@@ -1,5 +1,5 @@
 import {configure as configureDTL, queries} from '@testing-library/dom'
-import {getContainer} from './utils'
+import {getFirstElement} from './utils'
 
 function configure({fallbackRetryWithoutPreviousSubject, ...config}) {
   return configureDTL(config)
@@ -9,65 +9,78 @@ const findRegex = /^find/
 const queryNames = Object.keys(queries).filter(q => findRegex.test(q))
 
 const commands = queryNames.map(queryName => {
-  return createCommand(queryName, queryName.replace(findRegex, 'get'))
+  return createQuery(queryName, queryName.replace(findRegex, 'get'))
 })
 
-function createCommand(queryName, implementationName) {
+function createQuery(queryName, implementationName) {
   return {
     name: queryName,
-    options: {prevSubject: ['optional']},
-    command: (prevSubject, ...args) => {
+    command(...args) {
       const lastArg = args[args.length - 1]
-      const defaults = {
-        timeout: Cypress.config().defaultCommandTimeout,
-        log: true,
-      }
-      const options =
-        typeof lastArg === 'object' ? {...defaults, ...lastArg} : defaults
+      const options = typeof lastArg === 'object' ? {...lastArg} : {}
+
+      this.set('timeout', options.timeout)
 
       const queryImpl = queries[implementationName]
-      const baseCommandImpl = container => {
-        return queryImpl(getContainer(container), ...args)
-      }
-      const commandImpl = container => baseCommandImpl(container)
-
       const inputArr = args.filter(filterInputs)
 
-      const getSelector = () => `${queryName}(${queryArgument(args)})`
-
-      const win = cy.state('window')
+      const selector = `${queryName}(${queryArgument(args)})`
 
       const consoleProps = {
         // TODO: Would be good to completely separate out the types of input into their own properties
         input: inputArr,
-        Selector: getSelector(),
-        'Applied To': getContainer(
-          options.container || prevSubject || win.document,
-        ),
+        Selector: selector,
       }
 
-      if (options.log) {
-        options._log = Cypress.log({
-          type: prevSubject ? 'child' : 'parent',
+      const log =
+        options.log !== false &&
+        Cypress.log({
           name: queryName,
+          type:
+            this.get('prev').get('chainerId') === this.get('chainerId')
+              ? 'child'
+              : 'parent',
           message: inputArr,
           consoleProps: () => consoleProps,
         })
-      }
 
-      const getValue = (
-        container = options.container || prevSubject || win.document,
-      ) => {
-        const value = commandImpl(container)
+      const withinSubject = cy.state('withinSubjectChain')
+
+      let error
+      this.set('onFail', err => {
+        if (error) {
+          err.message = error.message
+        }
+      })
+
+      return subject => {
+        const container = getFirstElement(
+          options.container ||
+            subject ||
+            cy.getSubjectFromChain(withinSubject) ||
+            cy.state('window').document,
+        )
+        consoleProps['Applied To'] = container
+
+        let value
+
+        try {
+          value = queryImpl(container, ...args)
+        } catch (e) {
+          error = e
+          value = Cypress.$()
+          value.selector = selector
+        }
 
         const result = Cypress.$(value)
-        if (value && options._log) {
-          options._log.set('$el', result)
+
+        if (value && log) {
+          log.set('$el', result)
         }
 
         // Overriding the selector of the jquery object because it's displayed in the long message of .should('exist') failure message
         // Hopefully it makes it clearer, because I find the normal response of "Expected to find element '', but never found it" confusing
-        result.selector = getSelector()
+        result.selector = selector
 
         consoleProps.elements = result.length
         if (result.length === 1) {
@@ -85,54 +98,6 @@ function createCommand(queryName, implementationName) {
 
         return result
       }
-
-      let error
-
-      // Errors will be thrown by @testing-library/dom, but a query might be followed by `.should('not.exist')`
-      // We just need to capture the error thrown by @testing-library/dom and return an empty jQuery NodeList
-      // to allow Cypress assertions errors to happen naturally. If an assertion fails, we'll have a helpful
-      // error message handy to pass on to the user
-      const catchQueryError = err => {
-        error = err
-        const result = Cypress.$()
-        result.selector = getSelector()
-        return result
-      }
-
-      const resolveValue = () => {
-        // retry calling "getValue" until following assertions pass or this command times out
-        return Cypress.Promise.try(getValue)
-          .catch(catchQueryError)
-          .then(value => {
-            return cy.verifyUpcomingAssertions(value, options, {
-              onRetry: resolveValue,
-              onFail: () => {
-                // We want to override Cypress's normal non-existence message with @testing-library/dom's more helpful ones
-                if (error) {
-                  options.error = error
-                }
-              },
-            })
-          })
-      }
-
-      return resolveValue()
-        .then(subject => {
-          // Remove the error that occurred because it is irrelevant now
-          if (consoleProps.error) {
-            delete consoleProps.error
-          }
-          if (options._log) {
-            options._log.snapshot()
-          }
-
-          return subject
-        })
-        .finally(() => {
-          if (options._log) {
-            options._log.end()
-          }
-        })
     },
   }
 }
