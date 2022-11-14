@@ -7,4 +7,4 @@ function getFirstElement(jqueryOrElement) {
 
 export {getFirstElement}
 
-/* globals Cypress, cy */
+/* globals Cypress */
