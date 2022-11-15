@@ -51,6 +51,7 @@ function createCommand(queryName, implementationName) {
           type: prevSubject ? 'child' : 'parent',
           name: queryName,
           message: inputArr,
+          timeout: options.timeout,
           consoleProps: () => consoleProps,
         })
       }
