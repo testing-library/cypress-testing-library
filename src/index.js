@@ -109,7 +109,7 @@ function createCommand(queryName, implementationName) {
               onFail: () => {
                 // We want to override Cypress's normal non-existence message with @testing-library/dom's more helpful ones
                 if (error) {
-                  options.error = error
+                  options.error.message = error.message
                 }
               },
             })
