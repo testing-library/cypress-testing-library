@@ -44,7 +44,7 @@
     "@testing-library/dom": "^8.1.0"
   },
   "devDependencies": {
-    "cypress": "https://cdn.cypress.io/beta/npm/12.0.0/linux-x64/release/12.0.0-cc63b13085591b70826c909119784e7d358ea56e/cypress.tgz",
+    "cypress": "https://cdn.cypress.io/beta/npm/12.0.0/linux-x64/release/12.0.0-4db85d690e8439ef4d2397238ab069d557b2e818/cypress.tgz",
     "kcd-scripts": "^11.2.0",
     "npm-run-all": "^4.1.5",
     "typescript": "^4.3.5"
