@@ -30,7 +30,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -44,7 +44,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -58,7 +58,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -72,7 +72,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -86,7 +86,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -100,7 +100,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -114,7 +114,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -125,7 +125,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -136,7 +136,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -147,7 +147,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -158,7 +158,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -169,7 +169,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -180,7 +180,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -194,7 +194,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -208,7 +208,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
@@ -219,7 +219,7 @@ declare global {
        * dom-testing-library helpers for Cypress
        *
        * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
        *
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents

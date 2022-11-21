@@ -41,6 +41,7 @@ function createQuery(queryName, implementationName) {
               ? 'child'
               : 'parent',
           message: inputArr,
+          timeout: options.timeout,
           consoleProps: () => consoleProps,
         })
 
