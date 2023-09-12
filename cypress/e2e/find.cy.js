@@ -65,7 +65,7 @@ describe('find* dom-testing-library commands', () => {
   })
 
   it('findAllByRole', () => {
-    cy.findAllByRole(/^dialog/).should('have.length', 2)
+    cy.findAllByRole('dialog').should('have.length', 1)
   })
 
   it('findByTestId', () => {
