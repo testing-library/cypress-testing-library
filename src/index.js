@@ -37,7 +37,7 @@ function createQuery(queryName, implementationName) {
         Cypress.log({
           name: queryName,
           type:
-            this.get('prev').get('chainerId') === this.get('chainerId')
+            this.get('prev')?.get('chainerId') === this.get('chainerId')
               ? 'child'
               : 'parent',
           message: inputArr,
