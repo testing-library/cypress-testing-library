@@ -1,7 +1,7 @@
 <!--
 HI! PLEASE STOP TO READ THIS!! If your issue is regarding one of the query
 APIs (`getByText`, `getByLabelText`, etc), then please file it on the
-https://github.com/kentcdodds/dom-testing-library repository instead. If you
+https://github.com/testing-library/dom-testing-library repository instead. If you
 file it here it will be closed. Thanks :)
 
 Thanks for your interest in the project. I appreciate bugs filed and PRs submitted!
