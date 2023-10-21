@@ -67,10 +67,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kentcdodds/cypress-testing-library"
+    "url": "https://github.com/testing-library/cypress-testing-library"
   },
   "bugs": {
-    "url": "https://github.com/kentcdodds/cypress-testing-library/issues"
+    "url": "https://github.com/testing-library/cypress-testing-library/issues"
   },
-  "homepage": "https://github.com/kentcdodds/cypress-testing-library#readme"
+  "homepage": "https://github.com/testing-library/cypress-testing-library#readme"
 }
