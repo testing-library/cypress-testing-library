@@ -35,10 +35,10 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findByPlaceholderText(
+      findByPlaceholderText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<JQuery>
+      ): Chainable<JQuery<E>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -49,10 +49,10 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findAllByPlaceholderText(
+      findAllByPlaceholderText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<JQuery>
+      ): Chainable<JQuery<E>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -63,10 +63,10 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findByText(
+      findByText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<JQuery>
+      ): Chainable<JQuery<E>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -77,10 +77,10 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findAllByText(
+      findAllByText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<JQuery>
+      ): Chainable<JQuery<E>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -91,10 +91,10 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findByLabelText(
+      findByLabelText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<JQuery>
+      ): Chainable<JQuery<E>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -105,10 +105,10 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findAllByLabelText(
+      findAllByLabelText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: SelectorMatcherOptions,
-      ): Chainable<JQuery>
+      ): Chainable<JQuery<E>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -119,76 +119,10 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findByAltText(id: Matcher, options?: MatcherOptions): Chainable<JQuery>
-
-      /**
-       * dom-testing-library helpers for Cypress
-       *
-       * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and throw an error if nothing found
-       *
-       * @see https://github.com/testing-library/cypress-testing-library#usage
-       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
-       */
-      findAllByAltText(id: Matcher, options?: MatcherOptions): Chainable<JQuery>
-
-      /**
-       * dom-testing-library helpers for Cypress
-       *
-       * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and throw an error if nothing found
-       *
-       * @see https://github.com/testing-library/cypress-testing-library#usage
-       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
-       */
-      findByTestId(id: Matcher, options?: MatcherOptions): Chainable<JQuery>
-
-      /**
-       * dom-testing-library helpers for Cypress
-       *
-       * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and throw an error if nothing found
-       *
-       * @see https://github.com/testing-library/cypress-testing-library#usage
-       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
-       */
-      findAllByTestId(id: Matcher, options?: MatcherOptions): Chainable<JQuery>
-
-      /**
-       * dom-testing-library helpers for Cypress
-       *
-       * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and throw an error if nothing found
-       *
-       * @see https://github.com/testing-library/cypress-testing-library#usage
-       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
-       */
-      findByTitle(id: Matcher, options?: MatcherOptions): Chainable<JQuery>
-
-      /**
-       * dom-testing-library helpers for Cypress
-       *
-       * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and throw an error if nothing found
-       *
-       * @see https://github.com/testing-library/cypress-testing-library#usage
-       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
-       */
-      findAllByTitle(id: Matcher, options?: MatcherOptions): Chainable<JQuery>
-
-      /**
-       * dom-testing-library helpers for Cypress
-       *
-       * `findBy*` APIs search for an element and throw an error if nothing found
-       * `findAllBy*` APIs search for all elements and throw an error if nothing found
-       *
-       * @see https://github.com/testing-library/cypress-testing-library#usage
-       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
-       */
-      findByDisplayValue(
+      findByAltText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<JQuery>
+      ): Chainable<JQuery<E>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -199,10 +133,10 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findAllByDisplayValue(
+      findAllByAltText<E extends Node = HTMLElement>(
         id: Matcher,
         options?: MatcherOptions,
-      ): Chainable<JQuery>
+      ): Chainable<JQuery<E>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -213,7 +147,10 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findByRole(id: ByRoleMatcher, options?: ByRoleOptions): Chainable<JQuery>
+      findByTestId<E extends Node = HTMLElement>(
+        id: Matcher,
+        options?: MatcherOptions,
+      ): Chainable<JQuery<E>>
 
       /**
        * dom-testing-library helpers for Cypress
@@ -224,10 +161,94 @@ declare global {
        * @see https://github.com/testing-library/cypress-testing-library#usage
        * @see https://github.com/testing-library/dom-testing-library#table-of-contents
        */
-      findAllByRole(
+      findAllByTestId<E extends Node = HTMLElement>(
+        id: Matcher,
+        options?: MatcherOptions,
+      ): Chainable<JQuery<E>>
+
+      /**
+       * dom-testing-library helpers for Cypress
+       *
+       * `findBy*` APIs search for an element and throw an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
+       *
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
+       */
+      findByTitle<E extends Node = HTMLElement>(
+        id: Matcher,
+        options?: MatcherOptions,
+      ): Chainable<JQuery<E>>
+
+      /**
+       * dom-testing-library helpers for Cypress
+       *
+       * `findBy*` APIs search for an element and throw an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
+       *
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
+       */
+      findAllByTitle<E extends Node = HTMLElement>(
+        id: Matcher,
+        options?: MatcherOptions,
+      ): Chainable<JQuery<E>>
+
+      /**
+       * dom-testing-library helpers for Cypress
+       *
+       * `findBy*` APIs search for an element and throw an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
+       *
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
+       */
+      findByDisplayValue<E extends Node = HTMLElement>(
+        id: Matcher,
+        options?: MatcherOptions,
+      ): Chainable<JQuery<E>>
+
+      /**
+       * dom-testing-library helpers for Cypress
+       *
+       * `findBy*` APIs search for an element and throw an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
+       *
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
+       */
+      findAllByDisplayValue<E extends Node = HTMLElement>(
+        id: Matcher,
+        options?: MatcherOptions,
+      ): Chainable<JQuery<E>>
+
+      /**
+       * dom-testing-library helpers for Cypress
+       *
+       * `findBy*` APIs search for an element and throw an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
+       *
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
+       */
+      findByRole<E extends Node = HTMLElement>(
         id: ByRoleMatcher,
         options?: ByRoleOptions,
-      ): Chainable<JQuery>
+      ): Chainable<JQuery<E>>
+
+      /**
+       * dom-testing-library helpers for Cypress
+       *
+       * `findBy*` APIs search for an element and throw an error if nothing found
+       * `findAllBy*` APIs search for all elements and throw an error if nothing found
+       *
+       * @see https://github.com/testing-library/cypress-testing-library#usage
+       * @see https://github.com/testing-library/dom-testing-library#table-of-contents
+       */
+      findAllByRole<E extends Node = HTMLElement>(
+        id: ByRoleMatcher,
+        options?: ByRoleOptions,
+      ): Chainable<JQuery<E>>
 
       /**
        * dom-testing-library helpers for Cypress
