@@ -21,7 +21,7 @@ jobs:
     if: ${{ !contains(github.head_ref, 'all-contributors') }}
     strategy:
       matrix:
-        node: [18, 20]
+        node: [20]
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
