@@ -7,6 +7,7 @@ dist
 # when working with contributors
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 
 # cypress recordings during a test run are temporary files
 /cypress/videos/
