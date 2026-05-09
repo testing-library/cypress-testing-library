@@ -1,4 +1,14 @@
 {
   "extends": "../node_modules/kcd-scripts/shared-tsconfig.json",
-  "include": ["."]
+  "include": ["."],
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "types": [],
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true
+  }
 }
