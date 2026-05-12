@@ -11,6 +11,9 @@ on:
       - '!all-contributors/**'
   pull_request:
 
+permissions:
+  contents: read
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -43,18 +46,44 @@ jobs:
       - name: ⬆️ Upload coverage report
         uses: codecov/codecov-action@v5
 
-  release:
+  build-release-artifact:
     needs: main
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    if: ${{ github.repository == 'testing-library/cypress-testing-library' && github.event_name == 'push' }}
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v5
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: 📥 Download deps
+        run: npm install --ignore-scripts
+
+      - name: 🏗 Run build script
+        run: npm run build
+
+      - name: 📦 Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-package-dist
+          path: dist
+          if-no-files-found: error
+          retention-days: 7
+
+  release:
+    needs: build-release-artifact
     runs-on: ubuntu-latest
     permissions:
       contents: write
       id-token: write
       issues: write
       pull-requests: write
-    if:
-      ${{ github.repository == 'testing-library/cypress-testing-library' &&
-      contains('refs/heads/main,refs/heads/beta,refs/heads/next,refs/heads/alpha',
-      github.ref) && github.event_name == 'push' }}
+    if: ${{ github.repository == 'testing-library/cypress-testing-library' && github.event_name == 'push' }}
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v5
@@ -65,16 +94,14 @@ jobs:
           node-version: 24
           registry-url: 'https://registry.npmjs.org/'
 
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+      - name: 📦 Download package artifact
+        uses: actions/download-artifact@v4
         with:
-          useLockFile: false
-
-      - name: 🏗 Run build script
-        run: npm run build
+          name: npm-package-dist
+          path: dist
 
       - name: 🚀 Release
-        uses: cycjimmy/semantic-release-action@v5.0.2
+        uses: cycjimmy/semantic-release-action@v5
         with:
           semantic_version: 25
           extra_plugins: |
